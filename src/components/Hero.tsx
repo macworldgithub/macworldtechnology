@@ -30,7 +30,7 @@ const Hero = () => {
             AI-Powered Digital Transformation
           </motion.p>
 
-          <motion.h1
+          {/* <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -43,7 +43,30 @@ const Hero = () => {
             <span className="gradient-text">Measurable</span>{" "}
             <br className="hidden md:block" />
             Growth.
+          </motion.h1> */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-6 text-5xl font-extrabold leading-[1.08] tracking-tight text-foreground md:text-6xl"
+          >
+            AI Solutions That{" "}
+            <br className="hidden md:block" />
+            <span className="gradient-text">Automate, Optimize</span>{" "}
+            <br className="hidden md:block" />
+            & Scale Your Business
           </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-10 max-w-xl text-lg leading-relaxed text-muted-foreground font-bold md:text-2xl"
+          >
+            Omni Suite AI helps businesses leverage Artificial Intelligence to increase revenue, reduce
+            operational costs, and unlock smarter decision-making.
+
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -51,9 +74,9 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="mb-10 max-w-lg text-lg leading-relaxed text-muted-foreground"
           >
-            We partner with forward-thinking enterprises to build digital
-            infrastructure that anticipates challenges, drives conversion, and
-            scales without compromise.
+            From AI chatbots to custom automation systems, we build intelligent solutions tailored to your business goals.
+
+
           </motion.p>
 
           <motion.div
@@ -73,7 +96,8 @@ const Hero = () => {
               href="#case-studies"
               className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-all hover:bg-secondary"
             >
-              VIEW OUR WORK
+              Get Free Consultation
+
               <Eye className="h-4 w-4" />
             </a>
           </motion.div>
