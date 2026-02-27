@@ -6,6 +6,7 @@ import {
     Cpu,
     BarChart3,
     CheckCircle2,
+    ArrowRight
 } from "lucide-react";
 
 const services = [
@@ -181,6 +182,22 @@ const OurAIServices = () => {
                             </div>
                         </motion.div>
                     ))}
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="mt-12 flex justify-center"
+                >
+                    <a
+                        href="#contact"
+                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+                    >
+                        Get a Code
+                        <ArrowRight className="h-4 w-4" />
+                    </a>
                 </motion.div>
             </div>
         </section>

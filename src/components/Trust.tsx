@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, MapPin } from "lucide-react";
+import { Award, MapPin, ArrowRight } from "lucide-react";
 
 const awards = [
   { name: "Clutch", desc: "Top Web Developer 2026" },
@@ -16,7 +16,7 @@ const offices = [
 
 const Trust = () => {
   return (
-    <section id="about" className="py-24">
+    <section id="trust" className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Why OmniSuite AI</p>
         <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
@@ -62,6 +62,22 @@ const Trust = () => {
             ))}
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-12 flex justify-center"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+          >
+            Get a Code
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

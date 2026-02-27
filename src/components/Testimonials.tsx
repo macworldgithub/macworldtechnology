@@ -1,36 +1,108 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
+const testimonials = [
+  {
+    title: "Tailored CMS Solution That Delivered Real Growth",
+    quote:
+      "OmniSuite AI's tailored CMS solutions completely transformed our e-commerce platform. Managing content became effortless, enabling us to easily update product listings and maintain a dynamic online storefront. The results were remarkable — user engagement soared, and sales increased significantly.",
+    name: "Oliver Harris",
+    role: "CEO, E-Commerce Enterprise",
+    location: "Australia",
+    initial: "O",
+  },
+  {
+    title: "Our Customer Support Costs Dropped by 40%",
+    quote:
+      "Omni Suite AI built a fully automated AI chatbot for our e-commerce store. Within weeks, we reduced support tickets, improved response time, and increased conversions. The ROI was clear almost immediately.",
+    name: "Michael Reynolds",
+    role: "Director of E-Commerce",
+    location: "U.S. Retail Brand",
+    initial: "M",
+  },
+  {
+    title: "AI Automation Saved Our Team 20+ Hours Per Week",
+    quote:
+      "Their automation system streamlined our internal workflows and eliminated repetitive manual tasks. Our team can now focus on growth instead of operations. Highly strategic and professional execution.",
+    name: "Jennifer Martinez",
+    role: "Operations Manager",
+    location: "SaaS Company",
+    initial: "J",
+  },
+  {
+    title: "Custom AI Development That Actually Delivers Results",
+    quote:
+      "We needed a predictive analytics system tailored to our business model. Omni Suite AI delivered a custom solution that improved forecasting accuracy and decision-making across departments.",
+    name: "David Thompson",
+    role: "VP of Strategy",
+    location: "Financial Services Firm",
+    initial: "D",
+  },
+  {
+    title: "Our Marketing ROI Increased by 35%",
+    quote:
+      "Their AI-driven ad optimization and audience analysis helped us scale campaigns efficiently. We’re now spending smarter and converting better than ever before.",
+    name: "Amanda Clark",
+    role: "Founder",
+    location: "Digital Marketing Agency",
+    initial: "A",
+  },
+  {
+    title: "Professional, Strategic, and ROI-Focused",
+    quote:
+      "From AI consulting to implementation, the process was seamless. They didn’t just build tools — they built a complete AI roadmap aligned with our growth goals.",
+    name: "Christopher Adams",
+    role: "CEO",
+    location: "Technology Startup",
+    initial: "C",
+  },
+];
+
 const Testimonials = () => {
   return (
-    <section className="py-24">
+    <section id="testimonials" className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Client Voices</p>
         <h2 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">
-          What Our Clients{" "}
-          <span className="gradient-text">Say About Us</span>
+          What Our Clients <span className="gradient-text">Say About Us</span>
         </h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-card mx-auto max-w-3xl p-8 md:p-10"
-        >
-          <Quote className="mb-4 h-8 w-8 text-primary/40" />
-          <blockquote className="mb-6 text-lg leading-relaxed text-foreground/90">
-            "OmniSuite AI's tailored CMS solutions completely transformed our e-commerce platform. Managing content became effortless, enabling us to easily update product listings and maintain a dynamic online storefront. The results were remarkable — user engagement soared, and sales increased significantly."
-          </blockquote>
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
-              O
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground">Oliver Harris</p>
-              <p className="text-xs text-muted-foreground">CEO, E-Commerce Enterprise — Australia</p>
-            </div>
-          </div>
-        </motion.div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {testimonials.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="glass-card p-8"
+            >
+              <Quote className="mb-4 h-8 w-8 text-primary/40" />
+
+              <h3 className="mb-3 text-lg font-semibold text-foreground">
+                {item.title}
+              </h3>
+
+              <blockquote className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                “{item.quote}”
+              </blockquote>
+
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                  {item.initial}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    {item.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {item.role} — {item.location}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const cases = [
   { name: "Just Euro Cars", type: "Website", stat: "94%", desc: "User-friendly navigation with a strong focus on the best possible user experience." },
@@ -18,6 +19,10 @@ const CaseStudies = () => {
           Success Stories That{" "}
           <span className="gradient-text">Speak for Themselves</span>
         </h2>
+
+        <p className="mb-16 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          Trusted by startups, growing businesses, and enterprise teams across industries including e-commerce, healthcare, finance, and digital marketing.
+        </p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {cases.map((c, i) => (
@@ -39,6 +44,22 @@ const CaseStudies = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-12 flex justify-center"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+          >
+            Get a Code
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

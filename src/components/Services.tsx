@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Lightbulb, Megaphone, Code2 } from "lucide-react";
+import { Shield, Lightbulb, Megaphone, Code2, ArrowRight } from "lucide-react";
 
 const pillars = [
   {
@@ -76,11 +76,10 @@ const Services = () => {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`glass-card p-5 text-left transition-all ${
-                active === i
+              className={`glass-card p-5 text-left transition-all ${active === i
                   ? "border-primary/50 glow-border"
                   : "hover:border-border"
-              }`}
+                }`}
             >
               <span className="stat-number gradient-cyan-text block mb-1">{p.num}</span>
               <span className="text-sm font-medium text-foreground">{p.title}</span>
@@ -116,6 +115,22 @@ const Services = () => {
             </div>
           </motion.div>
         </AnimatePresence>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-12 flex justify-center"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+          >
+            Get a Code
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

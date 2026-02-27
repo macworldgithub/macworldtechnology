@@ -4,6 +4,7 @@ import OurAIServices from "@/components/OurAIServices";
 import Services from "@/components/Services";
 import CaseStudies from "@/components/CaseStudies";
 import Demos from "@/components/Demos";
+import About from "@/components/About";
 import Standards from "@/components/Standards";
 import Trust from "@/components/Trust";
 import Testimonials from "@/components/Testimonials";
@@ -17,16 +18,17 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <OurAIServices />
-      <Services />
-      <CaseStudies />
-      <Demos />
-      <Standards />
-      <Trust />
       <Testimonials />
+      <CaseStudies />
+      <Services />
+      <OurAIServices />
+      <Demos />
+      <About />
+      <Trust />
+      <Standards />
+      <FAQ />
       {/* <Insights /> */}
       <Contact />
-      <FAQ />
       <Footer />
     </div>
   );

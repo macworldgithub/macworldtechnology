@@ -53,7 +53,7 @@ const FAQ = () => {
     };
 
     return (
-        <section id="faq" className="py-4">
+        <section id="faqs" className="py-4">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Section Header */}
                 <motion.div
@@ -80,14 +80,14 @@ const FAQ = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="grid gap-4 lg:grid-cols-2"
+                    className="grid gap-4 grid-cols-1"
                 >
                     {faqs.map((faq, i) => (
                         <div
                             key={i}
                             className={`glass-card overflow-hidden transition-all duration-300 ${openIndex === i
-                                    ? "border-primary/40 shadow-lg shadow-primary/5"
-                                    : "hover:border-border"
+                                ? "border-primary/40 shadow-lg shadow-primary/5"
+                                : "hover:border-border"
                                 }`}
                         >
                             <button

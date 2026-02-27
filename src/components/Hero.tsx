@@ -89,17 +89,17 @@ const Hero = () => {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
             >
-              START A PROJECT
+              Get a Code
               <ArrowRight className="h-4 w-4" />
             </a>
-            <a
+            {/* <a
               href="#case-studies"
               className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-all hover:bg-secondary"
             >
               Get Free Consultation
 
               <Eye className="h-4 w-4" />
-            </a>
+            </a> */}
           </motion.div>
         </div>
 
