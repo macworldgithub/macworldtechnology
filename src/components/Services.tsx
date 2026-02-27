@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Lightbulb, Megaphone, Code2, ArrowRight } from "lucide-react";
+import { GetQuoteModal } from "@/components/GetQuoteModal";
 
 const pillars = [
   {
@@ -77,8 +78,8 @@ const Services = () => {
               key={i}
               onClick={() => setActive(i)}
               className={`glass-card p-5 text-left transition-all ${active === i
-                  ? "border-primary/50 glow-border"
-                  : "hover:border-border"
+                ? "border-primary/50 glow-border"
+                : "hover:border-border"
                 }`}
             >
               <span className="stat-number gradient-cyan-text block mb-1">{p.num}</span>
@@ -123,13 +124,14 @@ const Services = () => {
           transition={{ delay: 0.2 }}
           className="mt-12 flex justify-center"
         >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
-          >
-            Get a Code
-            <ArrowRight className="h-4 w-4" />
-          </a>
+          <GetQuoteModal>
+            <button
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+            >
+              Get a Quote
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </GetQuoteModal>
         </motion.div>
       </div>
     </section>

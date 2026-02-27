@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Eye } from "lucide-react";
+import { GetQuoteModal } from "@/components/GetQuoteModal";
 
 const stats = [
   { value: "140+", label: "Clients Worldwide" },
@@ -85,13 +86,14 @@ const Hero = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-wrap gap-4"
           >
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
-            >
-              Get a Code
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            <GetQuoteModal>
+              <button
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+              >
+                Get a Quote
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </GetQuoteModal>
             {/* <a
               href="#case-studies"
               className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-all hover:bg-secondary"

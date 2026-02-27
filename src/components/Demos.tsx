@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import { GetQuoteModal } from "@/components/GetQuoteModal";
 
 const categories = ["All Demos", "MVNO", "Voice AI", "Widget", "Dashboards", "AI Retail"];
 
@@ -45,8 +46,8 @@ const Demos = () => {
               key={c}
               onClick={() => setFilter(c)}
               className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all ${filter === c
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                ? "bg-primary text-primary-foreground"
+                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                 }`}
             >
               {c}
@@ -117,13 +118,14 @@ const Demos = () => {
           transition={{ delay: 0.2 }}
           className="mt-12 flex justify-center"
         >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
-          >
-            Get a Code
-            <ArrowRight className="h-4 w-4" />
-          </a>
+          <GetQuoteModal>
+            <button
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+            >
+              Get a Quote
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </GetQuoteModal>
         </motion.div>
       </div>
     </section>
