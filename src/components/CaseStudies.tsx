@@ -13,7 +13,7 @@ const cases = [
 
 const CaseStudies = () => {
   return (
-    <section id="case-studies" className="py-24">
+    <section id="case-studies" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Our Work</p>
         <h2 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">

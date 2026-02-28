@@ -11,7 +11,7 @@ const stats = [
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-24">
+    <section className="relative min-h-screen overflow-hidden pt-14">
       {/* Background grid effect */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
@@ -124,7 +124,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Bottom-right Logos */}
-        <div className="pointer-events-none absolute bottom-8 right-8 hidden items-center gap-6 lg:flex">
+        <div className="pointer-events-none absolute bottom-16 right-2 hidden items-center gap-4 lg:flex">
           <img
             src="/img.svg"
             alt="Partner logo 1"

@@ -28,7 +28,7 @@ const Demos = () => {
   const filtered = filter === "All Demos" ? demos : demos.filter((d) => d.cat === filter);
 
   return (
-    <section id="demos" className="py-24">
+    <section id="demos" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Live Demos</p>
         <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">

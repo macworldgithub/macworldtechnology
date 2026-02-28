@@ -23,7 +23,7 @@ const awards = [
 
 const Trust = () => {
   return (
-    <section id="trust" className="py-24">
+    <section id="trust" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Why OmniSuite AI</p>
         <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">

@@ -53,7 +53,7 @@ const FAQ = () => {
     };
 
     return (
-        <section id="faqs" className="py-4">
+        <section id="faqs" className="py-14">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Section Header */}
                 <motion.div
