@@ -122,6 +122,30 @@ const Hero = () => {
             </div>
           ))}
         </motion.div>
+
+        {/* Bottom-right Logos */}
+        <div className="pointer-events-none absolute bottom-8 right-8 hidden items-center gap-6 lg:flex">
+          <img
+            src="/img.svg"
+            alt="Partner logo 1"
+            className="h-18 w-auto opacity-80"
+          />
+          <img
+            src="/img2.svg"
+            alt="Partner logo 2"
+            className="h-18 w-auto opacity-80"
+          />
+          <img
+            src="/img3.svg"
+            alt="Partner logo 3"
+            className="h-18 w-auto opacity-80"
+          />
+          <img
+            src="/img4.svg"
+            alt="Partner logo 4"
+            className="h-18 w-auto opacity-80"
+          />
+        </div>
       </div>
     </section>
   );

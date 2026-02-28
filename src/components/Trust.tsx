@@ -2,17 +2,23 @@ import { motion } from "framer-motion";
 import { Award, MapPin, ArrowRight } from "lucide-react";
 import { GetQuoteModal } from "@/components/GetQuoteModal";
 
-const awards = [
-  { name: "Clutch", desc: "Top Web Developer 2026" },
-  { name: "Google Partner", desc: "Certified Partner" },
-  { name: "AppFutura", desc: "Top Digital Marketing" },
-];
+// const awards = [
+//   { name: "Clutch", desc: "Top Web Developer 2026" },
+//   { name: "Google Partner", desc: "Certified Partner" },
+//   { name: "AppFutura", desc: "Top Digital Marketing" },
+// ];
 
 const offices = [
   { country: "Australia", city: "Melbourne" },
   { country: "USA", city: "New York" },
   { country: "UAE", city: "Dubai" },
   { country: "Pakistan", city: "Lahore" },
+];
+
+const awards = [
+  { name: "Clutch", desc: "Top Web Developer 2026", logo: "/img3.svg" },
+  { name: "Google Partner", desc: "Certified Partner", logo: "/img.svg" },
+  { name: "AppFutura", desc: "Top Digital Marketing", logo: "/img2.svg" },
 ];
 
 const Trust = () => {
@@ -39,7 +45,11 @@ const Trust = () => {
               transition={{ delay: i * 0.1 }}
               className="glass-card flex items-center gap-4 p-5"
             >
-              <Award className="h-8 w-8 text-primary" />
+              <img
+                src={a.logo}
+                alt={a.name}
+                className="h-16 w-auto opacity-80"
+              />
               <div>
                 <h4 className="text-sm font-bold text-foreground">{a.name}</h4>
                 <p className="text-xs text-muted-foreground">{a.desc}</p>
