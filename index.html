@@ -1,29 +1,84 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- TODO: Set the document title to the name of your application -->
-  <title>OmniSuite AI — Proactive Resilience. Measurable Growth.OmniSuite App</title>
-  <meta name="description" content="AI AutomatesSolution" />
-  <meta name="author" content="OmniSuite" />
+    <title>
+      OmniSuite AI — Proactive Resilience. Measurable Growth.OmniSuite App
+    </title>
 
-  <!-- TODO: Update og:title to match your application name -->
-  <meta property="og:title" content="OmniSuite AI" />
-  <meta property="og:description" content="AI AutomatesSolution" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/favicon.svg" />
+    <meta name="description" content="AI AutomatesSolution" />
+    <meta name="author" content="OmniSuite" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@OmniSuiteAI" />
-  <meta name="twitter:image" content="/favicon.svg" />
-</head>
+    <meta property="og:title" content="OmniSuite AI" />
+    <meta property="og:description" content="AI AutomatesSolution" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/favicon.svg" />
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@OmniSuiteAI" />
+    <meta name="twitter:image" content="/favicon.svg" />
 
+    <!-- GA-4 Head Code -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-D8D2TZ4SK9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-D8D2TZ4SK9");
+    </script>
+
+    <!-- Google Ads Head Code -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17515123720"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-17515123720");
+    </script>
+
+    <!-- GTM Head Code -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5T55LX63");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+
+  <body>
+    <!-- GTM Body Code -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5T55LX63"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

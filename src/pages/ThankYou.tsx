@@ -1,0 +1,25 @@
+import { CheckCircle } from "lucide-react";
+
+export default function ThankYou() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-6">
+      <div className="max-w-xl text-center">
+        <CheckCircle className="mx-auto mb-6 h-16 w-16 text-green-500" />
+
+        <h1 className="text-3xl font-bold text-foreground mb-3">Thank - you</h1>
+
+        <p className="text-muted-foreground mb-6">
+          Your quote request has been successfully submitted. Our team will
+          contact you shortly.
+        </p>
+
+        <a
+          href="/"
+          className="inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:shadow-lg"
+        >
+          Back to Home
+        </a>
+      </div>
+    </div>
+  );
+}
