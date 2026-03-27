@@ -64,7 +64,11 @@ const Testimonials = () => {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.offsetWidth;
+      const isMd = window.innerWidth >= 768;
+
+      const scrollAmount = isMd
+        ? scrollRef.current.offsetWidth / 2 // 2 cards scroll
+        : scrollRef.current.offsetWidth; // 1 card scroll
 
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -78,68 +82,65 @@ const Testimonials = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <p className="section-label mb-4">// Client Voices</p>
 
-        {/* Heading */}
-        <h2 className="mb-10 text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
+        <h2 className="mb-10 text-2xl font-bold sm:text-3xl md:text-4xl">
           What Our Clients <span className="gradient-text">Say About Us</span>
         </h2>
 
-        {/* Slider Wrapper */}
         <div className="relative">
-          {/* LEFT BUTTON */}
+          {/* LEFT */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-2 sm:-left-6 lg:-left-12 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 sm:p-3 backdrop-blur transition hover:scale-110 hover:bg-primary/10"
+            className="absolute left-2 sm:-left-6 lg:-left-12 top-1/2 z-10 -translate-y-1/2 rounded-full border bg-background/80 p-2 sm:p-3 backdrop-blur hover:bg-primary/10"
           >
             {"<"}
           </button>
 
-          {/* RIGHT BUTTON */}
+          {/* RIGHT */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-2 sm:-right-6 lg:-right-12 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 sm:p-3 backdrop-blur transition hover:scale-110 hover:bg-primary/10"
+            className="absolute right-2 sm:-right-6 lg:-right-12 top-1/2 z-10 -translate-y-1/2 rounded-full border bg-background/80 p-2 sm:p-3 backdrop-blur hover:bg-primary/10"
           >
             {">"}
           </button>
 
-          {/* Slider */}
+          {/* SLIDER */}
           <div
             ref={scrollRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth no-scrollbar px-6 sm:px-10"
+            className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-4 sm:px-8"
           >
             {testimonials.map((item, index) => (
               <motion.div
                 key={index}
-                className="glass-card 
-                  w-[90%] 
-                  sm:w-[70%] 
+                className="
+                  glass-card 
+                  w-full 
                   md:w-[48%] 
-                  lg:w-[48%] 
-                  flex-shrink-0 p-6 sm:p-8"
+                  flex-shrink-0 
+                  p-6 sm:p-8
+                "
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.4 }}
               >
                 <Quote className="mb-4 h-6 w-6 sm:h-8 sm:w-8 text-primary/40" />
 
-                <h3 className="mb-3 text-base sm:text-lg font-semibold text-foreground">
+                <h3 className="mb-3 text-base sm:text-lg font-semibold">
                   {item.title}
                 </h3>
 
-                <blockquote className="mb-6 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                <p className="mb-6 text-sm text-muted-foreground">
                   “{item.quote}”
-                </blockquote>
+                </p>
 
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-primary/10 text-xs sm:text-sm font-bold text-primary">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">
                     {item.initial}
                   </div>
 
                   <div>
-                    <p className="text-xs sm:text-sm font-semibold text-foreground">
-                      {item.name}
-                    </p>
-                    <p className="text-[10px] sm:text-xs text-muted-foreground">
+                    <p className="text-sm font-semibold">{item.name}</p>
+                    <p className="text-xs text-muted-foreground">
                       {item.role} — {item.location}
                     </p>
                   </div>
