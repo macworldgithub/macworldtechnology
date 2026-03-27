@@ -174,3 +174,11 @@
 .react-tel-input .search {
   background-color: transparent !important;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

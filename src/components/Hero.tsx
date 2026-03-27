@@ -35,23 +35,33 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mb-6 text-5xl font-extrabold leading-[1.08] tracking-tight text-foreground md:text-6xl"
+            className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
           >
-            AI Solutions That <br className="hidden md:block" />
-            <span className="gradient-text">Automate, Optimize</span>{" "}
-            <br className="hidden md:block" />& Scale Your Business
+            AI Automation Agency
           </motion.h1>
 
-          <motion.h2
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-10 max-w-xl text-lg leading-relaxed text-muted-foreground font-bold md:text-2xl"
+            transition={{ delay: 0.2 }}
+            className="mb-6 text-2xl font-bold leading-snug text-foreground sm:text-3xl md:text-4xl"
+          >
+            <span className="gradient-text">
+              AI Solutions That Automate, Optimize
+              <br className="hidden sm:block" />& Scale Your Business
+            </span>
+          </motion.h3>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-lg"
           >
             Omni Suite AI helps businesses leverage Artificial Intelligence to
             increase revenue, reduce operational costs, and unlock smarter
             decision-making.
-          </motion.h2>
+          </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}

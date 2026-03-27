@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useRef } from "react";
 
 const testimonials = [
   {
@@ -59,49 +60,93 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = scrollRef.current.offsetWidth;
+
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section id="testimonials" className="py-14">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <p className="section-label mb-4">// Client Voices</p>
-        <h2 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">
+
+        {/* Heading */}
+        <h2 className="mb-10 text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
           What Our Clients <span className="gradient-text">Say About Us</span>
         </h2>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {testimonials.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="glass-card p-8"
-            >
-              <Quote className="mb-4 h-8 w-8 text-primary/40" />
+        {/* Slider Wrapper */}
+        <div className="relative">
+          {/* LEFT BUTTON */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-2 sm:-left-6 lg:-left-12 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 sm:p-3 backdrop-blur transition hover:scale-110 hover:bg-primary/10"
+          >
+            {"<"}
+          </button>
 
-              <h3 className="mb-3 text-lg font-semibold text-foreground">
-                {item.title}
-              </h3>
+          {/* RIGHT BUTTON */}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-2 sm:-right-6 lg:-right-12 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-background/80 p-2 sm:p-3 backdrop-blur transition hover:scale-110 hover:bg-primary/10"
+          >
+            {">"}
+          </button>
 
-              <blockquote className="mb-6 text-sm leading-relaxed text-muted-foreground">
-                “{item.quote}”
-              </blockquote>
+          {/* Slider */}
+          <div
+            ref={scrollRef}
+            className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth no-scrollbar px-6 sm:px-10"
+          >
+            {testimonials.map((item, index) => (
+              <motion.div
+                key={index}
+                className="glass-card 
+                  w-[90%] 
+                  sm:w-[70%] 
+                  md:w-[48%] 
+                  lg:w-[48%] 
+                  flex-shrink-0 p-6 sm:p-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <Quote className="mb-4 h-6 w-6 sm:h-8 sm:w-8 text-primary/40" />
 
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
-                  {item.initial}
+                <h3 className="mb-3 text-base sm:text-lg font-semibold text-foreground">
+                  {item.title}
+                </h3>
+
+                <blockquote className="mb-6 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                  “{item.quote}”
+                </blockquote>
+
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-primary/10 text-xs sm:text-sm font-bold text-primary">
+                    {item.initial}
+                  </div>
+
+                  <div>
+                    <p className="text-xs sm:text-sm font-semibold text-foreground">
+                      {item.name}
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground">
+                      {item.role} — {item.location}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">
-                    {item.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {item.role} — {item.location}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
