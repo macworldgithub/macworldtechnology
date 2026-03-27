@@ -2,11 +2,12 @@ import { useState, ReactNode } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Send, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 interface GetQuoteModalProps {
   children: ReactNode;
 }
 
-// const BACKEND_URL = "https://www.test.omnisuiteai.com";
 const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
 const SERVICES_MAP: Record<string, string[]> = {
@@ -119,7 +120,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
   };
 
   const availableSubServices = formData.mainService
-    ? SERVICES_MAP[formData.mainService]
+    ? [...SERVICES_MAP[formData.mainService], "Custom AI Project"]
     : [];
 
   return (
@@ -147,7 +148,10 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
                   required
                   className="w-full rounded-lg border border-border bg-secondary/100 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none"
                 >
-                  <option value="">Select a main service</option>
+                  <option value="" disabled hidden>
+                    Select a main service
+                  </option>
+
                   {MAIN_SERVICES.map((srv) => (
                     <option key={srv} value={srv}>
                       {srv}
@@ -167,7 +171,10 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
                   disabled={!formData.mainService}
                   className="w-full rounded-lg border border-border bg-secondary/100 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <option value="">Select a sub service</option>
+                  <option value="" disabled hidden>
+                    Select a sub service
+                  </option>
+
                   {availableSubServices.map((sub) => (
                     <option key={sub} value={sub}>
                       {sub}
@@ -219,20 +226,25 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
               </div>
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Phone
+                  Phone *
                 </label>
-                <input
-                  name="phone"
+
+                <PhoneInput
+                  country={"au"}
                   value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                  onChange={(phone) =>
+                    setFormData((prev) => ({ ...prev, phone }))
+                  }
+                  inputClass="!w-full !h-[42px] !bg-secondary/50 !text-sm !text-foreground !border !border-border !rounded-lg"
+                  buttonClass="!border-border"
+                  dropdownClass="!bg-background !text-foreground"
                 />
               </div>
             </div>
 
             <div>
               <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Message *
+                Message 
               </label>
               <textarea
                 name="message"

@@ -9,8 +9,8 @@ export default function ThankYou() {
         <h1 className="text-3xl font-bold text-foreground mb-3">Thank - you</h1>
 
         <p className="text-muted-foreground mb-6">
-          Your quote request has been successfully submitted. Our team will
-          contact you shortly.
+          "Thank you for submitting the form. Our team has received your details
+          and will be in touch with you soon."
         </p>
 
         <a

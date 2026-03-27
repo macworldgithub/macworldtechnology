@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 @layer base {
   :root {
@@ -47,8 +46,16 @@
     --sidebar-ring: 192 95% 55%;
 
     /* Custom tokens */
-    --gradient-cyan: linear-gradient(135deg, hsl(192 95% 55%), hsl(220 80% 60%));
-    --gradient-text: linear-gradient(135deg, hsl(192 95% 65%), hsl(260 70% 65%));
+    --gradient-cyan: linear-gradient(
+      135deg,
+      hsl(192 95% 55%),
+      hsl(220 80% 60%)
+    );
+    --gradient-text: linear-gradient(
+      135deg,
+      hsl(192 95% 65%),
+      hsl(260 70% 65%)
+    );
     --glow-cyan: 0 0 40px hsl(192 95% 55% / 0.3);
     --glow-border: 0 0 20px hsl(192 95% 55% / 0.15);
   }
@@ -61,23 +68,36 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Inter", sans-serif;
   }
 }
 
 @layer components {
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(192 95% 65%), hsl(260 70% 65%));
+    background-image: linear-gradient(
+      135deg,
+      hsl(192 95% 65%),
+      hsl(260 70% 65%)
+    );
   }
 
   .gradient-cyan-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(192 95% 55%), hsl(230 80% 65%));
+    background-image: linear-gradient(
+      135deg,
+      hsl(192 95% 55%),
+      hsl(230 80% 65%)
+    );
   }
 
   .glass-card {
@@ -90,17 +110,17 @@
 
   .section-label {
     @apply text-xs tracking-[0.25em] uppercase text-muted-foreground font-mono;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
   }
 
   .stat-number {
     @apply text-2xl font-bold tracking-tight;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
   }
 
   .stat-label {
     @apply text-[10px] tracking-[0.2em] uppercase text-muted-foreground;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
   }
 }
 
@@ -108,4 +128,49 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Fix flag button background */
+.react-tel-input .flag-dropdown {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Selected flag button */
+.react-tel-input .selected-flag {
+  background-color: transparent !important;
+}
+
+/* Dropdown container */
+.react-tel-input .country-list {
+  background-color: #0f172a !important; /* dark bg (tailwind slate-900) */
+  border: 1px solid #1f2937 !important;
+}
+
+/* Each country item */
+.react-tel-input .country {
+  background-color: transparent !important;
+  color: #e5e7eb !important; /* text-gray-200 */
+}
+
+/* Hover state (REMOVE WHITE) */
+.react-tel-input .country:hover {
+  background-color: #1f2937 !important; /* dark hover */
+}
+
+/* Highlight selected country */
+.react-tel-input .country.highlight {
+  background-color: #1f2937 !important;
+}
+
+/* Search input */
+.react-tel-input .search-box {
+  background-color: #111827 !important; /* dark input */
+  color: #fff !important;
+  border: 1px solid #374151 !important;
+}
+
+/* Remove white bg from search wrapper */
+.react-tel-input .search {
+  background-color: transparent !important;
 }

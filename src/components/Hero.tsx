@@ -31,42 +31,26 @@ const Hero = () => {
             AI-Powered Digital Transformation
           </motion.p>
 
-          {/* <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-6 text-5xl font-extrabold leading-[1.08] tracking-tight text-foreground md:text-7xl"
-          >
-            Proactive{" "}
-            <br className="hidden md:block" />
-            Resilience.{" "}
-            <br className="hidden md:block" />
-            <span className="gradient-text">Measurable</span>{" "}
-            <br className="hidden md:block" />
-            Growth.
-          </motion.h1> */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.1 }}
             className="mb-6 text-5xl font-extrabold leading-[1.08] tracking-tight text-foreground md:text-6xl"
           >
-            AI Solutions That{" "}
-            <br className="hidden md:block" />
+            AI Solutions That <br className="hidden md:block" />
             <span className="gradient-text">Automate, Optimize</span>{" "}
-            <br className="hidden md:block" />
-            & Scale Your Business
+            <br className="hidden md:block" />& Scale Your Business
           </motion.h1>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.1 }}
             className="mb-10 max-w-xl text-lg leading-relaxed text-muted-foreground font-bold md:text-2xl"
           >
-            Omni Suite AI helps businesses leverage Artificial Intelligence to increase revenue, reduce
-            operational costs, and unlock smarter decision-making.
-
+            Omni Suite AI helps businesses leverage Artificial Intelligence to
+            increase revenue, reduce operational costs, and unlock smarter
+            decision-making.
           </motion.h2>
 
           <motion.p
@@ -75,9 +59,8 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="mb-10 max-w-lg text-lg leading-relaxed text-muted-foreground"
           >
-            From AI chatbots to custom automation systems, we build intelligent solutions tailored to your business goals.
-
-
+            From AI chatbots to custom automation systems, we build intelligent
+            solutions tailored to your business goals.
           </motion.p>
 
           <motion.div
@@ -87,21 +70,11 @@ const Hero = () => {
             className="flex flex-wrap gap-4"
           >
             <GetQuoteModal>
-              <button
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
-              >
+              <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25">
                 Get a Quote
                 <ArrowRight className="h-4 w-4" />
               </button>
             </GetQuoteModal>
-            {/* <a
-              href="#case-studies"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-all hover:bg-secondary"
-            >
-              Get Free Consultation
-
-              <Eye className="h-4 w-4" />
-            </a> */}
           </motion.div>
         </div>
 
