@@ -8,7 +8,7 @@ interface GetQuoteModalProps {
   children: ReactNode;
 }
 
-const BACKEND_URL = "https://www.test.omnis  uiteai.com/api";
+const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
 const SERVICES_MAP: Record<string, string[]> = {
   "AI Chatbot Development": [

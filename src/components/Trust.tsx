@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, MapPin, ArrowRight } from "lucide-react";
-import { GetQuoteModal } from "@/components/GetQuoteModal";
+import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
 
 // const awards = [
 //   { name: "Clutch", desc: "Top Web Developer 2026" },
@@ -31,7 +31,8 @@ const Trust = () => {
           <span className="gradient-text">Leaders Worldwide</span>
         </h2>
         <p className="mb-12 max-w-2xl text-muted-foreground">
-          With years of excellence and high client retention, we've earned the trust of enterprises across four continents.
+          With years of excellence and high client retention, we've earned the
+          trust of enterprises across four continents.
         </p>
 
         {/* Awards */}
@@ -60,13 +61,17 @@ const Trust = () => {
 
         {/* Global Presence */}
         <div className="glass-card p-8">
-          <h3 className="mb-6 text-lg font-bold text-foreground">Global Presence</h3>
+          <h3 className="mb-6 text-lg font-bold text-foreground">
+            Global Presence
+          </h3>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {offices.map((o, i) => (
               <div key={i} className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 text-primary" />
                 <div>
-                  <p className="text-sm font-medium text-foreground">{o.country}</p>
+                  <p className="text-sm font-medium text-foreground">
+                    {o.country}
+                  </p>
                   <p className="text-xs text-muted-foreground">{o.city}</p>
                 </div>
               </div>
@@ -81,14 +86,12 @@ const Trust = () => {
           transition={{ delay: 0.2 }}
           className="mt-12 flex justify-center"
         >
-          <GetQuoteModal>
-            <button
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
-            >
+          <AgenticQuoteModal>
+            <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25">
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
-          </GetQuoteModal>
+          </AgenticQuoteModal>
         </motion.div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
+import AgenticAI from "./pages/AgenticAI";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="/thank-you" element={<ThankYou />} />{" "}
+          <Route path="/lp/agenticAI" element={<AgenticAI />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

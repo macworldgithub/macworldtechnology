@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
+import { GetQuoteModal } from "@/components/GetQuoteModal";
 
 const navLinks = [
   "About",
@@ -44,12 +45,11 @@ const Navbar = () => {
         </div>
 
         {/* CTA */}
-        <a
-          href="#contact"
-          className="hidden rounded-lg border border-primary/30 px-5 py-2 text-sm font-medium text-primary transition-all hover:bg-primary/10 lg:block"
-        >
-          Free Consultation
-        </a>
+        <GetQuoteModal>
+          <button className="hidden rounded-lg border border-primary/30 px-5 py-2 text-sm font-medium text-primary transition-all hover:bg-primary/10 lg:block">
+            Free Consultation
+          </button>
+        </GetQuoteModal>
 
         {/* Mobile Menu Button */}
         <button
