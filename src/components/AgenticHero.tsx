@@ -86,7 +86,7 @@ const AgenticHero = () => {
 
   return (
     <>
-      <section className="relative bg-black pt-20 pb-16 overflow-hidden border-b border-white/5">
+      <section className="relative bg-black pt-32 pb-24 overflow-hidden border-b border-white/5">
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             {/* Left Content */}
@@ -214,6 +214,55 @@ const AgenticHero = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
+                      Service
+                    </label>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled hidden className="bg-[#0f172a]">
+                        Select a Service
+                      </option>
+                      <option value="AI Sales Agents" className="bg-[#0f172a]">
+                        AI Sales Agents
+                      </option>
+                      <option
+                        value="AI Customer Support Agents"
+                        className="bg-[#0f172a]"
+                      >
+                        AI Customer Support Agents
+                      </option>
+                      <option
+                        value="Workflow Automation Agents"
+                        className="bg-[#0f172a]"
+                      >
+                        Workflow Automation Agents
+                      </option>
+                      <option
+                        value="Internal Operations Agents"
+                        className="bg-[#0f172a]"
+                      >
+                        Internal Operations Agents
+                      </option>
+                      <option
+                        value="Multi-Agent AI Systems"
+                        className="bg-[#0f172a]"
+                      >
+                        Multi-Agent AI Systems
+                      </option>
+                      <option
+                        value="Custom Agentic AI Development"
+                        className="bg-[#0f172a]"
+                      >
+                        Custom Agentic AI Development
+                      </option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
                       Name
                     </label>
                     <input
@@ -272,62 +321,13 @@ const AgenticHero = () => {
                     />
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                      Service
-                    </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer"
-                    >
-                      <option value="" disabled hidden className="bg-[#0f172a]">
-                        Select a Service
-                      </option>
-                      <option value="AI Sales Agents" className="bg-[#0f172a]">
-                        AI Sales Agents
-                      </option>
-                      <option
-                        value="AI Customer Support Agents"
-                        className="bg-[#0f172a]"
-                      >
-                        AI Customer Support Agents
-                      </option>
-                      <option
-                        value="Workflow Automation Agents"
-                        className="bg-[#0f172a]"
-                      >
-                        Workflow Automation Agents
-                      </option>
-                      <option
-                        value="Internal Operations Agents"
-                        className="bg-[#0f172a]"
-                      >
-                        Internal Operations Agents
-                      </option>
-                      <option
-                        value="Multi-Agent AI Systems"
-                        className="bg-[#0f172a]"
-                      >
-                        Multi-Agent AI Systems
-                      </option>
-                      <option
-                        value="Custom Agentic AI Development"
-                        className="bg-[#0f172a]"
-                      >
-                        Custom Agentic AI Development
-                      </option>
-                    </select>
-                  </div>
-
                   {statusMessage && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       className={`p-3 rounded-lg text-sm flex items-center gap-3 ${status === "success"
-                          ? "bg-green-500/10 border border-green-500/30 text-green-400"
-                          : "bg-red-500/10 border border-red-500/30 text-red-400"
+                        ? "bg-green-500/10 border border-green-500/30 text-green-400"
+                        : "bg-red-500/10 border border-red-500/30 text-red-400"
                         }`}
                     >
                       {status === "success" && (
@@ -371,7 +371,7 @@ const AgenticHero = () => {
           {[...catchyLines, ...catchyLines].map((line, i) => (
             <span
               key={i}
-              className="text-primary-foreground font-bold text-sm md:text-lg flex items-center gap-2"
+              className="text-primary-foreground font-bold text-sm md:text-md flex items-center gap-2"
             >
               {line}
             </span>

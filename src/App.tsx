@@ -20,7 +20,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="/thank-you" element={<ThankYou />} />{" "}
-          <Route path="/lp/agenticAI" element={<AgenticAI />} />
+          <Route path="/lp/agentic-AI" element={<AgenticAI />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -18,7 +18,7 @@ const AgenticAI = () => {
       <AgenticHero />
       <AgenticTestimonials />
       <AgenticAIServices />
-      <Demos />
+      <Demos /> 
       <Trust />
       <AgenticProcess />
       <AgenticBenefits />
