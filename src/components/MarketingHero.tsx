@@ -93,31 +93,39 @@ const MarketingHero = () => {
           <div className="flex flex-col lg:flex-row items-center gap-16">
             {/* LEFT CONTENT */}
             <div className="lg:w-3/5 space-y-8">
-              {/* ✅ HEADING 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="section-label"
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="section-label mb-6 flex items-center gap-2"
               >
-                // Data Driven Digital Marketing Agency
-              </motion.div>
-
-              {/* ✅ HEADING 2 */}
-              <div className="space-y-4">
+                <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+                AI-Powered Digital Marketing
+              </motion.p>
+              <div>
+                {/* ✅ MAIN HEADING (WHITE) */}
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
+                  className="text-4xl md:text-5xl font-bold text-white leading-tight"
                 >
-                  Performance Marketing <br />
-                  <span className="gradient-text">
-                    That Drives Real Business Growth
-                  </span>
+                  Digital Marketing Agency
                 </motion.h1>
+
+                {/* ✅ GRADIENT SUBHEADING */}
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-2xl md:text-4xl font-semibold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent leading-snug"
+                >
+                  Performance Marketing That Drives Real Business Growth
+                </motion.h2>
 
                 {/* ✅ PARAGRAPH */}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
+                  className="text-gray-400 text-sm md:text-base max-w-xl leading-relaxed"
                 >
                   Scale your business with data-driven strategies across Meta
                   Ads, Google Ads, and SEO built to generate leads, increase
@@ -158,11 +166,11 @@ const MarketingHero = () => {
                 <p className="text-xs uppercase tracking-[0.3em] text-white/40">
                   Trusted By Industry Leaders
                 </p>
-                <div className="flex flex-wrap gap-10 opacity-80">
-                  <img src="/img.svg" className="h-10 md:h-14" />
-                  <img src="/img2.svg" className="h-10 md:h-14" />
-                  <img src="/img3.svg" className="h-10 md:h-14" />
-                  <img src="/img4.svg" className="h-10 md:h-14" />
+                <div className="flex flex-wrap gap-10 opacity-90">
+                  <img src="/img.svg" className="h-18 w-auto opacity-90" />
+                  <img src="/img2.svg" className="h-18 w-auto opacity-90" />
+                  <img src="/img3.svg" className="h-18 w-auto opacity-90" />
+                  <img src="/img4.svg" className="h-18 w-auto opacity-90" />
                 </div>
               </div>
             </div>
@@ -191,8 +199,9 @@ const MarketingHero = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service ? "text-white/40" : "text-white"
-                        }`}
+                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
+                        !formData.service ? "text-white/40" : "text-white"
+                      }`}
                     >
                       <option value="" disabled hidden className="bg-[#0f172a]">
                         Select a Service
@@ -261,7 +270,7 @@ const MarketingHero = () => {
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                      Company
+                      Company (optional)
                     </label>
                     <input
                       name="company"
@@ -276,10 +285,11 @@ const MarketingHero = () => {
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
-                      className={`p-3 rounded-lg text-sm flex items-center gap-3 ${status === "success"
-                        ? "bg-green-500/10 border border-green-500/30 text-green-400"
-                        : "bg-red-500/10 border border-red-500/30 text-red-400"
-                        }`}
+                      className={`p-3 rounded-lg text-sm flex items-center gap-3 ${
+                        status === "success"
+                          ? "bg-green-500/10 border border-green-500/30 text-green-400"
+                          : "bg-red-500/10 border border-red-500/30 text-red-400"
+                      }`}
                     >
                       {status === "success" && (
                         <CheckCircle2 className="h-4 w-4" />
@@ -291,7 +301,7 @@ const MarketingHero = () => {
                   <button
                     type="submit"
                     disabled={status === "loading" || !formData.service}
-                    className="w-full bg-primary text-primary-foreground font-bold rounded-lg py-4 flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/20"
+                    className="w-full flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3 text-sm font-semibold text-black transition hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98] disabled:opacity-90 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? (
                       <>

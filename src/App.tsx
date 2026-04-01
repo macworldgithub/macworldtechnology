@@ -21,7 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="/thank-you" element={<ThankYou />} />{" "}
-          <Route path="/lp/agentic-AI" element={<AgenticAI />} />
+          <Route path="/lp/agentic-ai" element={<AgenticAI />} />
           <Route
             path="/lp/digital-marketing-services"
             element={<DigitalMarketing />}

@@ -155,7 +155,7 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                  Company
+                  Company (optional)
                 </label>
                 <input
                   name="company"

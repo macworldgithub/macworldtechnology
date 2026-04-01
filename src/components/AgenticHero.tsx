@@ -172,27 +172,11 @@ const AgenticHero = () => {
                 <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40">
                   Trusted By Industry Leaders
                 </p>
-                <div className="flex flex-wrap items-center gap-10 opacity-80 transition duration-500">
-                  <img
-                    src="/img.svg"
-                    alt="Company 1"
-                    className="h-10 w-auto md:h-14"
-                  />
-                  <img
-                    src="/img2.svg"
-                    alt="Company 2"
-                    className="h-10 w-auto md:h-14"
-                  />
-                  <img
-                    src="/img3.svg"
-                    alt="Company 3"
-                    className="h-10 w-auto md:h-14"
-                  />
-                  <img
-                    src="/img4.svg"
-                    alt="Company 4"
-                    className="h-10 w-auto md:h-14"
-                  />
+                <div className="flex flex-wrap gap-10 opacity-90">
+                  <img src="/img.svg" className="h-18 w-auto opacity-90" />
+                  <img src="/img2.svg" className="h-18 w-auto opacity-90" />
+                  <img src="/img3.svg" className="h-18 w-auto opacity-90" />
+                  <img src="/img4.svg" className="h-18 w-auto opacity-90" />
                 </div>
               </motion.div>
             </div>
@@ -221,8 +205,9 @@ const AgenticHero = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service ? "text-white/40" : "text-white"
-                        }`}
+                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
+                        !formData.service ? "text-white/40" : "text-white"
+                      }`}
                     >
                       <option value="" disabled hidden className="bg-[#0f172a]">
                         Select a Service
@@ -312,7 +297,7 @@ const AgenticHero = () => {
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                      Company
+                      Company (optional)
                     </label>
                     <input
                       name="company"
@@ -327,10 +312,11 @@ const AgenticHero = () => {
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
-                      className={`p-3 rounded-lg text-sm flex items-center gap-3 ${status === "success"
-                        ? "bg-green-500/10 border border-green-500/30 text-green-400"
-                        : "bg-red-500/10 border border-red-500/30 text-red-400"
-                        }`}
+                      className={`p-3 rounded-lg text-sm flex items-center gap-3 ${
+                        status === "success"
+                          ? "bg-green-500/10 border border-green-500/30 text-green-400"
+                          : "bg-red-500/10 border border-red-500/30 text-red-400"
+                      }`}
                     >
                       {status === "success" && (
                         <CheckCircle2 className="h-4 w-4" />
@@ -342,7 +328,7 @@ const AgenticHero = () => {
                   <button
                     type="submit"
                     disabled={status === "loading" || !formData.service}
-                    className="w-full bg-primary text-primary-foreground font-bold rounded-lg py-4 flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/20"
+                    className="w-full flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3 text-sm font-semibold text-black transition hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98] disabled:opacity-90 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? (
                       <>

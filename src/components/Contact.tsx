@@ -155,7 +155,7 @@ const Contact = () => {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Company
+                  Company (optional)
                 </label>
                 <input
                   name="company"
