@@ -63,7 +63,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
 
             if (response.ok) {
                 setStatus("success");
-                navigate("/thank-you"); // navigate just like GetQuoteModal
+                navigate("/thank-you"); 
                 setFormData({
                     name: "",
                     email: "",

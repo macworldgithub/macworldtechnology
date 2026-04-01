@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com";
 
 const MarketingHero = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -58,6 +60,7 @@ const MarketingHero = () => {
 
       if (response.ok) {
         setStatus("success");
+        navigate("/thank-you");
         setStatusMessage(
           result.message || "Thank you! Our team will contact you soon.",
         );

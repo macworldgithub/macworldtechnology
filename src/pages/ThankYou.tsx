@@ -6,7 +6,7 @@ export default function ThankYou() {
       <div className="max-w-xl text-center">
         <CheckCircle className="mx-auto mb-6 h-16 w-16 text-green-500" />
 
-        <h1 className="text-3xl font-bold text-foreground mb-3">Thank - you</h1>
+        <h1 className="text-3xl font-bold text-foreground mb-3">Thank You</h1>
 
         <p className="text-muted-foreground mb-6">
           "Thank you for submitting the form. Our team has received your details

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com";
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,6 +45,7 @@ const Contact = () => {
 
       if (response.ok) {
         setStatus("success");
+        navigate("/thank-you");
         setMessage(result.message || "Thank you! Your message has been sent.");
         setFormData({
           name: "",
