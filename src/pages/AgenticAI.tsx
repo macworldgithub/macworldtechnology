@@ -5,12 +5,12 @@ import AgenticAIServices from "@/components/AgenticAIServices";
 import AgenticFAQ from "@/components/AgenticFAQ";
 import Contact from "@/components/Contact";
 import About from "@/components/About";
-import Demos from "@/components/Demos";
-import Trust from "@/components/Trust";
 import AgenticProcess from "@/components/AgenticProcess";
 import AgenticBenefits from "@/components/AgenticBenefits";
 import Footer from "@/components/Footer";
 import AgenticNavbar from "@/components/AgenticNavbar";
+import AgenticDemos from "@/components/AgenticDemo";
+import AgenticTrust from "@/components/AgenticTrust";
 const AgenticAI = () => {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -18,8 +18,8 @@ const AgenticAI = () => {
       <AgenticHero />
       <AgenticTestimonials />
       <AgenticAIServices />
-      <Demos /> 
-      <Trust />
+      <AgenticDemos />
+      <AgenticTrust />
       <AgenticProcess />
       <AgenticBenefits />
       <About />

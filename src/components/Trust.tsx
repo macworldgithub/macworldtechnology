@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, MapPin, ArrowRight } from "lucide-react";
-import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
+import { GetQuoteModal } from "@/components/GetQuoteModal";
 
 // const awards = [
 //   { name: "Clutch", desc: "Top Web Developer 2026" },
@@ -86,12 +86,12 @@ const Trust = () => {
           transition={{ delay: 0.2 }}
           className="mt-12 flex justify-center"
         >
-          <AgenticQuoteModal>
+          <GetQuoteModal>
             <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25">
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
-          </AgenticQuoteModal>
+          </GetQuoteModal>
         </motion.div>
       </div>
     </section>

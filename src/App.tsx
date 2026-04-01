@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import AgenticAI from "./pages/AgenticAI";
+import DigitalMarketing from "./pages/DigitalMarketing";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,10 @@ const App = () => (
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="/thank-you" element={<ThankYou />} />{" "}
           <Route path="/lp/agentic-AI" element={<AgenticAI />} />
+          <Route
+            path="/lp/digital-marketing-services"
+            element={<DigitalMarketing />}
+          />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
