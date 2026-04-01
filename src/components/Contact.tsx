@@ -70,7 +70,7 @@ const Contact = () => {
     <section id="contact" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Get in Touch</p>
-        <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+        <h2>
           Let's Build{" "}
           <span className="gradient-text">Something Exceptional</span>
         </h2>

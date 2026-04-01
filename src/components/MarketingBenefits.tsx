@@ -53,10 +53,10 @@ const MarketingBenefits = () => {
       <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-14 text-center">
-          <p className="mb-3 text-sm uppercase tracking-widest text-gray-500">
+          <p className="section-label mb-3">
             // Benefits
           </p>
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          <h2>
             What You Gain with{" "}
             <span className="text-primary">OmniSuite AI</span>
           </h2>

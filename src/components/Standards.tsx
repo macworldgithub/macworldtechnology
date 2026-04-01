@@ -36,7 +36,7 @@ const Standards = () => {
     <section id="methodology" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Our Approach</p>
-        <h2 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">
+        <h2>
           2026 Best Practice{" "}
           <span className="gradient-text">Standards</span>
         </h2>

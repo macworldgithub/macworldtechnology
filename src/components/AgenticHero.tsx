@@ -108,7 +108,6 @@ const AgenticHero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-2xl md:text-4xl font-black tracking-tight leading-[1.1]"
                 >
                   Automate Your Business <br />
                   <span className="gradient-text">with Agentic AI</span>
@@ -118,7 +117,6 @@ const AgenticHero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-lg md:text-xl font-bold text-gray-200 leading-snug"
                 >
                   Deploy Agentic AI That Thinks, Acts, and Scales Your Business
                 </motion.p>
@@ -174,7 +172,7 @@ const AgenticHero = () => {
                 <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40">
                   Trusted By Industry Leaders
                 </p>
-                <div className="flex flex-wrap items-center gap-10 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <div className="flex flex-wrap items-center gap-10 opacity-80 transition duration-500">
                   <img
                     src="/img.svg"
                     alt="Company 1"
@@ -223,7 +221,8 @@ const AgenticHero = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer"
+                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service ? "text-white/40" : "text-white"
+                        }`}
                     >
                       <option value="" disabled hidden className="bg-[#0f172a]">
                         Select a Service
@@ -374,7 +373,7 @@ const AgenticHero = () => {
           {[...catchyLines, ...catchyLines].map((line, i) => (
             <span
               key={i}
-              className="text-primary-foreground font-bold text-sm md:text-md flex items-center gap-2"
+              className="text-primary-foreground/75 font-bold text-sm md:text-md flex items-center gap-2"
             >
               {line}
             </span>

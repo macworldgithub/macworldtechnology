@@ -37,7 +37,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" as const },
   },
 };
 
@@ -53,11 +53,11 @@ const MarketingService = () => {
           transition={{ duration: 0.5 }}
           className="mb-14 text-center"
         >
-          <p className="mb-3 text-sm uppercase tracking-widest text-gray-500">
+          <p className="section-label mb-3">
             // Digital Marketing Services
           </p>
 
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          <h2>
             Advanced Marketing Solutions{" "}
             <span className="text-primary">Built to Scale Your Business</span>
           </h2>

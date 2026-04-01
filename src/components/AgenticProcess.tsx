@@ -52,10 +52,10 @@ const AgenticProcess = () => {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-12 text-center">
-          <p className="mb-3 text-sm uppercase tracking-widest text-gray-500">
+          <p className="section-label mb-3">
            // Process
           </p>
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          <h2>
             How We Build Your{" "}
             <span className="text-primary">Agentic AI System</span>
           </h2>

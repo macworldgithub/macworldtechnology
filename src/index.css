@@ -46,16 +46,12 @@
     --sidebar-ring: 192 95% 55%;
 
     /* Custom tokens */
-    --gradient-cyan: linear-gradient(
-      135deg,
-      hsl(192 95% 55%),
-      hsl(220 80% 60%)
-    );
-    --gradient-text: linear-gradient(
-      135deg,
-      hsl(192 95% 65%),
-      hsl(260 70% 65%)
-    );
+    --gradient-cyan: linear-gradient(135deg,
+        hsl(192 95% 55%),
+        hsl(220 80% 60%));
+    --gradient-text: linear-gradient(135deg,
+        hsl(192 95% 65%),
+        hsl(260 70% 65%));
     --glow-cyan: 0 0 40px hsl(192 95% 55% / 0.3);
     --glow-border: 0 0 20px hsl(192 95% 55% / 0.15);
   }
@@ -71,12 +67,23 @@
     font-family: "Inter", sans-serif;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-foreground mb-4;
+    font-family: "Inter", sans-serif;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight leading-tight text-foreground mb-6;
+    font-family: "Inter", sans-serif;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-bold text-foreground mb-3;
+    font-family: "Inter", sans-serif;
+  }
+
+  p {
+    @apply text-base text-muted-foreground leading-relaxed mb-4;
     font-family: "Inter", sans-serif;
   }
 }
@@ -84,20 +91,16 @@
 @layer components {
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      135deg,
-      hsl(192 95% 65%),
-      hsl(260 70% 65%)
-    );
+    background-image: linear-gradient(135deg,
+        hsl(192 95% 65%),
+        hsl(260 70% 65%));
   }
 
   .gradient-cyan-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      135deg,
-      hsl(192 95% 55%),
-      hsl(230 80% 65%)
-    );
+    background-image: linear-gradient(135deg,
+        hsl(192 95% 55%),
+        hsl(230 80% 65%));
   }
 
   .glass-card {
@@ -143,19 +146,22 @@
 
 /* Dropdown container */
 .react-tel-input .country-list {
-  background-color: #0f172a !important; /* dark bg (tailwind slate-900) */
+  background-color: #0f172a !important;
+  /* dark bg (tailwind slate-900) */
   border: 1px solid #1f2937 !important;
 }
 
 /* Each country item */
 .react-tel-input .country {
   background-color: transparent !important;
-  color: #e5e7eb !important; /* text-gray-200 */
+  color: #e5e7eb !important;
+  /* text-gray-200 */
 }
 
 /* Hover state (REMOVE WHITE) */
 .react-tel-input .country:hover {
-  background-color: #1f2937 !important; /* dark hover */
+  background-color: #1f2937 !important;
+  /* dark hover */
 }
 
 /* Highlight selected country */
@@ -165,7 +171,8 @@
 
 /* Search input */
 .react-tel-input .search-box {
-  background-color: #111827 !important; /* dark input */
+  background-color: #111827 !important;
+  /* dark input */
   color: #fff !important;
   border: 1px solid #374151 !important;
 }
@@ -178,6 +185,7 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

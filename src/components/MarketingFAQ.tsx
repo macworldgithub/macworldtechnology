@@ -73,10 +73,10 @@ const MarketingFAQ = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <p className="mb-3 text-sm uppercase tracking-widest text-gray-500">
+          <p className="section-label mb-3">
             // FAQ
           </p>
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          <h2>
             Frequently Asked <span className="text-primary">Questions</span>
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-gray-400 md:text-base">

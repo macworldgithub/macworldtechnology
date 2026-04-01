@@ -26,7 +26,7 @@ const MarketingTrust = () => {
     <section id="trust" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// Why OmniSuite AI</p>
-        <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+        <h2>
           Trusted by Industry{" "}
           <span className="gradient-text">Leaders Worldwide</span>
         </h2>
@@ -61,7 +61,7 @@ const MarketingTrust = () => {
 
         {/* Global Presence */}
         <div className="glass-card p-8">
-          <h3 className="mb-6 text-lg font-bold text-foreground">
+          <h3>
             Global Presence
           </h3>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">

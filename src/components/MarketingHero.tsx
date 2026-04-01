@@ -107,7 +107,6 @@ const MarketingHero = () => {
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-2xl md:text-4xl font-black leading-[1.1]"
                 >
                   Performance Marketing <br />
                   <span className="gradient-text">
@@ -119,7 +118,6 @@ const MarketingHero = () => {
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-lg md:text-xl font-bold text-gray-200"
                 >
                   Scale your business with data-driven strategies across Meta
                   Ads, Google Ads, and SEO built to generate leads, increase
@@ -160,7 +158,7 @@ const MarketingHero = () => {
                 <p className="text-xs uppercase tracking-[0.3em] text-white/40">
                   Trusted By Industry Leaders
                 </p>
-                <div className="flex flex-wrap gap-10 opacity-50 grayscale hover:grayscale-0 transition">
+                <div className="flex flex-wrap gap-10 opacity-80">
                   <img src="/img.svg" className="h-10 md:h-14" />
                   <img src="/img2.svg" className="h-10 md:h-14" />
                   <img src="/img3.svg" className="h-10 md:h-14" />
@@ -193,7 +191,8 @@ const MarketingHero = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer"
+                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service ? "text-white/40" : "text-white"
+                        }`}
                     >
                       <option value="" disabled hidden className="bg-[#0f172a]">
                         Select a Service
@@ -277,11 +276,10 @@ const MarketingHero = () => {
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
-                      className={`p-3 rounded-lg text-sm flex items-center gap-3 ${
-                        status === "success"
-                          ? "bg-green-500/10 border border-green-500/30 text-green-400"
-                          : "bg-red-500/10 border border-red-500/30 text-red-400"
-                      }`}
+                      className={`p-3 rounded-lg text-sm flex items-center gap-3 ${status === "success"
+                        ? "bg-green-500/10 border border-green-500/30 text-green-400"
+                        : "bg-red-500/10 border border-red-500/30 text-red-400"
+                        }`}
                     >
                       {status === "success" && (
                         <CheckCircle2 className="h-4 w-4" />
@@ -315,14 +313,14 @@ const MarketingHero = () => {
       </section>
 
       {/* ✅ MARQUEE */}
-      <div className="relative py-2 bg-primary overflow-hidden">
+      <div className="relative py-2 bg-primary overflow-hidden text-sm md:text-md">
         <motion.div
           animate={{ x: "-50%" }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="flex gap-10 whitespace-nowrap"
         >
           {[...catchyLines, ...catchyLines].map((line, i) => (
-            <span key={i} className="text-primary-foreground font-bold">
+            <span key={i} className="text-primary-foreground/75 font-bold">
               {line}
             </span>
           ))}

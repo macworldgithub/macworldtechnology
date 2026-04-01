@@ -16,12 +16,11 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-label mb-4 flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+            <p className="section-label mb-4">
               About Us
             </p>
 
-            <h2 className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">
+            <h2>
               Driving the Future of Business with{" "}
               <span className="gradient-text">Artificial Intelligence</span>
             </h2>

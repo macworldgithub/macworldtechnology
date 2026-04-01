@@ -66,7 +66,7 @@ const Services = () => {
     <section id="services" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
         <p className="section-label mb-4">// What We Do</p>
-        <h2 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">
+        <h2>
           Four Pillars of{" "}
           <span className="gradient-text">Digital Excellence</span>
         </h2>
