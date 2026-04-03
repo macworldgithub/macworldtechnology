@@ -10,12 +10,14 @@ import MarketingBenefits from "@/components/MarketingBenefits";
 import MarketingFAQ from "@/components/MarketingFAQ";
 import MarketingTrust from "@/components/MarketingTrust";
 import MarketingNavbar from "@/components/MarketingNavbar";
+import LogoSlider from "@/components/LogoSlider";
 const DigitalMarketing = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <MarketingNavbar />
       <MarketingHero />
       <MarketingTestimonials />
+      <LogoSlider/>
       <MarketingService />
       <MarketingTrust />
       <MarketingProcess />
