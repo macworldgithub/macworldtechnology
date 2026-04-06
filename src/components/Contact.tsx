@@ -22,7 +22,9 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -75,7 +77,8 @@ const Contact = () => {
           <span className="gradient-text">Something Exceptional</span>
         </h2>
         <p className="mb-12 max-w-2xl text-muted-foreground">
-          Ready to transform your digital presence? Schedule a free consultation with our team.
+          Ready to transform your digital presence? Schedule a free consultation
+          with our team.
         </p>
 
         <div className="grid gap-8 lg:grid-cols-5">
@@ -85,7 +88,9 @@ const Contact = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 text-primary" />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Office</p>
+                  <p className="text-sm font-semibold text-foreground">
+                    Office
+                  </p>
                   <p className="text-sm text-muted-foreground">
                     10 Merna Drv, Templestowe VIC 3106, Australia
                   </p>
@@ -98,7 +103,9 @@ const Contact = () => {
                 <Phone className="mt-0.5 h-5 w-5 text-primary" />
                 <div>
                   <p className="text-sm font-semibold text-foreground">Phone</p>
-                  <p className="text-sm text-muted-foreground">+61 435 386 534</p>
+                  <p className="text-sm text-muted-foreground">
+                    +61 435 386 534
+                  </p>
                 </div>
               </div>
             </div>
@@ -185,7 +192,7 @@ const Contact = () => {
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none"
+                className="w-full rounded-lg border border-border bg-secondary/100 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none"
               >
                 <option value="">Select a service</option>
                 <option>Managed Services (MSP)</option>
