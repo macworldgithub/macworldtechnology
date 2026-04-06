@@ -63,7 +63,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
 
             if (response.ok) {
                 setStatus("success");
-                navigate("/thank-you"); 
+                navigate("/thank-you");
                 setFormData({
                     name: "",
                     email: "",
@@ -162,23 +162,23 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
                                     className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
                                 />
                             </div>
-                        <div className="space-y-1.5">
-                            <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                                Phone *
-                            </label>
+                            <div className="space-y-1.5">
+                                <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
+                                    Phone *
+                                </label>
 
-                            <PhoneInput
-                                country={"au"}
-                                value={formData.phone}
-                                onChange={(phone) =>
-                                    setFormData((prev) => ({ ...prev, phone }))
-                                }
-                                inputClass="!w-full !h-auto !py-2.5 !bg-secondary/50 !border-border !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!outline-none !transition-all"
-                                buttonClass="!bg-transparent !border-border !rounded-l-lg hover:!bg-white/5"
-                                dropdownClass="!bg-background !text-foreground !border-border"
-                                containerClass="!w-full"
-                            />
-                        </div>
+                                <PhoneInput
+                                    country={"au"}
+                                    value={formData.phone}
+                                    onChange={(phone) =>
+                                        setFormData((prev) => ({ ...prev, phone }))
+                                    }
+                                    inputClass="!w-full !h-auto !py-2.5 !bg-secondary/50 !border-border !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!outline-none !transition-all"
+                                    buttonClass="!bg-transparent !border-border !rounded-l-lg hover:!bg-white/5"
+                                    dropdownClass="!bg-background !text-foreground !border-border"
+                                    containerClass="!w-full"
+                                />
+                            </div>
                         </div>
 
                         {/* Message */}

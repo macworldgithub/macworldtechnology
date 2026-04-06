@@ -12,6 +12,7 @@ import Insights from "@/components/Insights";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import LogoSlider from "@/components/LogoSlider";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Testimonials />
+      <LogoSlider />
       <CaseStudies />
       <OurAIServices />
       <Demos />

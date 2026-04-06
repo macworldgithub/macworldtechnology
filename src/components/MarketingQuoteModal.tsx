@@ -82,7 +82,7 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
       <DialogContent className="max-h-[90vh] overflow-y-auto max-w-2xl bg-background/95 backdrop-blur-xl border border-border sm:rounded-2xl">
         <div className="p-4">
           <h2 className="mb-2 text-2xl font-bold text-foreground">
-            Request an <span className="gradient-text">Agentic Quote</span>
+            Request an <span className="gradient-text">Marketing Quote</span>
           </h2>
           <p className="mb-6 text-sm text-muted-foreground">
             Select a service and provide your details. Our team will contact you

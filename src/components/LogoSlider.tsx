@@ -1,76 +1,66 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const logos = [
-    { src: "/logo1.png" },
-    { src: "/logo2.png" },
-    { src: "/logo3.png" },
-    { src: "/logo4.png" },
-    { src: "/logo5.png" },
-    { src: "/logo6.png" },
-    { src: "/logo7.png" },
-
-    { src: "/logo8.png", big: true },
-    { src: "/logo9.png", big: true },
-    { src: "/logo5.png"},
-
-
+  { src: "/logo1.png" },
+  { src: "/logo2.png" },
+  { src: "/logo3.png" },
+  { src: "/logo4.png" },
+  { src: "/logo5.png" },
+  { src: "/logo6.png" },
+  { src: "/logo7.png" },
+  { src: "/logo8.png" },
+  { src: "/logo9.png" },
 ];
 
-// 👇 Always 5 per slide
-const chunkSize = 5;
-const logoGroups = [];
-for (let i = 0; i < logos.length; i += chunkSize) {
-    logoGroups.push(logos.slice(i, i + chunkSize));
-}
-
 const LogoSlider = () => {
-    const [index, setIndex] = useState(0);
+  // Duplicate logos for infinite loop effect
+  const duplicatedLogos = [...logos, ...logos, ...logos];
 
-    return (
-        <div className="w-full bg-white py-14">
-            {/* Slider */}
-            <div className="overflow-hidden max-w-7xl mx-auto px-4">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: 40 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -40 }}
-                        transition={{ duration: 0.4 }}
-                        className="grid grid-cols-5 items-center"
-                    >
-                        {logoGroups[index].map((logo, i) => (
-                            <div key={i} className="flex justify-center">
-                                <img
-                                    src={logo.src}
-                                    alt="brand"
-                                    className={`object-contain transition ${logo.big
-                                            ? "h-16 md:h-22"   // 👈 Bigger logos
-                                            : "h-10 md:h-12"   // 👈 Normal logos
-                                        }`}
-                                />
-                            </div>
-                        ))}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
+  return (
+    <div className="w-full bg-transparent py-20">
+      <div className="max-w-7xl mx-auto px-4 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Top Brands That Have Trusted Us
+        </h2>
+        <p className="text-gray-400 text-lg">
+          Join the league of successful businesses that trust OmnisuitAI!
+        </p>
+      </div>
 
-            {/* Dots */}
-            <div className="flex justify-center mt-10 gap-2">
-                {logoGroups.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setIndex(i)}
-                        className={`h-2 w-2 rounded-full transition ${index === i
-                                ? "bg-blue-500 scale-125"
-                                : "bg-gray-300 hover:bg-gray-400"
-                            }`}
-                    />
-                ))}
+      <div className="overflow-hidden relative">
+        {/* Gradient overlays for smooth fading effect on edges */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10"></div>
+
+        <motion.div
+          className="flex gap-12 items-center"
+          animate={{
+            x: ["0%", "-50%"],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{ width: "fit-content" }}
+        >
+          {duplicatedLogos.map((logo, i) => (
+            <div key={i} className="flex-shrink-0 flex justify-center items-center w-32 md:w-40 lg:w-48">
+              <img
+                src={logo.src}
+                alt="brand"
+                className="h-12 md:h-16 lg:h-20 w-auto object-contain"
+                style={{
+                  filter: "drop-shadow(0.5px 0.5px 0px rgba(255,255,255,0.3)) drop-shadow(-0.5px -0.5px 0px rgba(255,255,255,0.3))"
+                }}
+              />
             </div>
-        </div>
-    );
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
 };
 
 export default LogoSlider;
+

@@ -11,12 +11,14 @@ import Footer from "@/components/Footer";
 import AgenticNavbar from "@/components/AgenticNavbar";
 import AgenticDemos from "@/components/AgenticDemo";
 import AgenticTrust from "@/components/AgenticTrust";
+import LogoSlider from "@/components/LogoSlider";
 const AgenticAI = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <AgenticNavbar />
       <AgenticHero />
       <AgenticTestimonials />
+      <LogoSlider />
       <AgenticAIServices />
       <AgenticDemos />
       <AgenticTrust />

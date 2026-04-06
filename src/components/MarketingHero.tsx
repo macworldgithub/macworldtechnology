@@ -15,7 +15,7 @@ const MarketingHero = () => {
     company: "",
     phone: "61",
     service: "",
-    message: "Interested in Digital Marketing services.",
+    message: "",
   });
 
   // ✅ UPDATED MARQUEE LINES
@@ -34,6 +34,8 @@ const MarketingHero = () => {
     "⚡ Instant Traffic, Immediate Results",
     "💡 Creative Campaigns That Sell",
   ];
+
+  const SERVICES = ["Meta Advertising ", "Google Ads", "SEO"];
 
   const [status, setStatus] = useState("idle");
   const [statusMessage, setStatusMessage] = useState("");
@@ -191,54 +193,55 @@ const MarketingHero = () => {
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Service */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                      Service
+                      Service *
                     </label>
                     <select
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
-                        !formData.service ? "text-white/40" : "text-white"
-                      }`}
+                      required
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer"
                     >
-                      <option value="" disabled hidden className="bg-[#0f172a]">
+                      <option
+                        value=""
+                        disabled
+                        hidden
+                        className="bg-secondary text-foreground"
+                      >
                         Select a Service
                       </option>
-                      <option
-                        value=" Meta Advertising"
-                        className="bg-[#0f172a]"
-                      >
-                        Meta Advertising
-                      </option>
-                      <option value=" Google Ads" className="bg-[#0f172a]">
-                        Google Ads
-                      </option>
-                      <option value="SEO" className="bg-[#0f172a]">
-                        SEO
-                      </option>
+                      {SERVICES.map((srv) => (
+                        <option
+                          key={srv}
+                          value={srv}
+                          className="bg-secondary text-foreground"
+                        >
+                          {srv}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                      Name
-                    </label>
-                    <input
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="John Doe"
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-white/20 text-sm"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
+                  {/* Name & Email */}
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
                       <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                        Email
+                        Name *
+                      </label>
+                      <input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
+                        Email *
                       </label>
                       <input
                         name="email"
@@ -246,71 +249,84 @@ const MarketingHero = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="john@company.com"
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-white/20 text-sm"
+                        className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Company & Phone */}
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
+                        Company (optional)
+                      </label>
+                      <input
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
                         Phone *
                       </label>
+
                       <PhoneInput
                         country={"au"}
                         value={formData.phone}
                         onChange={(phone) =>
                           setFormData((prev) => ({ ...prev, phone }))
                         }
-                        inputClass="!w-full !h-auto !py-3 !bg-white/5 !border-white/10 !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!ring-1 focus:!ring-primary/20 !transition-all placeholder:!text-white/20"
-                        buttonClass="!bg-transparent !border-white/10 !rounded-l-lg hover:!bg-white/10"
-                        dropdownClass="!bg-[#0f172a] !text-foreground !border-white/10"
+                        inputClass="!w-full !h-auto !py-2.5 !bg-secondary/50 !border-border !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!outline-none !transition-all"
+                        buttonClass="!bg-transparent !border-border !rounded-l-lg hover:!bg-white/5"
+                        dropdownClass="!bg-background !text-foreground !border-border"
                         containerClass="!w-full"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
+                  {/* Message */}
+                  <div>
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                      Company (optional)
+                      Message
                     </label>
-                    <input
-                      name="company"
-                      value={formData.company}
+                    <textarea
+                      name="message"
+                      value={formData.message}
                       onChange={handleChange}
-                      placeholder="Your Business Name"
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-white/20 text-sm"
+                      rows={3}
+                      className="w-full resize-none rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
                     />
                   </div>
 
-                  {statusMessage && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      className={`p-3 rounded-lg text-sm flex items-center gap-3 ${
-                        status === "success"
-                          ? "bg-green-500/10 border border-green-500/30 text-green-400"
-                          : "bg-red-500/10 border border-red-500/30 text-red-400"
-                      }`}
-                    >
-                      {status === "success" && (
-                        <CheckCircle2 className="h-4 w-4" />
-                      )}
+                  {/* Status Messages */}
+                  {status === "success" && (
+                    <div className="rounded-lg bg-green-950/40 border border-green-800/50 p-4 text-sm text-green-300">
+                      {statusMessage ||
+                        "Your request was submitted successfully!"}
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="rounded-lg bg-red-950/40 border border-red-800/50 p-4 text-sm text-red-300">
                       {statusMessage}
-                    </motion.div>
+                    </div>
                   )}
 
+                  {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={status === "loading" || !formData.service}
-                    className="w-full flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3 text-sm font-semibold text-black transition hover:shadow-lg hover:shadow-primary/30 active:scale-[0.98] disabled:opacity-90 disabled:cursor-not-allowed"
+                    disabled={status === "loading"}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? (
                       <>
-                        <Loader2 className="h-5 w-5 animate-spin" />
-                        Processing...
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Sending...
                       </>
                     ) : (
                       <>
-                        Send Inquiry
+                        Send Message
                         <Send className="h-4 w-4" />
                       </>
                     )}
