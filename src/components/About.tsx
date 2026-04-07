@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-
 const About = () => {
   return (
     <section id="about" className="relative overflow-hidden py-16">
@@ -16,7 +15,8 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-label mb-4">
+            <p className="section-label mb-4 flex items-center gap-2">
+              <span className="inline-block h-2 w-2 rounded-full bg-primary" />
               About Us
             </p>
 

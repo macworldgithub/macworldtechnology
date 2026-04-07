@@ -7,45 +7,183 @@ import {
   Network,
   Cpu,
   ArrowRight,
+  CheckCircle2,
+  Phone,
+  MessageSquare,
+  Shield,
+  ShoppingBag,
+  DollarSign,
+  Home,
+  Users,
+  Settings,
 } from "lucide-react";
 import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
 
 const services = [
   {
     icon: Bot,
-    title: "AI Sales Agents",
-    description:
-      "Automate lead qualification, follow-ups, appointment booking, and CRM updates with AI agents that help your sales pipeline move faster. These agents can engage prospects, capture intent, and support your team without slowing down the customer journey.",
+    title: "AI Sales Agent",
+    features: [
+      "Qualifies leads instantly",
+      "Automates follow-ups & outreach",
+      "Books meetings on autopilot",
+      "Seamless CRM integration",
+    ],
+    result: "Automate Lead Qualification & Boost Conversions",
   },
   {
     icon: Headphones,
-    title: "AI Customer Support Agents",
-    description:
-      "Provide faster support with AI agents that handle common inquiries, route complex cases, access internal knowledge, and maintain better customer experiences across web, chat, and messaging channels.",
+    title: "AI Customer Service Agent",
+    features: [
+      "Handles FAQs & customer queries",
+      "Automates ticketing & resolutions",
+      "Provides real-time support",
+      "Available 24/7",
+    ],
+    result: "24/7 Support for a Seamless Customer Experience",
+  },
+  {
+    icon: Phone,
+    title: "AI Voice Agent",
+    features: [
+      "Manages inbound & outbound calls",
+      "Handles appointment reminders",
+      "Engages in sales calls",
+      "Human-like interactions",
+    ],
+    result: "Automate Calls & Improve Engagement",
+  },
+  {
+    icon: MessageSquare,
+    title: "AI Chatbot Agent",
+    features: [
+      "Real-time chat on websites & WhatsApp",
+      "Captures and qualifies leads",
+      "Provides instant responses",
+      "Guides users through your services",
+    ],
+    result: "Engage Visitors & Capture Leads Instantly",
   },
   {
     icon: Workflow,
-    title: "Workflow Automation Agents",
-    description:
-      "Eliminate repetitive admin work with agents that can process requests, move data between tools, trigger approvals, update systems, and manage structured workflows across departments.",
+    title: "AI Workflow Automation Agent",
+    features: [
+      "Integrates with existing tools",
+      "Automates repetitive tasks",
+      "Streamlines workflows",
+      "Improves team efficiency",
+    ],
+    result: "Streamline Operations & Boost Productivity",
+  },
+  {
+    icon: Phone,
+    title: "AI Call Center Automation",
+    features: [
+      "Handles customer inquiries",
+      "Resolves issues & escalates cases",
+      "Frees up agents for complex queries",
+      "Increases operational efficiency",
+    ],
+    result: "Enhance Efficiency & Cut Costs",
+  },
+  {
+    icon: Network,
+    title: "AI Marketing Agent",
+    features: [
+      "Automates ad copy & content creation",
+      "Optimizes marketing campaigns",
+      "Nurtures leads with personalized messaging",
+      "Helps target the right audience",
+    ],
+    result: "Maximize Your Marketing Efforts",
+  },
+  {
+    icon: Home,
+    title: "AI Real Estate Agent",
+    features: [
+      "Qualifies and follows up with leads",
+      "Recommends properties based on preferences",
+      "Automates property viewings & schedules",
+      "Enhances client engagement",
+    ],
+    result: "Automated Lead Follow-Ups & Property Recommendations",
+  },
+  {
+    icon: ShoppingBag,
+    title: "AI E-commerce Agent",
+    features: [
+      "Personalized product recommendations",
+      "Cart recovery & customer support",
+      "Intelligent shopping experience",
+      "Boosts customer loyalty & sales",
+    ],
+    result: "Increase Sales with AI-Powered Shopping Assistance",
+  },
+  {
+    icon: DollarSign,
+    title: "AI Finance & Insurance Agent",
+    features: [
+      "Streamlines claims processing",
+      "Analyzes risks & handles underwriting",
+      "Automates customer onboarding",
+      "Improves accuracy & reduces costs",
+    ],
+    result: "Automate Claims, Risk Analysis & Customer Onboarding",
+  },
+  {
+    icon: Cpu,
+    title: "AI Agent Architecture",
+    features: [
+      "Designs custom AI solutions",
+      "Builds scalable & robust frameworks",
+      "Seamlessly integrates with your systems",
+      "Optimizes performance & efficiency",
+    ],
+    result: "Custom AI Solutions Tailored to Your Business",
+  },
+  {
+    icon: Shield,
+    title: "AI Security & Integration",
+    features: [
+      "Safeguards your data and systems",
+      "Ensures compliance with industry standards",
+      "Seamlessly integrates across platforms",
+      "Provides end-to-end security solutions",
+    ],
+    result: "Protect Your Data & Ensure Seamless Integration",
   },
   {
     icon: Building2,
     title: "Internal Operations Agents",
-    description:
-      "Give your team AI support for reporting, task coordination, document handling, internal requests, and process management. These agents help reduce delays and free up staff for higher-value work.",
+    features: [
+      "Automates routine office tasks (e.g., scheduling, data entry)",
+      "Enhances internal communication and collaboration",
+      "Streamlines administrative workflows",
+      "Integrates with existing internal systems",
+    ],
+    result: "Optimize Internal Processes with AI Automation",
   },
   {
-    icon: Network,
+    icon: Users,
     title: "Multi-Agent AI Systems",
-    description:
-      "For more advanced use cases, we build multi-agent environments where specialized AI agents work together to complete complex tasks, coordinate decisions, and handle end-to-end business processes.",
+    features: [
+      "Enables multiple AI agents to work together",
+      "Automates complex, multi-step workflows",
+      "Enhances decision-making with intelligent collaboration",
+      "Scales across multiple departments and functions",
+    ],
+    result: "Collaborative AI Agents for Complex Workflows",
   },
   {
-    icon: Cpu,
-    title: "Custom Agentic AI Development",
-    description:
-      "Every business is different. We design custom Agentic AI systems around your goals, industry, workflows, tools, and compliance needs so the solution fits your business instead of forcing your team to adapt to generic software.",
+    icon: Settings,
+    title: "Custom AI Agent",
+    features: [
+      "Develops fully custom AI agents for specific tasks",
+      "Integrates seamlessly with your existing infrastructure",
+      "Offers flexibility for evolving business needs",
+      "Built to improve performance and reduce manual work",
+    ],
+    result: "Tailored AI Solutions for Your Unique Business Needs",
   },
 ];
 
@@ -77,10 +215,11 @@ const AgenticAIServices = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
+          className="mb-14 text-left"
         >
-          <p className="section-label mb-3">
-            // Our Agentic AI Services
+          <p className="section-label mb-3 flex items-center gap-2">
+            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+            Our Agentic AI Services
           </p>
 
           <h2>
@@ -88,7 +227,7 @@ const AgenticAIServices = () => {
             <span className="text-primary">Act, Decide & Execute</span>
           </h2>
 
-          <p className="mx-auto max-w-2xl text-sm text-gray-400 md:text-base">
+          <p className="max-w-2xl text-sm text-gray-400 md:text-base text-left">
             We create Agentic AI solutions that do more than answer questions.
             Our systems understand context, make decisions, trigger actions, and
             complete multi-step workflows across your business.
@@ -100,27 +239,47 @@ const AgenticAIServices = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service, i) => (
             <motion.div
               key={i}
               variants={cardVariants}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10"
+              className="glass-card group relative overflow-hidden p-7 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
             >
+              {/* Subtle glow on hover */}
+              <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/5 opacity-0 blur-[60px] transition-opacity duration-500 group-hover:opacity-100" />
+
               {/* Icon */}
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-border/60 bg-secondary/50">
                 <service.icon className="h-6 w-6 text-primary" />
               </div>
 
               {/* Title */}
-              <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
+              <h3 className="mb-2 text-lg font-bold text-foreground">
+                {service.title}
+              </h3>
 
-              {/* Description */}
-              <p className="text-sm leading-relaxed text-gray-400">
-                {service.description}
-              </p>
+              {/* Features */}
+              <ul className="mb-5 space-y-2">
+                {service.features.map((feature, j) => (
+                  <li
+                    key={j}
+                    className="flex items-start gap-2 text-sm text-foreground/80"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-primary" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Result */}
+              <div className="mt-auto rounded-lg border border-primary/20 bg-primary/5 px-4 py-3">
+                <p className="text-xs font-semibold text-primary">
+                  {service.result}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -134,7 +293,10 @@ const AgenticAIServices = () => {
           className="mt-12 flex justify-center"
         >
           <AgenticQuoteModal>
-            <button className="flex items-center gap-2 rounded-lg bg-primary px-7 py-3 text-sm font-semibold text-black transition hover:shadow-lg hover:shadow-primary/30">
+            <button
+              className="flex items-center gap-2 rounded-lg px-7 py-3 text-sm font-semibold text-white transition hover:shadow-lg hover:shadow-primary/30"
+              style={{ backgroundColor: "#08708F" }}
+            >
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>

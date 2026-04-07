@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Zap,
-  Briefcase,
-  Smile,
-  Brain,
-  Settings,
-  Layers,
-} from "lucide-react";
+import { Zap, Briefcase, Smile, Brain, Settings, Layers } from "lucide-react";
 
 const benefits = [
   {
@@ -47,15 +40,17 @@ const AgenticBenefits = () => {
       <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-14 text-center">
-          <p className="section-label mb-3">
-            // Benefits
+          <p className="section-label mb-3 flex items-center justify-center gap-2">
+            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+            Benefits
           </p>
           <h2>
             What You Gain with{" "}
             <span className="text-primary">OmniSuite AI</span>
           </h2>
           <p className="mx-auto max-w-3xl text-sm text-gray-400 md:text-base">
-            Real outcomes that improve efficiency, reduce costs, and help your business scale with AI.
+            Real outcomes that improve efficiency, reduce costs, and help your
+            business scale with AI.
           </p>
         </div>
 

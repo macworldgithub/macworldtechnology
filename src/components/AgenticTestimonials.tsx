@@ -62,7 +62,10 @@ const AgenticTestimonials = () => {
   return (
     <section id="AgenticTestimonials" className="py-14">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <p className="section-label mb-4">// Client Voices</p>
+        <p className="section-label mb-4 flex items-center justify-left gap-2">
+          <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+          Client Voices
+        </p>
 
         <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">
           What Our Clients <span className="gradient-text">Say About Us</span>

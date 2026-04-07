@@ -58,8 +58,9 @@ const AgenticFAQ = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <p className="section-label mb-3">
-            // FAQ
+          <p className="section-label mb-3 flex items-center justify-center gap-2">
+            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+            FAQ
           </p>
           <h2>
             Frequently Asked <span className="text-primary">Questions</span>

@@ -31,12 +31,21 @@ const AgenticHero = () => {
   ];
 
   const SERVICES = [
-    "Agentic AI Development",
-    "AI Strategy & Consulting",
-    "Natural Language Processing",
-    "Computer Vision Solutions",
-    "Automated Workflows",
-    "AI Integration",
+    "AI Sales Agent",
+    "AI Customer Service Agent",
+    "AI Voice Agent",
+    "AI Chatbot Agent",
+    "AI Workflow Automation Agent",
+    "AI Call Center Automation",
+    "AI Marketing Agent",
+    "AI Real Estate Agent",
+    "AI E-commerce Agent",
+    "AI Finance & Insurance Agent",
+    "AI Agent Architecture",
+    "AI Security & Integration",
+    "Internal Operations Agents",
+    "Multi-Agent AI Systems",
+    "Custom AI Agent",
   ];
 
   const [status, setStatus] = useState<
@@ -109,7 +118,7 @@ const AgenticHero = () => {
                 transition={{ duration: 0.5 }}
                 className="section-label"
               >
-                // Future of Business
+                Agentic AI Development Company
               </motion.div>
 
               <div className="space-y-4">
@@ -127,7 +136,7 @@ const AgenticHero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Deploy Agentic AI That Thinks, Acts, and Scales Your Business
+                  We build AI employees for your business
                 </motion.p>
               </div>
 
@@ -201,7 +210,7 @@ const AgenticHero = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 -mr-16 -mt-16 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors" />
 
                 <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  Start Your AI Journey
+                  Get Your Custom AI Agent
                   <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                 </h3>
 
@@ -217,7 +226,9 @@ const AgenticHero = () => {
                       onChange={handleChange}
                       required
                       className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
-                        !formData.service ? "text-muted-foreground" : "text-white"
+                        !formData.service
+                          ? "text-muted-foreground"
+                          : "text-white"
                       }`}
                     >
                       <option
@@ -332,7 +343,8 @@ const AgenticHero = () => {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                    style={{ backgroundColor: "#08708F" }}
                   >
                     {status === "loading" ? (
                       <>
@@ -341,7 +353,7 @@ const AgenticHero = () => {
                       </>
                     ) : (
                       <>
-                        Send Message
+                        Get A Quote
                         <Send className="h-4 w-4" />
                       </>
                     )}
@@ -354,7 +366,10 @@ const AgenticHero = () => {
       </section>
 
       {/* ✅ MARQUEE (Now with primary color for better suite) */}
-      <div className="relative py-2 bg-primary overflow-hidden">
+      <div
+        className="relative py-2 overflow-hidden"
+        style={{ backgroundColor: "#08708F" }}
+      >
         <motion.div
           animate={{ x: "-50%" }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -370,8 +385,18 @@ const AgenticHero = () => {
           ))}
         </motion.div>
         {/* Edge Fades */}
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-primary to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-primary to-transparent z-10" />
+        <div
+          className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r to-transparent z-10"
+          style={{
+            background: "linear-gradient(to right, #08708F, transparent)",
+          }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l to-transparent z-10"
+          style={{
+            background: "linear-gradient(to left, #08708F, transparent)",
+          }}
+        />
       </div>
     </>
   );

@@ -51,16 +51,18 @@ const AgenticProcess = () => {
     <section id="agentic-process" className="bg-black py-16 text-white">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
-        <div className="mb-12 text-center">
-          <p className="section-label mb-3">
-           // Process
+        <div className="mb-12 text-left">
+          <p className="section-label mb-3 flex items-center gap-2">
+            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+            Process
           </p>
           <h2>
             How We Build Your{" "}
             <span className="text-primary">Agentic AI System</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-sm text-gray-400 md:text-base">
-            A structured approach to designing, building, and scaling intelligent AI systems for your business.
+          <p className=" max-w-2xl text-sm text-gray-400 md:text-base">
+            A structured approach to designing, building, and scaling
+            intelligent AI systems for your business.
           </p>
         </div>
 
@@ -114,7 +116,10 @@ const AgenticProcess = () => {
           className="mt-12 flex justify-center"
         >
           <AgenticQuoteModal>
-            <button className="flex items-center gap-2 rounded-lg bg-primary px-7 py-3 text-sm font-semibold text-black transition hover:shadow-lg hover:shadow-primary/30">
+            <button
+              className="flex items-center gap-2 rounded-lg px-7 py-3 text-sm font-semibold text-white transition hover:shadow-lg hover:shadow-primary/30"
+              style={{ backgroundColor: "#08708F" }}
+            >
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>

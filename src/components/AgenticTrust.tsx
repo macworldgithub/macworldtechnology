@@ -25,7 +25,10 @@ const AgenticTrust = () => {
   return (
     <section id="trust" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="section-label mb-4">// Why OmniSuite AI</p>
+        <p className="section-label mb-4 flex items-center gap-2">
+          <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+          Why OmniSuite AI
+        </p>
         <h2>
           Trusted by Industry{" "}
           <span className="gradient-text">Leaders Worldwide</span>
@@ -61,9 +64,7 @@ const AgenticTrust = () => {
 
         {/* Global Presence */}
         <div className="glass-card p-8">
-          <h3>
-            Global Presence
-          </h3>
+          <h3>Global Presence</h3>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {offices.map((o, i) => (
               <div key={i} className="flex items-start gap-2">
@@ -87,7 +88,10 @@ const AgenticTrust = () => {
           className="mt-12 flex justify-center"
         >
           <AgenticQuoteModal>
-            <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25">
+            <button
+              className="inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-all hover:shadow-lg hover:shadow-primary/25"
+              style={{ backgroundColor: "#08708F" }}
+            >
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>

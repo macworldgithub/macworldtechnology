@@ -71,7 +71,10 @@ const Contact = () => {
   return (
     <section id="contact" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="section-label mb-4">// Get in Touch</p>
+        <p className="section-label mb-4 flex items-center gap-2">
+          <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+          Get in Touch
+        </p>
         <h2>
           Let's Build{" "}
           <span className="gradient-text">Something Exceptional</span>

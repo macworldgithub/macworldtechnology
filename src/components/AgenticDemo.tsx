@@ -109,7 +109,10 @@ const AgenticDemos = () => {
   return (
     <section id="demos" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="section-label mb-4">// Live Demos</p>
+        <p className="section-label mb-4 flex items-center gap-2">
+          <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+          Live Demos
+        </p>
         <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
           Our Products <span className="gradient-text">In Action</span>
         </h2>
@@ -210,7 +213,10 @@ const AgenticDemos = () => {
           className="mt-12 flex justify-center"
         >
           <AgenticQuoteModal>
-            <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25">
+            <button
+              className="inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-all hover:shadow-lg hover:shadow-primary/25"
+              style={{ backgroundColor: "#08708F" }}
+            >
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
