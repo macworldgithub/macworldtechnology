@@ -4,6 +4,7 @@ import { Menu, X, Zap } from "lucide-react";
 import { GetQuoteModal } from "@/components/GetQuoteModal";
 
 const navLinks = [
+  "Agentic AI",
   "About",
   "Services",
   "Testimonials",
@@ -36,7 +37,11 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase().replace(/\s/g, "-")}`}
+              href={
+                link === "Agentic AI"
+                  ? "/lp/agentic-ai"
+                  : `#${link.toLowerCase().replace(/\s/g, "-")}`
+              }
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {link}
@@ -70,7 +75,11 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase().replace(/\s/g, "-")}`}
+              href={
+                link === "Agentic AI"
+                  ? "/lp/agentic-ai"
+                  : `#${link.toLowerCase().replace(/\s/g, "-")}`
+              }
               onClick={() => setOpen(false)}
               className="block py-2 text-sm text-muted-foreground"
             >

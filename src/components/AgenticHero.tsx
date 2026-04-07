@@ -116,8 +116,9 @@ const AgenticHero = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="section-label"
+                className="section-label flex items-center gap-2"
               >
+                <span className="inline-block h-2 w-2 rounded-full bg-primary" />
                 Agentic AI Development Company
               </motion.div>
 

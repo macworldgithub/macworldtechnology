@@ -100,7 +100,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },  
+        },
         body: JSON.stringify(payload),
       });
 
@@ -244,7 +244,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
 
             <div>
               <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Message 
+                Message
               </label>
               <textarea
                 name="message"

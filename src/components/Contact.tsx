@@ -2,8 +2,46 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
-const BACKEND_URL = "https://www.test.omnisuiteai.com";
+const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
+
+const SERVICES_MAP: Record<string, string[]> = {
+  "AI Chatbot Development": [
+    "Website & WhatsApp Chatbots",
+    "Lead Qualification Bots",
+    "AI Sales Assistants",
+    "24/7 Automated Customer Support",
+    "CRM Integration",
+  ],
+  "Generative AI Solutions": [
+    "AI Content Creation Systems",
+    "Automated Email & Ad Copy Generation",
+    "AI SEO Optimization Tools",
+    "AI Image & Creative Generation",
+  ],
+  "Business Process Automation": [
+    "Workflow Automation",
+    "AI Email & Task Automation",
+    "Smart Document Processing",
+    "Internal Operations AI Systems",
+  ],
+  "Custom AI Development": [
+    "Predictive Analytics Systems",
+    "AI SaaS Development",
+    "CRM & ERP AI Integration",
+    "AI Agent Development",
+  ],
+  "AI for Marketing & Advertising": [
+    "AI Ad Creative Testing",
+    "Audience Behavior Analysis",
+    "Campaign Performance Optimization",
+    "Predictive Customer Targeting",
+  ],
+};
+
+const MAIN_SERVICES = Object.keys(SERVICES_MAP);
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -12,7 +50,8 @@ const Contact = () => {
     email: "",
     company: "",
     phone: "",
-    service: "",
+    mainService: "",
+    subService: "",
     message: "",
   });
 
@@ -26,7 +65,15 @@ const Contact = () => {
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >,
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const updated = { ...prev, [name]: value };
+      // Reset subService when mainService changes
+      if (name === "mainService") {
+        updated.subService = "";
+      }
+      return updated;
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,12 +82,23 @@ const Contact = () => {
     setMessage("");
 
     try {
-      const response = await fetch(`${BACKEND_URL}/api/contact`, {
+      const formattedService = `${formData.mainService} - ${formData.subService}`;
+
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        service: formattedService,
+        message: formData.message,
+      };
+
+      const response = await fetch(`${BACKEND_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
@@ -54,7 +112,8 @@ const Contact = () => {
           email: "",
           company: "",
           phone: "",
-          service: "",
+          mainService: "",
+          subService: "",
           message: "",
         });
       } else {
@@ -67,6 +126,10 @@ const Contact = () => {
       console.error(err);
     }
   };
+
+  const availableSubServices = formData.mainService
+    ? [...SERVICES_MAP[formData.mainService], "Custom AI Project"]
+    : [];
 
   return (
     <section id="contact" className="py-14">
@@ -131,9 +194,57 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card space-y-6 p-6 lg:col-span-3"
+            className="glass-card space-y-5 p-6 lg:col-span-3"
             onSubmit={handleSubmit}
           >
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Main Service *
+                </label>
+                <select
+                  name="mainService"
+                  value={formData.mainService}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-lg border border-border bg-secondary/100 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none"
+                >
+                  <option value="" disabled hidden>
+                    Select a main service
+                  </option>
+
+                  {MAIN_SERVICES.map((srv) => (
+                    <option key={srv} value={srv}>
+                      {srv}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Sub Service *
+                </label>
+                <select
+                  name="subService"
+                  value={formData.subService}
+                  onChange={handleChange}
+                  required
+                  disabled={!formData.mainService}
+                  className="w-full rounded-lg border border-border bg-secondary/100 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <option value="" disabled hidden>
+                    Select a sub service
+                  </option>
+
+                  {availableSubServices.map((sub) => (
+                    <option key={sub} value={sub}>
+                      {sub}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
@@ -176,52 +287,36 @@ const Contact = () => {
               </div>
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Phone
+                  Phone *
                 </label>
-                <input
-                  name="phone"
+
+                <PhoneInput
+                  country={"au"}
                   value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+                  onChange={(phone) =>
+                    setFormData((prev) => ({ ...prev, phone }))
+                  }
+                  inputClass="!w-full !h-[42px] !bg-secondary/50 !text-sm !text-foreground !border !border-border !rounded-lg"
+                  buttonClass="!border-border"
+                  dropdownClass="!bg-background !text-foreground"
                 />
               </div>
             </div>
 
             <div>
               <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Service of Interest
-              </label>
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-border bg-secondary/100 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none"
-              >
-                <option value="">Select a service</option>
-                <option>Managed Services (MSP)</option>
-                <option>Strategy & Consulting</option>
-                <option>Advertising & Marketing</option>
-                <option>Web Development</option>
-                <option>AI Automation</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Message *
+                Message
               </label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={4}
+                rows={3}
                 className="w-full resize-none rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
               />
             </div>
 
-            {/* Status Messages */}
             {status === "success" && (
               <div className="rounded-lg bg-green-950/40 border border-green-800/50 p-4 text-sm text-green-300">
                 {message}
@@ -237,7 +332,8 @@ const Contact = () => {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed md:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+              style={{ backgroundColor: "#08708F" }}
             >
               {status === "loading" ? (
                 <>

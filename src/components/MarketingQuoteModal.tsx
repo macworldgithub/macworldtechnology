@@ -90,7 +90,6 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Service */}
             <div className="space-y-1.5">
               <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
                 Service *
@@ -101,7 +100,9 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
                 onChange={handleChange}
                 required
                 className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
-                  !formData.service ? "text-muted-foreground" : "text-foreground"
+                  !formData.service
+                    ? "text-muted-foreground"
+                    : "text-foreground"
                 }`}
               >
                 <option
@@ -124,7 +125,6 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
               </select>
             </div>
 
-            {/* Name & Email */}
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
@@ -153,7 +153,6 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
               </div>
             </div>
 
-            {/* Company & Phone */}
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
@@ -185,7 +184,6 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
               </div>
             </div>
 
-            {/* Message */}
             <div>
               <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
                 Message
@@ -199,7 +197,6 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
               />
             </div>
 
-            {/* Status Messages */}
             {status === "success" && (
               <div className="rounded-lg bg-green-950/40 border border-green-800/50 p-4 text-sm text-green-300">
                 {message || "Your request was submitted successfully!"}
@@ -211,7 +208,6 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
               </div>
             )}
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={status === "loading"}
