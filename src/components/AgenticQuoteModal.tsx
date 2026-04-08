@@ -11,15 +11,24 @@ interface AgenticQuoteModalProps {
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
+
 const SERVICES = [
-  "AI Sales Agents",
-  "AI Customer Support Agents",
-  "Workflow Automation Agents",
+  "AI Sales Agent",
+  "AI Customer Service Agent",
+  "AI Voice Agent",
+  "AI Chatbot Agent",
+  "AI Workflow Automation Agent",
+  "AI Call Center Automation",
+  "AI Marketing Agent",
+  "AI Real Estate Agent",
+  "AI E-commerce Agent",
+  "AI Finance & Insurance Agent",
+  "AI Agent Architecture",
+  "AI Security & Integration",
   "Internal Operations Agents",
   "Multi-Agent AI Systems",
-  "Custom Agentic AI Development",
+  "Custom AI Agent",
 ];
-
 export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
   const navigate = useNavigate();
 
