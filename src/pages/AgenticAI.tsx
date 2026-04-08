@@ -13,6 +13,7 @@ import AgenticDemos from "@/components/AgenticDemo";
 import AgenticTrust from "@/components/AgenticTrust";
 import LogoSlider from "@/components/LogoSlider";
 import AgenticContact from "@/components/Agenticcontact";
+
 const AgenticAI = () => {
   return (
     <div className="min-h-screen bg-black text-white">

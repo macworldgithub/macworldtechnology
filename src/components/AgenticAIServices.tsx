@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Bot,
@@ -21,6 +23,7 @@ import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
 
 const services = [
   {
+    id: "aisalesagent",
     icon: Bot,
     title: "AI Sales Agent",
     features: [
@@ -32,6 +35,7 @@ const services = [
     result: "Automate Lead Qualification & Boost Conversions",
   },
   {
+    id: "aicustomerserviceagent",
     icon: Headphones,
     title: "AI Customer Service Agent",
     features: [
@@ -43,6 +47,7 @@ const services = [
     result: "24/7 Support for a Seamless Customer Experience",
   },
   {
+    id: "aivoiceagent",
     icon: Phone,
     title: "AI Voice Agent",
     features: [
@@ -54,6 +59,7 @@ const services = [
     result: "Automate Calls & Improve Engagement",
   },
   {
+    id: "aichatbotagent",
     icon: MessageSquare,
     title: "AI Chatbot Agent",
     features: [
@@ -65,6 +71,7 @@ const services = [
     result: "Engage Visitors & Capture Leads Instantly",
   },
   {
+    id: "aiworkflowautomationagent",
     icon: Workflow,
     title: "AI Workflow Automation Agent",
     features: [
@@ -76,6 +83,7 @@ const services = [
     result: "Streamline Operations & Boost Productivity",
   },
   {
+    id: "aicallcenterautomation",
     icon: Phone,
     title: "AI Call Center Automation",
     features: [
@@ -87,6 +95,7 @@ const services = [
     result: "Enhance Efficiency & Cut Costs",
   },
   {
+    id: "aimarketingagent",
     icon: Network,
     title: "AI Marketing Agent",
     features: [
@@ -98,6 +107,7 @@ const services = [
     result: "Maximize Your Marketing Efforts",
   },
   {
+    id: "airealestateagent",
     icon: Home,
     title: "AI Real Estate Agent",
     features: [
@@ -109,6 +119,7 @@ const services = [
     result: "Automated Lead Follow-Ups & Property Recommendations",
   },
   {
+    id: "aiecommerceagent",
     icon: ShoppingBag,
     title: "AI E-commerce Agent",
     features: [
@@ -120,6 +131,7 @@ const services = [
     result: "Increase Sales with AI-Powered Shopping Assistance",
   },
   {
+    id: "aifinanceinsuranceagent",
     icon: DollarSign,
     title: "AI Finance & Insurance Agent",
     features: [
@@ -131,6 +143,7 @@ const services = [
     result: "Automate Claims, Risk Analysis & Customer Onboarding",
   },
   {
+    id: "aiagentarchitecture",
     icon: Cpu,
     title: "AI Agent Architecture",
     features: [
@@ -142,6 +155,7 @@ const services = [
     result: "Custom AI Solutions Tailored to Your Business",
   },
   {
+    id: "aisecurityintegration",
     icon: Shield,
     title: "AI Security & Integration",
     features: [
@@ -153,6 +167,7 @@ const services = [
     result: "Protect Your Data & Ensure Seamless Integration",
   },
   {
+    id: "internaloperationsagents",
     icon: Building2,
     title: "Internal Operations Agents",
     features: [
@@ -164,6 +179,7 @@ const services = [
     result: "Optimize Internal Processes with AI Automation",
   },
   {
+    id: "multiagentaisystems",
     icon: Users,
     title: "Multi-Agent AI Systems",
     features: [
@@ -175,6 +191,7 @@ const services = [
     result: "Collaborative AI Agents for Complex Workflows",
   },
   {
+    id: "customaiagent",
     icon: Settings,
     title: "Custom AI Agent",
     features: [
@@ -206,8 +223,50 @@ const cardVariants = {
 };
 
 const AgenticAIServices = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+
+      const scrollWithOffset = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          const offset = 120; // Navbar height + buffer
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+          return true;
+        }
+        return false;
+      };
+
+      // Try immediately
+      if (!scrollWithOffset()) {
+        // If not found, check periodically (handles late renders/animations)
+        const interval = setInterval(() => {
+          if (scrollWithOffset()) {
+            clearInterval(interval);
+          }
+        }, 100);
+
+        // Stop checking after 3 seconds
+        const timeout = setTimeout(() => clearInterval(interval), 3000);
+
+        return () => {
+          clearInterval(interval);
+          clearTimeout(timeout);
+        };
+      }
+    }
+  }, [hash]);
+
   return (
-    <section id="agentic-ai-services" className="bg-black py-16 text-white">
+    <section id="agentic-ai-services" className="relative z-10 bg-black py-16 text-white">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <motion.div
@@ -245,8 +304,9 @@ const AgenticAIServices = () => {
           {services.map((service, i) => (
             <motion.div
               key={i}
+              id={service.id}
               variants={cardVariants}
-              className="glass-card group relative overflow-hidden p-7 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+              className="glass-card group relative z-20 overflow-hidden p-7 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 scroll-mt-40"
             >
               {/* Subtle glow on hover */}
               <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/5 opacity-0 blur-[60px] transition-opacity duration-500 group-hover:opacity-100" />
