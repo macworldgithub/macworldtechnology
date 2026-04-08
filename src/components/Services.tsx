@@ -150,7 +150,6 @@ import {
   Rocket,
   ArrowRight,
 } from "lucide-react";
-import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
 
 const steps = [
   {
@@ -190,7 +189,7 @@ const Services = () => {
   const step = steps[active];
 
   return (
-    <section id="agentic-process" className="bg-black py-16 text-white">
+    <section id="agentic-process" className="bg-[#080A0C] py-16 text-white">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-12 text-left">

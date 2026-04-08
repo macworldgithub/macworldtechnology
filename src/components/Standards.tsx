@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { GetQuoteModal } from "./GetQuoteModal";
+import { ArrowRight } from "lucide-react";
 
 const standards = [
   {
@@ -69,6 +71,23 @@ const Standards = () => {
             </motion.div>
           ))}
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-12 flex justify-center"
+        >
+          <GetQuoteModal>
+            <button
+              className="flex items-center gap-2 rounded-lg px-7 py-3 text-sm font-semibold text-white transition hover:shadow-lg hover:shadow-primary/30"
+              style={{ backgroundColor: "#08708F" }}
+            >
+              Get a Quote
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            </GetQuoteModal>
+        </motion.div>
       </div>
     </section>
   );

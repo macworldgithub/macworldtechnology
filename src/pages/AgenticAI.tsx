@@ -27,7 +27,7 @@ const AgenticAI = () => {
       <AgenticBenefits />
       <About />
       <AgenticFAQ />
-      <AgenticContact />
+      <Contact />
       <Footer />
     </div>
   );
