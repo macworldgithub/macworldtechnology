@@ -46,6 +46,13 @@ const MarketingHero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.phone || formData.phone.length <= 4) {
+      setStatus("error");
+      setStatusMessage("Please enter a valid phone number.");
+      return;
+    }
+
     setStatus("loading");
     setStatusMessage("");
 

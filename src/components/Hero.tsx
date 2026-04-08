@@ -78,6 +78,13 @@ const Hero = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.phone || formData.phone.length <= 4) {
+      setStatus("error");
+      setSubmitMessage("Please enter a valid phone number.");
+      return;
+    }
+
     setStatus("loading");
 
     try {

@@ -42,6 +42,13 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.phone || formData.phone.length <= 4) {
+      setStatus("error");
+      setMessage("Please enter a valid phone number.");
+      return;
+    }
+
     setStatus("loading");
 
     try {
