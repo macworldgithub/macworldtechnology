@@ -22,7 +22,7 @@ const DigitalMarketing = () => {
       <MarketingTrust />
       <MarketingProcess />
       <MarketingBenefits />
-      <About />
+      <About type="marketing" />
       <MarketingFAQ />
       <Contact />
       <Footer />

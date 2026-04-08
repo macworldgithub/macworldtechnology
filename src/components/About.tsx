@@ -1,8 +1,24 @@
 import { motion } from "framer-motion";
 import { GetQuoteModal } from "./GetQuoteModal";
+import { AgenticQuoteModal } from "./AgenticQuoteModal";
+import { MarketingQuoteModal } from "./MarketingQuoteModal";
 import { ArrowRight } from "lucide-react";
 
-const About = () => {
+interface AboutProps {
+  type?: "agentic" | "marketing";
+}
+
+const About = ({ type }: AboutProps) => {
+  const ModalWrapper = ({ children }: { children: React.ReactNode }) => {
+    if (type === "agentic") {
+      return <AgenticQuoteModal>{children}</AgenticQuoteModal>;
+    }
+    if (type === "marketing") {
+      return <MarketingQuoteModal>{children}</MarketingQuoteModal>;
+    }
+    return <GetQuoteModal>{children}</GetQuoteModal>;
+  };
+
   return (
     <section id="about" className="relative overflow-hidden py-16">
       {/* Background glow */}
@@ -69,7 +85,7 @@ const About = () => {
           transition={{ delay: 0.2 }}
           className="mt-12 flex justify-center"
         >
-          <GetQuoteModal>
+          <ModalWrapper>
             <button
               className="flex items-center gap-2 rounded-lg px-7 py-3 text-sm font-semibold text-white transition hover:shadow-lg hover:shadow-primary/30"
               style={{ backgroundColor: "#08708F" }}
@@ -77,7 +93,7 @@ const About = () => {
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
-            </GetQuoteModal>
+          </ModalWrapper>
         </motion.div>
       </div>
     </section>
