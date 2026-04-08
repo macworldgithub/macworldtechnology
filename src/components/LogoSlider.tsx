@@ -45,13 +45,17 @@ const LogoSlider = () => {
           style={{ width: "fit-content" }}
         >
           {duplicatedLogos.map((logo, i) => (
-            <div key={i} className="flex-shrink-0 flex justify-center items-center w-32 md:w-40 lg:w-48">
+            <div
+              key={i}
+              className="flex-shrink-0 flex justify-center items-center w-32 md:w-40 lg:w-48"
+            >
               <img
                 src={logo.src}
                 alt="brand"
                 className="h-12 md:h-16 lg:h-20 w-auto object-contain"
                 style={{
-                  filter: "drop-shadow(0.5px 0.5px 0px rgba(255,255,255,0.3)) drop-shadow(-0.5px -0.5px 0px rgba(255,255,255,0.3))"
+                  filter:
+                    "drop-shadow(0.5px 0.5px 0px rgba(255,255,255,0.3)) drop-shadow(-0.5px -0.5px 0px rgba(255,255,255,0.3))",
                 }}
               />
             </div>
@@ -63,4 +67,3 @@ const LogoSlider = () => {
 };
 
 export default LogoSlider;
-
