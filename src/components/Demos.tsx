@@ -210,11 +210,14 @@ const Demos = () => {
           className="mt-12 flex justify-center"
         >
           <GetQuoteModal>
-            <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25">
+            <button
+              className="flex items-center gap-2 rounded-lg px-7 py-3 text-sm font-semibold text-white transition hover:shadow-lg hover:shadow-primary/30"
+              style={{ backgroundColor: "#08708F" }}
+            >
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
-          </GetQuoteModal>
+            </GetQuoteModal>
         </motion.div>
       </div>
     </section>

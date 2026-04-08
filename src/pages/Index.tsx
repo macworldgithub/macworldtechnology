@@ -13,6 +13,7 @@ import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import LogoSlider from "@/components/LogoSlider";
+import AgenticContact from "@/components/Agenticcontact";
 
 const Index = () => {
   return (
@@ -30,7 +31,7 @@ const Index = () => {
       <Standards />
       <FAQ />
       {/* <Insights /> */}
-      <Contact />
+      <AgenticContact/>
       <Footer />
     </div>
   );
