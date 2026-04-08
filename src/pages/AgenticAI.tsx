@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import AgenticHero from "@/components/AgenticHero";
 import AgenticTestimonials from "@/components/AgenticTestimonials";
@@ -12,9 +14,14 @@ import AgenticNavbar from "@/components/AgenticNavbar";
 import AgenticDemos from "@/components/AgenticDemo";
 import AgenticTrust from "@/components/AgenticTrust";
 import LogoSlider from "@/components/LogoSlider";
-import AgenticContact from "@/components/Agenticcontact";
 
 const AgenticAI = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    localStorage.setItem("lastVisitedPage", pathname);
+  }, [pathname]);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <AgenticNavbar />

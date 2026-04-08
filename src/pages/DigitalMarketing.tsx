@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Contact from "@/components/Contact";
 import About from "@/components/About";
@@ -11,7 +13,14 @@ import MarketingFAQ from "@/components/MarketingFAQ";
 import MarketingTrust from "@/components/MarketingTrust";
 import MarketingNavbar from "@/components/MarketingNavbar";
 import LogoSlider from "@/components/LogoSlider";
+
 const DigitalMarketing = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    localStorage.setItem("lastVisitedPage", pathname);
+  }, [pathname]);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <MarketingNavbar />

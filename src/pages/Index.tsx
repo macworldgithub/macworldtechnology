@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import OurAIServices from "@/components/OurAIServices";
@@ -16,6 +18,12 @@ import LogoSlider from "@/components/LogoSlider";
 import AgenticContact from "@/components/Agenticcontact";
 
 const Index = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    localStorage.setItem("lastVisitedPage", pathname);
+  }, [pathname]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
