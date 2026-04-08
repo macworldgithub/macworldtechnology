@@ -120,22 +120,12 @@ const Hero = () => {
     : [];
 
   return (
-    <>
-      <section className="relative bg-black pt-32 pb-24 overflow-hidden border-b border-white/5">
-     
-        <div className="container mx-auto px-6 relative z-10">
-        
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            {/* Left Content */}
-            <div className="lg:w-3/5 space-y-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="section-label flex items-center gap-2"
-              >
-                <span className="inline-block h-2 w-2 rounded-full bg-primary" />
-                AI Automation Company for Businesses
+    <section className="relative min-h-screen overflow-hidden pt-14">
+      {/* Background grid effect */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-0 top-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute left-1/4 top-1/2 h-64 w-64 rounded-full bg-accent/5 blur-[100px]" />
+      </div>
 
       <div className="relative mx-auto flex max-w-7xl flex-col gap-12 px-4 sm:px-6 py-16 sm:py-20 lg:flex-row lg:items-center lg:gap-16 lg:py-28">
         {/* Left */}
@@ -209,16 +199,15 @@ const Hero = () => {
             decision-making.
           </motion.p>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-lg text-muted-foreground max-w-xl leading-relaxed"
-              >
-               Omni Suite AI helps businesses leverage Artificial Intelligence to increase revenue, reduce operational costs, and unlock smarter decision-making.
-               <br></br>
-               From AI chatbots to custom automation systems, we build intelligent solutions tailored to your business goals.
-              </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-10 max-w-lg text-lg leading-relaxed text-muted-foreground"
+          >
+            From AI chatbots to custom automation systems, we build intelligent
+            solutions tailored to your business goals.
+          </motion.p>
 
           {/* Logos Area */}
           <motion.div
@@ -383,7 +372,8 @@ const Hero = () => {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                style={{ backgroundColor: "#08708F" }}
               >
                 {status === "loading" ? (
                   <>
@@ -401,7 +391,7 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-    </>
+    </section>
   );
 };
 
