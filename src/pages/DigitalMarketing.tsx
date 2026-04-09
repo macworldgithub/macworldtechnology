@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import Contact from "@/components/Contact";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import MarketingTestimonials from "@/components/MarketingTestimonials";
@@ -13,6 +12,7 @@ import MarketingFAQ from "@/components/MarketingFAQ";
 import MarketingTrust from "@/components/MarketingTrust";
 import MarketingNavbar from "@/components/MarketingNavbar";
 import LogoSlider from "@/components/LogoSlider";
+import MarketingContact from "@/components/MarketingContact";
 
 const DigitalMarketing = () => {
   const { pathname } = useLocation();
@@ -26,14 +26,14 @@ const DigitalMarketing = () => {
       <MarketingNavbar />
       <MarketingHero />
       <MarketingTestimonials />
-      <LogoSlider/>
+      <LogoSlider />
       <MarketingService />
       <MarketingTrust />
       <MarketingProcess />
       <MarketingBenefits />
       <About type="marketing" />
       <MarketingFAQ />
-      <Contact />
+      <MarketingContact />
       <Footer />
     </div>
   );
