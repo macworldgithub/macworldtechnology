@@ -4,6 +4,7 @@ import { Send, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useDetectedCountry } from "@/hooks/useDetectedCountry";
 
 interface MarketingQuoteModalProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ const SERVICES = ["Meta Advertising", "Google Ads", "SEO"];
 
 export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
   const navigate = useNavigate();
+  const detectedCountry = useDetectedCountry();
 
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -178,7 +180,7 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
                 </label>
 
                 <PhoneInput
-                  country={"au"}
+                  country={detectedCountry}
                   value={formData.phone}
                   onChange={(phone) =>
                     setFormData((prev) => ({ ...prev, phone }))

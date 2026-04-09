@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useDetectedCountry } from "@/hooks/useDetectedCountry";
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
@@ -60,6 +61,7 @@ const Hero = () => {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [submitMessage, setSubmitMessage] = useState("");
+  const detectedCountry = useDetectedCountry();
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -338,7 +340,8 @@ const Hero = () => {
                     PHONE *
                   </label>
                   <PhoneInput
-                    country={"au"}
+                    key={detectedCountry}
+                    country={detectedCountry}
                     value={formData.phone}
                     onChange={(phone) =>
                       setFormData((prev) => ({ ...prev, phone }))

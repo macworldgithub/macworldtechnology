@@ -4,11 +4,13 @@ import { Send, Loader2, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useDetectedCountry } from "@/hooks/useDetectedCountry";
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com";
 
 const MarketingHero = () => {
   const navigate = useNavigate();
+  const detectedCountry = useDetectedCountry();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -284,7 +286,8 @@ const MarketingHero = () => {
                       </label>
 
                       <PhoneInput
-                        country={"au"}
+                        key={detectedCountry}
+                        country={detectedCountry}
                         value={formData.phone}
                         onChange={(phone) =>
                           setFormData((prev) => ({ ...prev, phone }))

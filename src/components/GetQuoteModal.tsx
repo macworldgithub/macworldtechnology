@@ -4,6 +4,7 @@ import { Send, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useDetectedCountry } from "@/hooks/useDetectedCountry";
 interface GetQuoteModalProps {
   children: ReactNode;
 }
@@ -47,6 +48,7 @@ const SERVICES_MAP: Record<string, string[]> = {
 const MAIN_SERVICES = Object.keys(SERVICES_MAP);
 export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
   const navigate = useNavigate();
+  const detectedCountry = useDetectedCountry();
 
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -237,7 +239,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
                 </label>
 
                 <PhoneInput
-                  country={"au"}
+                  country={detectedCountry}
                   value={formData.phone}
                   onChange={(phone) =>
                     setFormData((prev) => ({ ...prev, phone }))
