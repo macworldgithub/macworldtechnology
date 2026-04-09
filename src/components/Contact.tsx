@@ -390,15 +390,19 @@ const Contact = () => {
     email: "",
     company: "",
     phone: "",
-    service: "", 
+    service: "",
     message: "",
   });
 
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [message, setMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -422,7 +426,7 @@ const Contact = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData), 
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
@@ -457,10 +461,12 @@ const Contact = () => {
           Get in Touch
         </p>
         <h2>
-          Let's Build <span className="gradient-text">Something Exceptional</span>
+          Let's Build{" "}
+          <span className="gradient-text">Something Exceptional</span>
         </h2>
         <p className="mb-12 max-w-2xl text-muted-foreground">
-          Ready to transform your digital presence? Schedule a free consultation with our team.
+          Ready to transform your digital presence? Schedule a free consultation
+          with our team.
         </p>
 
         <div className="grid gap-8 lg:grid-cols-5">
@@ -470,8 +476,12 @@ const Contact = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 text-primary" />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Office</p>
-                  <p className="text-sm text-muted-foreground">10 Merna Drv, Templestowe VIC 3106, Australia</p>
+                  <p className="text-sm font-semibold text-foreground">
+                    Office
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    10 Merna Drv, Templestowe VIC 3106, Australia
+                  </p>
                 </div>
               </div>
             </div>
@@ -481,7 +491,9 @@ const Contact = () => {
                 <Phone className="mt-0.5 h-5 w-5 text-primary" />
                 <div>
                   <p className="text-sm font-semibold text-foreground">Phone</p>
-                  <p className="text-sm text-muted-foreground">+61 435 386 534</p>
+                  <p className="text-sm text-muted-foreground">
+                    +61 435 386 534
+                  </p>
                 </div>
               </div>
             </div>
@@ -491,7 +503,9 @@ const Contact = () => {
                 <Mail className="mt-0.5 h-5 w-5 text-primary" />
                 <div>
                   <p className="text-sm font-semibold text-foreground">Email</p>
-                  <p className="text-sm text-muted-foreground">info@omnisuiteai.com</p>
+                  <p className="text-sm text-muted-foreground">
+                    info@omnisuiteai.com
+                  </p>
                 </div>
               </div>
             </div>
@@ -516,16 +530,22 @@ const Contact = () => {
                 required
                 className="w-full rounded-lg border border-border bg-secondary/100 px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none appearance-none"
               >
-                <option value="" disabled hidden>Choose an AI solution</option>
+                <option value="" disabled hidden>
+                  Choose an AI solution
+                </option>
                 {SERVICES.map((srv) => (
-                  <option key={srv} value={srv}>{srv}</option>
+                  <option key={srv} value={srv}>
+                    {srv}
+                  </option>
                 ))}
               </select>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
               <div>
-                <label className="mb-1 block text-xs font-medium text-muted-foreground">Name *</label>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Name *
+                </label>
                 <input
                   name="name"
                   value={formData.name}
@@ -535,7 +555,9 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs font-medium text-muted-foreground">Email *</label>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Email *
+                </label>
                 <input
                   name="email"
                   type="email"
@@ -549,7 +571,9 @@ const Contact = () => {
 
             <div className="grid gap-4 md:grid-cols-2">
               <div>
-                <label className="mb-1 block text-xs font-medium text-muted-foreground">Company (optional)</label>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Company (optional)
+                </label>
                 <input
                   name="company"
                   value={formData.company}
@@ -558,11 +582,15 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs font-medium text-muted-foreground">Phone *</label>
+                <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                  Phone *
+                </label>
                 <PhoneInput
                   country={"au"}
                   value={formData.phone}
-                  onChange={(phone) => setFormData((prev) => ({ ...prev, phone }))}
+                  onChange={(phone) =>
+                    setFormData((prev) => ({ ...prev, phone }))
+                  }
                   inputClass="!w-full !h-[42px] !bg-secondary/50 !text-sm !text-foreground !border !border-border !rounded-lg"
                   buttonClass="!border-border"
                   dropdownClass="!bg-background !text-foreground"
@@ -571,7 +599,9 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="mb-1 block text-xs font-medium text-muted-foreground">Message</label>
+              <label className="mb-1 block text-xs font-medium text-muted-foreground">
+                Additional Notes
+              </label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -601,9 +631,13 @@ const Contact = () => {
               style={{ backgroundColor: "#08708F" }}
             >
               {status === "loading" ? (
-                <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" /> Sending...
+                </>
               ) : (
-                <><Send className="h-4 w-4" /> Send Message</>
+                <>
+                  <Send className="h-4 w-4" /> Send Message
+                </>
               )}
             </button>
           </motion.form>

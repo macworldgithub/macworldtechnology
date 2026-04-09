@@ -211,7 +211,9 @@ const MarketingHero = () => {
                       onChange={handleChange}
                       required
                       className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
-                        !formData.service ? "text-muted-foreground" : "text-white"
+                        !formData.service
+                          ? "text-muted-foreground"
+                          : "text-white"
                       }`}
                     >
                       <option
@@ -298,7 +300,7 @@ const MarketingHero = () => {
                   {/* Message */}
                   <div>
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                      Message
+                      Additional Notes
                     </label>
                     <textarea
                       name="message"

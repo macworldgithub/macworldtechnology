@@ -312,7 +312,7 @@ const AgenticContact = () => {
 
             <div>
               <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Message
+                Additional Notes
               </label>
               <textarea
                 name="message"

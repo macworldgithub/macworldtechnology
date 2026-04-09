@@ -213,7 +213,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
             {/* Message */}
             <div>
               <label className="text-xs font-semibold text-muted-foreground uppercase tracking-widest px-1">
-                Message
+                Additional Notes
               </label>
               <textarea
                 name="message"

@@ -146,7 +146,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Main Service *
+                  MAIN SERVICE *
                 </label>
                 <select
                   name="mainService"
@@ -168,7 +168,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
               </div>
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Sub Service *
+                  SUB SERVICE *
                 </label>
                 <select
                   name="subService"
@@ -194,7 +194,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Name *
+                  NAME *
                 </label>
                 <input
                   name="name"
@@ -206,7 +206,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
               </div>
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Email *
+                  EMAIL *
                 </label>
                 <input
                   name="email"
@@ -222,7 +222,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Company (optional)
+                  COMPANY (optional)
                 </label>
                 <input
                   name="company"
@@ -233,7 +233,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
               </div>
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Phone *
+                  PHONE *
                 </label>
 
                 <PhoneInput
@@ -251,7 +251,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
 
             <div>
               <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                Message
+                ADDITIONAL NOTES
               </label>
               <textarea
                 name="message"

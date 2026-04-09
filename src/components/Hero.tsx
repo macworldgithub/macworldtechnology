@@ -250,7 +250,7 @@ const Hero = () => {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                    Main Service *
+                    MAIN SERVICE *
                   </label>
                   <select
                     name="mainService"
@@ -271,7 +271,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                    Sub Service *
+                    SUB SERVICE *
                   </label>
                   <select
                     name="subService"
@@ -296,7 +296,7 @@ const Hero = () => {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                    Name *
+                  NAME *
                   </label>
                   <input
                     name="name"
@@ -308,7 +308,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                    Email *
+                    EMAIL *
                   </label>
                   <input
                     name="email"
@@ -324,7 +324,7 @@ const Hero = () => {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                    Company (optional)
+                    COMPANY (optional)
                   </label>
                   <input
                     name="company"
@@ -335,7 +335,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                    Phone *
+                    PHONE *
                   </label>
                   <PhoneInput
                     country={"au"}
@@ -352,7 +352,7 @@ const Hero = () => {
 
               <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  Message
+                  ADDITIONAL NOTES
                 </label>
                 <textarea
                   name="message"
