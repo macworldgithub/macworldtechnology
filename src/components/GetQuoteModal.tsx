@@ -1,5 +1,7 @@
 import { useState, ReactNode } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { TURNSTILE_SITE_KEY } from "../lib/constants";
 import { Send, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
@@ -51,6 +53,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
   const detectedCountry = useDetectedCountry();
 
   const [open, setOpen] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -91,6 +94,12 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
       return;
     }
 
+    if (!captchaToken) {
+      setStatus("error");
+      setMessage("Please complete the captcha.");
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -103,6 +112,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
         phone: formData.phone,
         service: formattedService,
         message: formData.message,
+        token: captchaToken,
       };
 
       const response = await fetch(`${BACKEND_URL}/contact`, {
@@ -116,6 +126,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
       const data = await response.json();
 
       if (response.ok) {
+        setCaptchaToken(null);
         navigate("/thank-you");
       } else {
         setStatus("error");
@@ -266,6 +277,15 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
               />
             </div>
 
+            <div className="flex justify-center py-2">
+              <Turnstile
+                siteKey={TURNSTILE_SITE_KEY}
+                onSuccess={(token) => setCaptchaToken(token)}
+                onExpire={() => setCaptchaToken(null)}
+                onError={() => setCaptchaToken(null)}
+              />
+            </div>
+
             {/* Status Messages */}
             {status === "success" && (
               <div className="rounded-lg bg-green-950/40 border border-green-800/50 p-4 text-sm text-green-300">
@@ -281,7 +301,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
 
             <button
               type="submit"
-              disabled={status === "loading"}
+              disabled={status === "loading" || !captchaToken}
               className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status === "loading" ? (

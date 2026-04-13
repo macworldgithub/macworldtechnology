@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDetectedCountry } from "@/hooks/useDetectedCountry";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { TURNSTILE_SITE_KEY } from "../lib/constants";
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
@@ -61,6 +63,7 @@ const Hero = () => {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [submitMessage, setSubmitMessage] = useState("");
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const detectedCountry = useDetectedCountry();
 
   const handleChange = (
@@ -87,6 +90,12 @@ const Hero = () => {
       return;
     }
 
+    if (!captchaToken) {
+      setStatus("error");
+      setSubmitMessage("Please complete the captcha.");
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -106,12 +115,13 @@ const Hero = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, captchaToken }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
+        setCaptchaToken(null);
         navigate("/thank-you");
       } else {
         setStatus("error");
@@ -367,6 +377,15 @@ const Hero = () => {
                 />
               </div>
 
+              <div className="flex justify-center py-2">
+                <Turnstile
+                  siteKey={TURNSTILE_SITE_KEY}
+                  onSuccess={(token) => setCaptchaToken(token)}
+                  onExpire={() => setCaptchaToken(null)}
+                  onError={() => setCaptchaToken(null)}
+                />
+              </div>
+
               {/* Status Messages */}
               {status === "success" && (
                 <div className="rounded-lg bg-green-950/40 border border-green-800/50 p-4 text-sm text-green-300">
@@ -381,7 +400,7 @@ const Hero = () => {
 
               <button
                 type="submit"
-                disabled={status === "loading"}
+                disabled={status === "loading" || !captchaToken}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{ backgroundColor: "#08708F" }}
               >

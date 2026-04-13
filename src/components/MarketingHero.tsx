@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { TURNSTILE_SITE_KEY } from "../lib/constants";
 import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +13,7 @@ const BACKEND_URL = "https://www.test.omnisuiteai.com";
 const MarketingHero = () => {
   const navigate = useNavigate();
   const detectedCountry = useDetectedCountry();
+  const [captchaToken, setCaptchaToken] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -64,13 +67,14 @@ const MarketingHero = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, captchaToken }),
       });
 
       const result = await response.json();
 
       if (response.ok) {
         setStatus("success");
+        setCaptchaToken(null);
         navigate("/thank-you");
         setStatusMessage(
           result.message || "Thank you! Our team will contact you soon.",
@@ -314,6 +318,15 @@ const MarketingHero = () => {
                     />
                   </div>
 
+                  <div className="flex justify-center py-2">
+                    <Turnstile
+                      siteKey={TURNSTILE_SITE_KEY}
+                      onSuccess={(token) => setCaptchaToken(token)}
+                      onExpire={() => setCaptchaToken(null)}
+                      onError={() => setCaptchaToken(null)}
+                    />
+                  </div>
+
                   {/* Status Messages */}
                   {status === "success" && (
                     <div className="rounded-lg bg-green-950/40 border border-green-800/50 p-4 text-sm text-green-300">
@@ -330,7 +343,7 @@ const MarketingHero = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={status === "loading"}
+                    disabled={status === "loading" || !captchaToken}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? (

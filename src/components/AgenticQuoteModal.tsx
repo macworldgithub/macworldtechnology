@@ -1,5 +1,7 @@
 import { useState, ReactNode } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { TURNSTILE_SITE_KEY } from "../lib/constants";
 import { Send, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
@@ -35,6 +37,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
   const detectedCountry = useDetectedCountry();
 
   const [open, setOpen] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -70,7 +73,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
     setStatus("loading");
 
     try {
-      const payload = { ...formData }; // same structure as GetQuoteModal
+      const payload = { ...formData, captchaToken }; // same structure as GetQuoteModal
       const response = await fetch(`${BACKEND_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,6 +84,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
 
       if (response.ok) {
         setStatus("success");
+        setCaptchaToken(null);
         navigate("/thank-you");
         setFormData({
           name: "",
@@ -227,6 +231,15 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
               />
             </div>
 
+            <div className="flex justify-center py-2">
+              <Turnstile
+                siteKey={TURNSTILE_SITE_KEY}
+                onSuccess={(token) => setCaptchaToken(token)}
+                onExpire={() => setCaptchaToken(null)}
+                onError={() => setCaptchaToken(null)}
+              />
+            </div>
+
             {/* Status Messages */}
             {status === "success" && (
               <div className="rounded-lg bg-green-950/40 border border-green-800/50 p-4 text-sm text-green-300">
@@ -242,7 +255,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={status === "loading"}
+              disabled={status === "loading" || !captchaToken}
               className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status === "loading" ? (
