@@ -576,6 +576,7 @@ const MarketingContact = () => {
                   Phone *
                 </label>
                 <PhoneInput
+                  key={detectedCountry}
                   country={detectedCountry}
                   value={formData.phone}
                   onChange={(phone) =>

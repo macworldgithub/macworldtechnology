@@ -239,6 +239,7 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
                 </label>
 
                 <PhoneInput
+                  key={detectedCountry}
                   country={detectedCountry}
                   value={formData.phone}
                   onChange={(phone) =>

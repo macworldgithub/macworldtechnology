@@ -14,7 +14,7 @@ const AgenticHero = () => {
     name: "",
     email: "",
     company: "",
-    phone: "61",
+    phone: "",
     service: "",
     message: "",
   });

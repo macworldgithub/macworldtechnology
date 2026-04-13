@@ -588,6 +588,7 @@ const Contact = () => {
                   Phone *
                 </label>
                 <PhoneInput
+                  key={detectedCountry}
                   country={detectedCountry}
                   value={formData.phone}
                   onChange={(phone) =>

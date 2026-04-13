@@ -39,7 +39,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
     name: "",
     email: "",
     company: "",
-    phone: "61",
+    phone: "",
     service: "",
     message: "",
   });

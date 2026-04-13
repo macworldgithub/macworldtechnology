@@ -23,7 +23,7 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
     name: "",
     email: "",
     company: "",
-    phone: "61",
+    phone: "",
     service: "",
     message: "",
   });
@@ -180,6 +180,7 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
                 </label>
 
                 <PhoneInput
+                  key={detectedCountry}
                   country={detectedCountry}
                   value={formData.phone}
                   onChange={(phone) =>
