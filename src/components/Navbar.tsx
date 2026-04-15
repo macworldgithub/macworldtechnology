@@ -40,6 +40,8 @@ const Navbar = () => {
               href={
                 link === "Agentic AI"
                   ? "/lp/agentic-ai"
+                  : link === "Services"
+                  ? "#ai-services"
                   : `#${link.toLowerCase().replace(/\s/g, "-")}`
               }
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -78,6 +80,8 @@ const Navbar = () => {
               href={
                 link === "Agentic AI"
                   ? "/lp/agentic-ai"
+                  : link === "Services"
+                  ? "#ai-services"
                   : `#${link.toLowerCase().replace(/\s/g, "-")}`
               }
               onClick={() => setOpen(false)}
