@@ -34,7 +34,9 @@ const SERVICES = [
 ];
 export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
   const navigate = useNavigate();
-  const detectedCountry = useDetectedCountry();
+  // const detectedCountry = useDetectedCountry();
+  const allowedCountries = ["us", "au"];
+  const [selectedCountry, setSelectedCountry] = useState("au");
 
   const [open, setOpen] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -129,11 +131,10 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
                 value={formData.service}
                 onChange={handleChange}
                 required
-                className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
-                  !formData.service
-                    ? "text-muted-foreground"
-                    : "text-foreground"
-                }`}
+                className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service
+                  ? "text-muted-foreground"
+                  : "text-foreground"
+                  }`}
               >
                 <option
                   value=""
@@ -202,13 +203,29 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
                   Phone *
                 </label>
 
-                <PhoneInput
+                {/* <PhoneInput
                   key={detectedCountry}
                   country={detectedCountry}
                   value={formData.phone}
                   onChange={(phone) =>
                     setFormData((prev) => ({ ...prev, phone }))
                   }
+                  inputClass="!w-full !h-auto !py-2.5 !bg-secondary/50 !border-border !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!outline-none !transition-all"
+                  buttonClass="!bg-transparent !border-border !rounded-l-lg hover:!bg-white/5"
+                  dropdownClass="!bg-background !text-foreground !border-border"
+                  containerClass="!w-full"
+                /> */}
+                <PhoneInput
+                  country={selectedCountry}
+                  onlyCountries={allowedCountries}
+                  value={formData.phone}
+                  onChange={(phone, countryData: any) => {
+                    setFormData((prev) => ({ ...prev, phone }));
+
+                    if (countryData && countryData.countryCode) {
+                      setSelectedCountry(countryData.countryCode);
+                    }
+                  }}
                   inputClass="!w-full !h-auto !py-2.5 !bg-secondary/50 !border-border !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!outline-none !transition-all"
                   buttonClass="!bg-transparent !border-border !rounded-l-lg hover:!bg-white/5"
                   dropdownClass="!bg-background !text-foreground !border-border"

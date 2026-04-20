@@ -130,7 +130,9 @@ const SERVICES = [
 
 const Contact = () => {
   const navigate = useNavigate();
-  const detectedCountry = useDetectedCountry();
+  // const detectedCountry = useDetectedCountry();
+  const allowedCountries = ["us", "au"];
+  const [selectedCountry, setSelectedCountry] = useState("au");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -339,7 +341,7 @@ const Contact = () => {
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
                   Phone *
                 </label>
-                <PhoneInput
+                {/* <PhoneInput
                   key={detectedCountry}
                   country={detectedCountry}
                   value={formData.phone}
@@ -349,6 +351,22 @@ const Contact = () => {
                   inputClass="!w-full !h-[42px] !bg-secondary/50 !text-sm !text-foreground !border !border-border !rounded-lg"
                   buttonClass="!border-border"
                   dropdownClass="!bg-background !text-foreground"
+                /> */}
+                <PhoneInput
+                  country={selectedCountry}
+                  onlyCountries={allowedCountries}
+                  value={formData.phone}
+                  onChange={(phone, countryData: any) => {
+                    setFormData((prev) => ({ ...prev, phone }));
+
+                    if (countryData && countryData.countryCode) {
+                      setSelectedCountry(countryData.countryCode);
+                    }
+                  }}
+                  inputClass="!w-full !h-auto !py-2.5 !bg-secondary/50 !border-border !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!outline-none !transition-all"
+                  buttonClass="!bg-transparent !border-border !rounded-l-lg hover:!bg-white/5"
+                  dropdownClass="!bg-background !text-foreground !border-border"
+                  containerClass="!w-full"
                 />
               </div>
             </div>
