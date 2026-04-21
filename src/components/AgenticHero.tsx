@@ -13,8 +13,8 @@ const AgenticHero = () => {
   const navigate = useNavigate();
   // const detectedCountry = useDetectedCountry();
   const allowedCountries = ["us", "au"];
-  const [selectedCountry, setSelectedCountry] = useState("au");
-  // const [selectedCountry, setSelectedCountry] = useState("us");
+  // const [selectedCountry, setSelectedCountry] = useState("au");
+  const [selectedCountry, setSelectedCountry] = useState("us");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
