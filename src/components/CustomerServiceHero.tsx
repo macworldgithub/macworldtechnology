@@ -41,20 +41,12 @@ const CustomerServiceHero = () => {
   ];
 
   const SERVICES = [
-    "AI Sales Agent",
     "AI Customer Service Agent",
-    "AI Voice Agent",
     "AI Chatbot Agent",
-    "AI Workflow Automation Agent",
     "AI Call Center Automation",
-    "AI Marketing Agent",
-    "AI Real Estate Agent",
+    "AI Voice Agent",
+    "AI Sales Agent",
     "AI E-commerce Agent",
-    "AI Finance & Insurance Agent",
-    "AI Agent Architecture",
-    "AI Security & Integration",
-    "Internal Operations Agents",
-    "Multi-Agent AI Systems",
     "Custom AI Agent",
   ];
 
@@ -198,7 +190,8 @@ const CustomerServiceHero = () => {
               </motion.div>
 
               <div className="space-y-4">
-                <motion.h2 className="max-sm:text-2xl"
+                <motion.h2
+                  className="max-sm:text-2xl"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
@@ -265,10 +258,11 @@ const CustomerServiceHero = () => {
                       value={formData.service}
                       onChange={handleChange}
                       required
-                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service
-                        ? "text-muted-foreground"
-                        : "text-white"
-                        }`}
+                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
+                        !formData.service
+                          ? "text-muted-foreground"
+                          : "text-white"
+                      }`}
                     >
                       <option
                         value=""
