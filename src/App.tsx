@@ -8,6 +8,7 @@ import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import AgenticAI from "./pages/AgenticAI";
 import DigitalMarketing from "./pages/DigitalMarketing";
+import AICustomerService from "./pages/AICustomerService";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,10 @@ const App = () => (
           <Route
             path="/lp/digital-marketing-services"
             element={<DigitalMarketing />}
+          />
+          <Route
+            path="/lp/ai-customer-service"
+            element={<AICustomerService />}
           />
         </Routes>
       </BrowserRouter>
