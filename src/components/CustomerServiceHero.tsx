@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDetectedCountry } from "@/hooks/useDetectedCountry";
@@ -49,6 +49,19 @@ const CustomerServiceHero = () => {
     "AI E-commerce Agent",
     "Custom AI Agent",
   ];
+
+  const AI_CUSTOMER_SERVICES = [
+    "AI Customer Service Agent",
+    "AI Chatbot Agent",
+    "AI Call Center Automation",
+    "AI Voice Agent",
+    "AI Sales Agent",
+    "AI E-commerce Agent",
+    "Custom AI Agent",
+  ];
+
+  const { pathname } = useLocation();
+  const activeServices = pathname === "/lp/ai-customer-service" ? AI_CUSTOMER_SERVICES : SERVICES;
 
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -272,7 +285,7 @@ const CustomerServiceHero = () => {
                       >
                         Select a Service
                       </option>
-                      {SERVICES.map((srv) => (
+                      {activeServices.map((srv) => (
                         <option
                           key={srv}
                           value={srv}

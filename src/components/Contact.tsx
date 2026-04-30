@@ -101,7 +101,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDetectedCountry } from "@/hooks/useDetectedCountry";
@@ -128,8 +128,20 @@ const SERVICES = [
   "Custom AI Agent",
 ];
 
+const AI_CUSTOMER_SERVICES = [
+  "AI Customer Service Agent",
+  "AI Chatbot Agent",
+  "AI Call Center Automation",
+  "AI Voice Agent",
+  "AI Sales Agent",
+  "AI E-commerce Agent",
+  "Custom AI Agent",
+];
+
 const Contact = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const activeServices = pathname === "/lp/ai-customer-service" ? AI_CUSTOMER_SERVICES : SERVICES;
   // const detectedCountry = useDetectedCountry();
   const allowedCountries = ["us", "au"];
   const [selectedCountry, setSelectedCountry] = useState("us");
@@ -289,7 +301,7 @@ const Contact = () => {
                 <option value="" disabled hidden>
                   Choose an AI solution
                 </option>
-                {SERVICES.map((srv) => (
+                {activeServices.map((srv) => (
                   <option key={srv} value={srv}>
                     {srv}
                   </option>
