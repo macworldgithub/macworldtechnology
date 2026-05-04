@@ -64,7 +64,7 @@ const CustomerServiceFAQ = () => {
 
   return (
     <section id="customer-service-faqs" className="bg-black py-16 text-white">
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

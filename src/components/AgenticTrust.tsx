@@ -24,7 +24,7 @@ const awards = [
 const AgenticTrust = () => {
   return (
     <section id="trust" className="py-14">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <p className="section-label mb-4 flex items-center gap-2">
           <span className="inline-block h-2 w-2 rounded-full bg-primary" />
           Why OmniSuite AI

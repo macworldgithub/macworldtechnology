@@ -37,7 +37,7 @@ const benefits = [
 const AgenticBenefits = () => {
   return (
     <section className="bg-black py-16 text-white">
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Header */}
         <div className="mb-14 text-center">
           <p className="section-label mb-3 flex items-center justify-center gap-2">

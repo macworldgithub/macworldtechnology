@@ -24,7 +24,7 @@ const About = ({ type }: AboutProps) => {
       {/* Background glow */}
       <div className="pointer-events-none absolute -left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[100px]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid items-center gap-10 md:grid-cols-2">
           {/* LEFT SIDE - TEXT */}
           <motion.div

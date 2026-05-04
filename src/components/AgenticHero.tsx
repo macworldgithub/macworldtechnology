@@ -130,7 +130,7 @@ const AgenticHero = () => {
   return (
     <>
       <section className="relative bg-black pt-32 pb-24 overflow-hidden border-b border-white/5">
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             {/* Left Content */}
             <div className="lg:w-3/5 space-y-8">
@@ -167,25 +167,25 @@ const AgenticHero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap items-center gap-x-6 gap-y-2 py-2 px-6 glass-card w-fit border-primary/20"
+                className="flex flex-wrap items-center gap-x-3 sm:gap-x-6 gap-y-2 py-2 px-4 sm:px-6 glass-card w-fit max-w-full border-primary/20"
               >
                 <div className="flex items-center gap-2">
                   <span className="text-primary font-bold">140+</span>
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground font-mono">
+                  <span className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground font-mono">
                     Clients Worldwide
                   </span>
                 </div>
-                <div className="h-4 w-[1px] bg-white/10 hidden md:block" />
+                <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
                 <div className="flex items-center gap-2">
                   <span className="text-primary font-bold">10+</span>
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground font-mono">
+                  <span className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground font-mono">
                     Years of Experience
                   </span>
                 </div>
-                <div className="h-4 w-[1px] bg-white/10 hidden md:block" />
+                <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
                 <div className="flex items-center gap-2">
                   <span className="text-primary font-bold">4</span>
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground font-mono">
+                  <span className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground font-mono">
                     Global Offices
                   </span>
                 </div>
@@ -213,11 +213,11 @@ const AgenticHero = () => {
                 <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40">
                   Trusted By Industry Leaders
                 </p>
-                <div className="flex flex-wrap gap-10 opacity-90">
-                  <img src="/img.svg" className="h-18 w-auto opacity-90" />
-                  <img src="/img2.svg" className="h-18 w-auto opacity-90" />
-                  <img src="/img3.svg" className="h-18 w-auto opacity-90" />
-                  <img src="/img4.svg" className="h-18 w-auto opacity-90" />
+                <div className="flex flex-wrap gap-6 sm:gap-10 opacity-90">
+                  <img src="/img.svg" className="h-12 sm:h-18 w-auto opacity-90" />
+                  <img src="/img2.svg" className="h-12 sm:h-18 w-auto opacity-90" />
+                  <img src="/img3.svg" className="h-12 sm:h-18 w-auto opacity-90" />
+                  <img src="/img4.svg" className="h-12 sm:h-18 w-auto opacity-90" />
                 </div>
               </motion.div>
             </div>

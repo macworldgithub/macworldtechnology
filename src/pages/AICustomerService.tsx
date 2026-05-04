@@ -14,7 +14,7 @@ import CustomerServiceFAQ from "@/components/CustomerServiceFAQ";
 
 const AICustomerService = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <AICustomerNavbar />
       <CustomerServiceHero />
       <CustomerServiceTestimonials />

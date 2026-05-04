@@ -223,7 +223,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-14">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <p className="section-label mb-4 flex items-center gap-2">
           <span className="inline-block h-2 w-2 rounded-full bg-primary" />
           Get in Touch
@@ -284,7 +284,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card space-y-5 p-6 lg:col-span-3"
+            className="glass-card space-y-5 p-4 sm:p-6 lg:col-span-3"
             onSubmit={handleSubmit}
           >
             <div>

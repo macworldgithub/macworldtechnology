@@ -49,7 +49,7 @@ const AgenticProcess = () => {
 
   return (
     <section id="agentic-process" className="bg-black py-16 text-white">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header */}
         <div className="mb-12 text-left">
           <p className="section-label mb-3 flex items-center gap-2">
