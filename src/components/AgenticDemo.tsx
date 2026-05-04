@@ -9,9 +9,48 @@ const categories = [
   "Widget",
   "Dashboards",
   "AI Retail",
+  "Customer Service",
 ];
 
 const demos = [
+  {
+    cat: "Customer Service",
+    stat: "24/7",
+    statLabel: "Tradie Support",
+    name: "Bele.Ai",
+    tagline: "AI Call Answering for Tradies",
+    desc: "An AI-powered call answering service for tradies that picks up missed calls, qualifies callers, captures details, and sends an SMS to the business owner.",
+    tags: ["AI Voice Agent", "CLI Detection", "Call Qualification"],
+    url: "https://www.bele.ai/",
+  },
+  {
+    cat: "Customer Service",
+    stat: "360°",
+    statLabel: "Client Engagement",
+    name: "Geelong Real Estate Co",
+    tagline: "AI-Driven Real Estate Operations",
+    desc: "An AI-powered platform that transforms real estate operations, offering intelligent customer engagement and predictive market intelligence.",
+    tags: [
+      "AI Property Concierge",
+      "Predictive Market Intelligence",
+      "AI Marketing Engine",
+    ],
+    url: "https://www.geelongrealestateco.com.au/",
+  },
+  {
+    cat: "Customer Service",
+    stat: "24/7",
+    statLabel: "Sales Availability",
+    name: "AfterCareAI",
+    tagline: "AI-Powered Automotive Upselling",
+    desc: "Delivers consistent, high-performance upselling for automotive dealerships. Provides 24/7 availability and data-driven pitches.",
+    tags: [
+      "Sales Follow-Up Calls",
+      "Service Bookings",
+      "Parts Interpretation",
+    ],
+    url: "https://aftercareai.com.au/",
+  },
   {
     cat: "MVNO",
     stat: "100%",
@@ -95,8 +134,8 @@ const demos = [
 ];
 
 const demoStats = [
-  { value: "8", label: "Live Products" },
-  { value: "5", label: "Industries Served" },
+  { value: "11", label: "Live Products" },
+  { value: "6", label: "Industries Served" },
   { value: "99.9%", label: "Uptime SLA" },
   { value: "24/7", label: "AI-Powered Support" },
 ];
@@ -108,7 +147,7 @@ const AgenticDemos = () => {
 
   return (
     <section id="demos" className="py-14">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <p className="section-label mb-4 flex items-center gap-2">
           <span className="inline-block h-2 w-2 rounded-full bg-primary" />
           Live Demos
