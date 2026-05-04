@@ -94,18 +94,6 @@ const services = [
     ],
     result: "Increase Sales with AI-Powered Shopping Assistance",
   },
-  {
-    id: "customaiagent",
-    icon: Settings,
-    title: "Custom AI Agent",
-    features: [
-      "Develops fully custom AI agents for specific tasks",
-      "Integrates seamlessly with your existing infrastructure",
-      "Offers flexibility for evolving business needs",
-      "Built to improve performance and reduce manual work",
-    ],
-    result: "Tailored AI Solutions for Your Unique Business Needs",
-  },
 ];
 
 const containerVariants = {

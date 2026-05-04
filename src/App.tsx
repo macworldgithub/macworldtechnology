@@ -28,7 +28,7 @@ const App = () => (
             element={<DigitalMarketing />}
           />
           <Route
-            path="/lp/ai-customer-service"
+            path="/lp/ai-customer-service-agent"
             element={<AICustomerService />}
           />
         </Routes>

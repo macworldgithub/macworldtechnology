@@ -14,7 +14,7 @@ const CustomerServiceHero = () => {
   // const detectedCountry = useDetectedCountry();
   const allowedCountries = ["us", "au"];
   // const [selectedCountry, setSelectedCountry] = useState("au");
-  const [selectedCountry, setSelectedCountry] = useState("us");
+  const [selectedCountry, setSelectedCountry] = useState("au");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,7 +61,8 @@ const CustomerServiceHero = () => {
   ];
 
   const { pathname } = useLocation();
-  const activeServices = pathname === "/lp/ai-customer-service" ? AI_CUSTOMER_SERVICES : SERVICES;
+  const activeServices =
+    pathname === "/lp/ai-customer-service" ? AI_CUSTOMER_SERVICES : SERVICES;
 
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
