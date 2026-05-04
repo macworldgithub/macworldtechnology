@@ -44,10 +44,10 @@ const AI_CUSTOMER_SERVICES = [
 export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const activeServices = pathname === "/lp/ai-customer-service" ? AI_CUSTOMER_SERVICES : SERVICES;
+  const activeServices = pathname === "/lp/ai-customer-service-agent" ? AI_CUSTOMER_SERVICES : SERVICES;
   // const detectedCountry = useDetectedCountry();
   const allowedCountries = ["us", "au"];
-  const [selectedCountry, setSelectedCountry] = useState("us");
+  const [selectedCountry, setSelectedCountry] = useState(pathname === "/lp/ai-customer-service-agent" ? "au" : "us");
 
   const [open, setOpen] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);

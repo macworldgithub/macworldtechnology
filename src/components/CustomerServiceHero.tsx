@@ -155,13 +155,13 @@ const CustomerServiceHero = () => {
 
               <div className="space-y-4">
                 <motion.h1
-                  className="md:text-5xl text-xl sm:text-3xl"
+                  className="md:text-4xl text-xl sm:text-3xl"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
                   AI Customer Service Agents <br />
-                  <span className="gradient-text md:text-5xl sm:text-3xl text-xl">
+                  <span className="gradient-text md:text-4xl sm:text-3xl text-xl">
                     That Handle Support 24/7
                   </span>
                 </motion.h1>
@@ -205,12 +205,12 @@ const CustomerServiceHero = () => {
 
               <div className="space-y-4">
                 <motion.h2
-                  className="max-sm:text-2xl"
+                  className="text-xl md:text-3xl"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  Stop losing customers <br />
+                  Stop losing customers{" "}
                   <span className="gradient-text">to slow responses</span>
                 </motion.h2>
 
