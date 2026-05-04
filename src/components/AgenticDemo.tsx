@@ -140,10 +140,25 @@ const demoStats = [
   { value: "24/7", label: "AI-Powered Support" },
 ];
 
-const AgenticDemos = () => {
-  const [filter, setFilter] = useState("All Demos");
+interface AgenticDemosProps {
+  categoryOnly?: string;
+  excludeCategory?: string;
+  defaultCategory?: string;
+}
+
+const AgenticDemos = ({ categoryOnly, excludeCategory, defaultCategory }: AgenticDemosProps) => {
+  const [filter, setFilter] = useState(categoryOnly || defaultCategory || "All Demos");
+
+  const displayCategories = excludeCategory
+    ? categories.filter((c) => c !== excludeCategory)
+    : categories;
+
+  const availableDemos = excludeCategory
+    ? demos.filter((d) => d.cat !== excludeCategory)
+    : demos;
+
   const filtered =
-    filter === "All Demos" ? demos : demos.filter((d) => d.cat === filter);
+    filter === "All Demos" ? availableDemos : availableDemos.filter((d) => d.cat === filter);
 
   return (
     <section id="demos" className="py-14">
@@ -161,21 +176,23 @@ const AgenticDemos = () => {
         </p>
 
         {/* Filter tabs */}
-        <div className="mb-10 flex flex-wrap gap-2">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setFilter(c)}
-              className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all ${
-                filter === c
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+        {!categoryOnly && (
+          <div className="mb-10 flex flex-wrap gap-2">
+            {displayCategories.map((c) => (
+              <button
+                key={c}
+                onClick={() => setFilter(c)}
+                className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all ${
+                  filter === c
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        )}
 
         <AnimatePresence mode="wait">
           <motion.div

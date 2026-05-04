@@ -20,7 +20,7 @@ const AICustomerService = () => {
       <CustomerServiceTestimonials />
       <LogoSlider />
       <CustomerAIService />
-      <AgenticDemos />
+      <AgenticDemos defaultCategory="Customer Service" />
       <AgenticTrust />
       <AgenticProcess />
       <AgenticBenefits />
