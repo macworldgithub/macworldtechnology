@@ -31,6 +31,9 @@ const App = () => (
             path="/lp/ai-customer-service-agent"
             element={<AICustomerService />}
           />
+          <Route path="/agentic-ai" element={<AgenticAI />} />
+          <Route path="/digital-marketing-services" element={<DigitalMarketing />} />
+          <Route path="/ai-customer-service-agent" element={<AICustomerService />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
