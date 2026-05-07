@@ -9,6 +9,9 @@ import NotFound from "./pages/NotFound";
 import AgenticAI from "./pages/AgenticAI";
 import DigitalMarketing from "./pages/DigitalMarketing";
 import AICustomerService from "./pages/AICustomerService";
+import Agentic from "./pages/Agentic";
+import Marketing from "./pages/Marketing";
+import CustomerService from "./pages/CustomerService";
 
 const queryClient = new QueryClient();
 
@@ -31,9 +34,10 @@ const App = () => (
             path="/lp/ai-customer-service-agent"
             element={<AICustomerService />}
           />
-          <Route path="/agentic-ai" element={<AgenticAI />} />
-          <Route path="/digital-marketing-services" element={<DigitalMarketing />} />
-          <Route path="/ai-customer-service-agent" element={<AICustomerService />} />
+          <Route path="/agentic-ai" element={<Agentic />} />
+          <Route path="/digital-marketing-services" element={<Marketing />} />
+          <Route path="/ai-customer-service-agent" element={<CustomerService />} />
+
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
