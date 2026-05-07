@@ -52,7 +52,7 @@ const AgenticTrust = () => {
               <img
                 src={a.logo}
                 alt={a.name}
-                className="h-16 w-auto opacity-80"
+                className="h-20 w-auto opacity-80"
               />
               <div>
                 <h4 className="text-sm font-bold text-foreground">{a.name}</h4>

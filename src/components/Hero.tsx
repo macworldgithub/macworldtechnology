@@ -239,10 +239,10 @@ const Hero = () => {
               Trusted By Industry Leaders
             </p>
             <div className="flex flex-wrap items-center gap-6 sm:gap-10 opacity-90">
-              <img src="/img.svg" className="h-18 w-auto opacity-90" />
-              <img src="/img2.svg" className="h-18 w-auto opacity-90" />
-              <img src="/img3.svg" className="h-18 w-auto opacity-90" />
-              <img src="/img4.svg" className="h-18 w-auto opacity-90" />
+              <img src="/img.svg" className="h-16 sm:h-24 w-auto opacity-90" />
+              <img src="/img2.svg" className="h-16 sm:h-24 w-auto opacity-90" />
+              <img src="/img3.svg" className="h-16 sm:h-24 w-auto opacity-90" />
+              <img src="/img4.svg" className="h-16 sm:h-24 w-auto opacity-90" />
             </div>
           </motion.div>
         </div>
@@ -308,7 +308,7 @@ const Hero = () => {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1 block text-xs font-medium text-muted-foreground">
-                  NAME *
+                    NAME *
                   </label>
                   <input
                     name="name"

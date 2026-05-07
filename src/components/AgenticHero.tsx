@@ -214,10 +214,10 @@ const AgenticHero = () => {
                   Trusted By Industry Leaders
                 </p>
                 <div className="flex flex-wrap gap-6 sm:gap-10 opacity-90">
-                  <img src="/img.svg" className="h-12 sm:h-18 w-auto opacity-90" />
-                  <img src="/img2.svg" className="h-12 sm:h-18 w-auto opacity-90" />
-                  <img src="/img3.svg" className="h-12 sm:h-18 w-auto opacity-90" />
-                  <img src="/img4.svg" className="h-12 sm:h-18 w-auto opacity-90" />
+                  <img src="/img.svg" className="h-16 sm:h-24 w-auto opacity-90" />
+                  <img src="/img2.svg" className="h-16 sm:h-24 w-auto opacity-90" />
+                  <img src="/img3.svg" className="h-16 sm:h-24 w-auto opacity-90" />
+                  <img src="/img4.svg" className="h-16 sm:h-24 w-auto opacity-90" />
                 </div>
               </motion.div>
             </div>
