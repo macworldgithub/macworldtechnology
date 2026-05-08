@@ -11,12 +11,13 @@ import CustomerAIService from "@/components/CustomerAIService";
 import CustomerServiceFAQ from "@/components/CustomerServiceFAQ";
 import ContactForm from "@/components/ContactForm";
 import CustomNavbar from "@/components/CustomNavbar";
+import AICustomerHero from "@/components/AICustomerHero";
 
 const CustomerService = () => {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <CustomNavbar />
-      <CustomerServiceHero />
+      <AICustomerHero />
       <CustomerServiceTestimonials />
       <LogoSlider />
       <CustomerAIService />
