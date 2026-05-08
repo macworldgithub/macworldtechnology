@@ -365,6 +365,7 @@ import "react-phone-input-2/lib/style.css";
 import { useDetectedCountry } from "@/hooks/useDetectedCountry";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { TURNSTILE_SITE_KEY } from "../lib/constants";
+import { isValidPhoneNumber } from "libphonenumber-js";
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
@@ -404,7 +405,10 @@ const MarketingContact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.phone || formData.phone.length <= 4) {
+    // Phone validation for all countries
+    const phoneNumber = `+${formData.phone}`;
+
+    if (!formData.phone || !isValidPhoneNumber(phoneNumber)) {
       setStatus("error");
       setMessage("Please enter a valid phone number.");
       return;
@@ -592,6 +596,8 @@ const MarketingContact = () => {
                   onChange={(phone) =>
                     setFormData((prev) => ({ ...prev, phone }))
                   }
+                  enableSearch
+                  countryCodeEditable={false}
                   inputClass="!w-full !h-[42px] !bg-secondary/50 !text-sm !text-foreground !border !border-border !rounded-lg"
                   buttonClass="!border-border"
                   dropdownClass="!bg-background !text-foreground"
@@ -636,7 +642,12 @@ const MarketingContact = () => {
 
             <button
               type="submit"
-              disabled={status === "loading" || !captchaToken}
+              disabled={
+                status === "loading" ||
+                !captchaToken ||
+                !formData.phone ||
+                !isValidPhoneNumber(`+${formData.phone}`)
+              }
               className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg disabled:opacity-60"
               style={{ backgroundColor: "#08708F" }}
             >

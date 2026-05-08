@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useDetectedCountry } from "@/hooks/useDetectedCountry";
+import { isValidPhoneNumber } from "libphonenumber-js";
 
 interface MarketingQuoteModalProps {
   children: ReactNode;
@@ -48,7 +49,10 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.phone || formData.phone.length <= 4) {
+    // Phone validation for all countries
+    const phoneNumber = `+${formData.phone}`;
+
+    if (!formData.phone || !isValidPhoneNumber(phoneNumber)) {
       setStatus("error");
       setMessage("Please enter a valid phone number.");
       return;
@@ -195,6 +199,8 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
                   onChange={(phone) =>
                     setFormData((prev) => ({ ...prev, phone }))
                   }
+                  enableSearch
+                  countryCodeEditable={false}
                   inputClass="!w-full !h-auto !py-2.5 !bg-secondary/50 !border-border !rounded-lg !text-sm !text-foreground focus:!border-primary focus:!outline-none !transition-all"
                   buttonClass="!bg-transparent !border-border !rounded-l-lg hover:!bg-white/5"
                   dropdownClass="!bg-background !text-foreground !border-border"
@@ -238,7 +244,12 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
 
             <button
               type="submit"
-              disabled={status === "loading" || !captchaToken}
+              disabled={
+                status === "loading" ||
+                !captchaToken ||
+                !formData.phone ||
+                !isValidPhoneNumber(`+${formData.phone}`)
+              }
               className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status === "loading" ? (

@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { isValidPhoneNumber } from "libphonenumber-js";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -127,7 +128,10 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.phone || formData.phone.length <= 4) {
+    // Phone validation for all countries
+    const phoneNumber = `+${formData.phone}`;
+
+    if (!formData.phone || !isValidPhoneNumber(phoneNumber)) {
       setStatus("error");
       setMessage("Please enter a valid phone number.");
       return;
@@ -437,7 +441,12 @@ const ContactForm = () => {
               {/* BUTTON */}
               <button
                 type="submit"
-                disabled={status === "loading" || !captchaToken}
+                disabled={
+                  status === "loading" ||
+                  !captchaToken ||
+                  !formData.phone ||
+                  !isValidPhoneNumber(`+${formData.phone}`)
+                }
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl disabled:cursor-not-allowed disabled:opacity-60"
                 style={{ backgroundColor: "#08708F" }}
               >
