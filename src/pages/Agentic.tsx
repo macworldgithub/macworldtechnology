@@ -15,6 +15,7 @@ import AgenticDemos from "@/components/AgenticDemo";
 import AgenticTrust from "@/components/AgenticTrust";
 import LogoSlider from "@/components/LogoSlider";
 import ContactForm from "@/components/ContactForm";
+import CustomNavbar from "@/components/CustomNavbar";
 
 const Agentic = () => {
   const { pathname } = useLocation();
@@ -25,7 +26,7 @@ const Agentic = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <AgenticNavbar />
+      <CustomNavbar />
       <AgenticHero />
       <AgenticTestimonials />
       <LogoSlider />

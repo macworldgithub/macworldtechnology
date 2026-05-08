@@ -87,14 +87,14 @@ export const ModalForm = ({ children }: MarketingQuoteModalProps) => {
 
   const modalHeading = useMemo(() => {
     if (location.pathname === "/agentic-ai") {
-      return "Request an Agentic Quote";
+      return { main: "Request an ", highlight: "Agentic Quote" };
     }
 
     if (location.pathname === "/ai-customer-service-agent") {
-      return "Request an Customer Quote";
+      return { main: "Request an ", highlight: "Customer Quote" };
     }
 
-    return "Request a Quote";
+    return { main: "Request a ", highlight: "Quote" };
   }, [location.pathname]);
 
   const modalDescription = useMemo(() => {
@@ -109,9 +109,6 @@ export const ModalForm = ({ children }: MarketingQuoteModalProps) => {
     return "Please fill out the form and our team will contact you shortly.";
   }, [location.pathname]);
 
-  /* =========================
-     HANDLERS
-  ========================= */
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -194,12 +191,12 @@ export const ModalForm = ({ children }: MarketingQuoteModalProps) => {
       <DialogContent className="max-h-[90vh] w-[95vw] max-w-2xl overflow-y-auto rounded-2xl border border-border bg-background/95 p-0 backdrop-blur-xl sm:w-full">
         <div className="p-5 sm:p-6 lg:p-8">
           {/* Heading */}
-          <h2 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl">
-            {modalHeading}
+          <h2 className="text-xl font-bold leading-tight text-foreground sm:text-2xl mt-2">
+            {modalHeading.main} <span className="gradient-text">{modalHeading.highlight}</span>
           </h2>
 
           {/* Description */}
-          <p className="mb-6 mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <p className="mb-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
             {modalDescription}
           </p>
 
@@ -218,8 +215,8 @@ export const ModalForm = ({ children }: MarketingQuoteModalProps) => {
                 required
                 disabled={SERVICES.length === 0}
                 className={`w-full appearance-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-all focus:border-primary ${!formData.service
-                    ? "text-muted-foreground"
-                    : "text-foreground"
+                  ? "text-muted-foreground"
+                  : "text-foreground"
                   } ${SERVICES.length === 0 ? "cursor-not-allowed opacity-50" : ""
                   }`}
               >
