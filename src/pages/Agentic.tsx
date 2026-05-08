@@ -10,13 +10,16 @@ import About from "@/components/About";
 import AgenticProcess from "@/components/AgenticProcess";
 import AgenticBenefits from "@/components/AgenticBenefits";
 import Footer from "@/components/Footer";
-import AgenticNavbar from "@/components/AgenticNavbar";
-import AgenticDemos from "@/components/AgenticDemo";
 import AgenticTrust from "@/components/AgenticTrust";
 import LogoSlider from "@/components/LogoSlider";
 import ContactForm from "@/components/ContactForm";
 import CustomNavbar from "@/components/CustomNavbar";
 import AgenticAIHero from "@/components/AgenticAIHero";
+import AgenticServices from "@/components/AgenticServices";
+import AgenticDemopage from "@/components/AgenticDemopage";
+import AgenticTrustPage from "@/components/AgenticTrustPage";
+import AgenticProcessPage from "@/components/AgenticProcessPage";
+import AgenticAbout from "@/components/AgenticAbout";
 
 const Agentic = () => {
   const { pathname } = useLocation();
@@ -31,12 +34,12 @@ const Agentic = () => {
       <AgenticAIHero />
       <AgenticTestimonials />
       <LogoSlider />
-      <AgenticAIServices />
-      <AgenticDemos excludeCategory="Customer Service" />
-      <AgenticTrust />
-      <AgenticProcess />
+      <AgenticServices />
+      <AgenticDemopage excludeCategory="Customer Service" />
+      <AgenticTrustPage />
+      <AgenticProcessPage />
       <AgenticBenefits />
-      <About type="agentic" />
+      <AgenticAbout type="agentic" />
       <AgenticFAQ />
       <ContactForm />
       <Footer />

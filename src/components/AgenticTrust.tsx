@@ -2,11 +2,7 @@ import { motion } from "framer-motion";
 import { Award, MapPin, ArrowRight } from "lucide-react";
 import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
 
-// const awards = [
-//   { name: "Clutch", desc: "Top Web Developer 2026" },
-//   { name: "Google Partner", desc: "Certified Partner" },
-//   { name: "AppFutura", desc: "Top Digital Marketing" },
-// ];
+
 
 const offices = [
   { country: "Australia", city: "Melbourne" },
