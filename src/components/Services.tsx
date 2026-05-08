@@ -213,11 +213,10 @@ const Services = () => {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`rounded-xl border p-4 text-left transition ${
-                active === i
+              className={`rounded-xl border p-4 text-left transition ${active === i
                   ? "border-primary bg-primary/10"
                   : "border-white/10 bg-white/5 hover:border-white/20"
-              }`}
+                }`}
             >
               <span className="mb-1 block text-xs text-primary">
                 Step {s.num}
@@ -264,7 +263,7 @@ const Services = () => {
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
-            </GetQuoteModal>
+          </GetQuoteModal>
         </motion.div>
       </div>
     </section>

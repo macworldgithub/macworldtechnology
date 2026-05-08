@@ -94,7 +94,7 @@ const Trust = () => {
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
-            </GetQuoteModal>
+          </GetQuoteModal>
         </motion.div>
       </div>
     </section>

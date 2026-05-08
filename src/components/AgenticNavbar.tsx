@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
@@ -13,6 +14,11 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  const filteredLinks = pathname === "/agentic-ai"
+    ? navLinks.filter((link) => link.label !== "Demos")
+    : navLinks;
 
   return (
     <motion.nav
@@ -32,7 +38,7 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
+          {filteredLinks.map((link) => (
             <a
               key={link.label}
               href={`#${link.id}`}
@@ -67,7 +73,7 @@ const Navbar = () => {
           exit={{ opacity: 0, height: 0 }}
           className="border-t border-border/40 bg-background px-6 py-4 lg:hidden"
         >
-          {navLinks.map((link) => (
+          {filteredLinks.map((link) => (
             <a
               key={link.label}
               href={`#${link.id}`}
@@ -78,7 +84,7 @@ const Navbar = () => {
             </a>
           ))}
           <AgenticQuoteModal>
-            <button 
+            <button
               onClick={() => setOpen(false)}
               className="mt-4 w-full rounded-lg bg-primary py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20"
             >

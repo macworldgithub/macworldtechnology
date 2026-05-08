@@ -124,11 +124,10 @@ const Demos = () => {
             <button
               key={c}
               onClick={() => setFilter(c)}
-              className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all ${
-                filter === c
+              className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all ${filter === c
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
+                }`}
             >
               {c}
             </button>
@@ -217,7 +216,7 @@ const Demos = () => {
               Get a Quote
               <ArrowRight className="h-4 w-4" />
             </button>
-            </GetQuoteModal>
+          </GetQuoteModal>
         </motion.div>
       </div>
     </section>

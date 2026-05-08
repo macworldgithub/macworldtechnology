@@ -7,29 +7,29 @@ import AgenticTrust from "@/components/AgenticTrust";
 import AgenticProcess from "@/components/AgenticProcess";
 import AgenticBenefits from "@/components/AgenticBenefits";
 import About from "@/components/About";
-import Contact from "@/components/Contact";
 import LogoSlider from "@/components/LogoSlider";
 import CustomerAIService from "@/components/CustomerAIService";
 import CustomerServiceFAQ from "@/components/CustomerServiceFAQ";
+import ContactForm from "@/components/ContactForm";
 
 const CustomerService = () => {
-    return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden">
-            <AICustomerNavbar />
-            <CustomerServiceHero />
-            <CustomerServiceTestimonials />
-            <LogoSlider />
-            <CustomerAIService />
-            <AgenticDemos defaultCategory="Customer Service" />
-            <AgenticTrust />
-            <AgenticProcess />
-            <AgenticBenefits />
-            <About type="agentic" />
-            <CustomerServiceFAQ />
-            <Contact />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <AICustomerNavbar />
+      <CustomerServiceHero />
+      <CustomerServiceTestimonials />
+      <LogoSlider />
+      <CustomerAIService />
+      <AgenticDemos defaultCategory="Customer Service" />
+      <AgenticTrust />
+      <AgenticProcess />
+      <AgenticBenefits />
+      <About type="agentic" />
+      <CustomerServiceFAQ />
+      <ContactForm />
+      <Footer />
+    </div>
+  );
 };
 
 export default CustomerService;

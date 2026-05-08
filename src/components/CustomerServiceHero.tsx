@@ -272,11 +272,10 @@ const CustomerServiceHero = () => {
                       value={formData.service}
                       onChange={handleChange}
                       required
-                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
-                        !formData.service
+                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service
                           ? "text-muted-foreground"
                           : "text-white"
-                      }`}
+                        }`}
                     >
                       <option
                         value=""

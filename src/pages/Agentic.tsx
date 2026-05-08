@@ -14,31 +14,32 @@ import AgenticNavbar from "@/components/AgenticNavbar";
 import AgenticDemos from "@/components/AgenticDemo";
 import AgenticTrust from "@/components/AgenticTrust";
 import LogoSlider from "@/components/LogoSlider";
+import ContactForm from "@/components/ContactForm";
 
-const AgenticAI = () => {
-    const { pathname } = useLocation();
+const Agentic = () => {
+  const { pathname } = useLocation();
 
-    useEffect(() => {
-        localStorage.setItem("lastVisitedPage", pathname);
-    }, [pathname]);
+  useEffect(() => {
+    localStorage.setItem("lastVisitedPage", pathname);
+  }, [pathname]);
 
-    return (
-        <div className="min-h-screen bg-black text-white">
-            <AgenticNavbar />
-            <AgenticHero />
-            <AgenticTestimonials />
-            <LogoSlider />
-            <AgenticAIServices />
-            <AgenticDemos excludeCategory="Customer Service" />
-            <AgenticTrust />
-            <AgenticProcess />
-            <AgenticBenefits />
-            <About type="agentic" />
-            <AgenticFAQ />
-            <Contact />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <AgenticNavbar />
+      <AgenticHero />
+      <AgenticTestimonials />
+      <LogoSlider />
+      <AgenticAIServices />
+      <AgenticDemos excludeCategory="Customer Service" />
+      <AgenticTrust />
+      <AgenticProcess />
+      <AgenticBenefits />
+      <About type="agentic" />
+      <AgenticFAQ />
+      <ContactForm />
+      <Footer />
+    </div>
+  );
 };
 
-export default AgenticAI;
+export default Agentic;
