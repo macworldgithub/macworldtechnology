@@ -7,7 +7,7 @@ import "react-phone-input-2/lib/style.css";
 import { useDetectedCountry } from "@/hooks/useDetectedCountry";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { TURNSTILE_SITE_KEY } from "../lib/constants";
-
+import { isValidPhoneNumber } from "libphonenumber-js";
 const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
 const SERVICES_MAP: Record<string, string[]> = {
@@ -84,7 +84,35 @@ const Hero = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.phone || formData.phone.length <= 4) {
+    // Reset status
+    setStatus("idle");
+    setSubmitMessage("");
+
+    // Basic required fields check
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.mainService ||
+      !formData.subService ||
+      !formData.message.trim()
+    ) {
+      setStatus("error");
+      setSubmitMessage("Please fill in all required fields.");
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus("error");
+      setSubmitMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Phone validation for all countries
+    const phoneNumber = `+${formData.phone}`;
+
+    if (!formData.phone || !isValidPhoneNumber(phoneNumber)) {
       setStatus("error");
       setSubmitMessage("Please enter a valid phone number.");
       return;
@@ -356,6 +384,8 @@ const Hero = () => {
                     onChange={(phone) =>
                       setFormData((prev) => ({ ...prev, phone }))
                     }
+                    enableSearch
+                    countryCodeEditable={false}
                     inputClass="!w-full !h-[42px] !bg-secondary/50 !text-sm !text-foreground !border !border-border !rounded-lg"
                     buttonClass="!border-border"
                     dropdownClass="!bg-background !text-foreground"
@@ -400,7 +430,12 @@ const Hero = () => {
 
               <button
                 type="submit"
-                disabled={status === "loading" || !captchaToken}
+                disabled={
+                  status === "loading" ||
+                  !captchaToken ||
+                  !formData.phone ||
+                  !isValidPhoneNumber(`+${formData.phone}`)
+                }
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{ backgroundColor: "#08708F" }}
               >
