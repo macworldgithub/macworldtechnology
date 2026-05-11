@@ -67,9 +67,7 @@ export const ModalForm = ({ children }: MarketingQuoteModalProps) => {
 
   const [message, setMessage] = useState("");
 
-  /* =========================
-     DYNAMIC SERVICES
-  ========================= */
+  
 
   const SERVICES = useMemo(() => {
     if (location.pathname === "/agentic-ai") {
@@ -82,11 +80,6 @@ export const ModalForm = ({ children }: MarketingQuoteModalProps) => {
 
     return [];
   }, [location.pathname]);
-
-  /* =========================
-     DYNAMIC HEADINGS
-  ========================= */
-
   const modalHeading = useMemo(() => {
     if (location.pathname === "/agentic-ai") {
       return { main: "Request an ", highlight: "Agentic Quote" };
