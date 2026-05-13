@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 import { MarketingQuoteModal } from "@/components/MarketingQuoteModal";
+import { useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: "About", id: "about" },
@@ -12,6 +13,7 @@ const navLinks = [
 
 const MarketingNavbar = () => {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
   return (
     <motion.nav
@@ -22,7 +24,16 @@ const MarketingNavbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2">
+        <a 
+          href="/" 
+          onClick={(e) => {
+            if (pathname === "/lp/digital-marketing-services") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="flex items-center gap-2"
+        >
           <Zap className="h-6 w-6 text-primary" />
           <span className="text-lg font-bold tracking-tight text-foreground">
             OmniSuite<span className="text-primary">AI</span>

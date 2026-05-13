@@ -14,8 +14,8 @@ const AgenticHero = () => {
   const navigate = useNavigate();
   // const detectedCountry = useDetectedCountry();
   const allowedCountries = ["us", "au"];
-  // const [selectedCountry, setSelectedCountry] = useState("au");
-  const [selectedCountry, setSelectedCountry] = useState("us");
+  const [selectedCountry, setSelectedCountry] = useState("au");
+  // const [selectedCountry, setSelectedCountry] = useState("us");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -218,10 +218,22 @@ const AgenticHero = () => {
                   Trusted By Industry Leaders
                 </p>
                 <div className="flex flex-wrap gap-6 sm:gap-10 opacity-90">
-                  <img src="/img.svg" className="h-16 sm:h-24 w-auto opacity-90" />
-                  <img src="/img2.svg" className="h-16 sm:h-24 w-auto opacity-90" />
-                  <img src="/img3.svg" className="h-16 sm:h-24 w-auto opacity-90" />
-                  <img src="/img4.svg" className="h-16 sm:h-24 w-auto opacity-90" />
+                  <img
+                    src="/img.svg"
+                    className="h-16 sm:h-24 w-auto opacity-90"
+                  />
+                  <img
+                    src="/img2.svg"
+                    className="h-16 sm:h-24 w-auto opacity-90"
+                  />
+                  <img
+                    src="/img3.svg"
+                    className="h-16 sm:h-24 w-auto opacity-90"
+                  />
+                  <img
+                    src="/img4.svg"
+                    className="h-16 sm:h-24 w-auto opacity-90"
+                  />
                 </div>
               </motion.div>
             </div>
@@ -252,10 +264,11 @@ const AgenticHero = () => {
                       value={formData.service}
                       onChange={handleChange}
                       required
-                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${!formData.service
-                        ? "text-muted-foreground"
-                        : "text-white"
-                        }`}
+                      className={`w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-all text-sm appearance-none cursor-pointer ${
+                        !formData.service
+                          ? "text-muted-foreground"
+                          : "text-white"
+                      }`}
                     >
                       <option
                         value=""

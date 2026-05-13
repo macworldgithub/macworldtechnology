@@ -16,9 +16,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
-  const filteredLinks = pathname === "/agentic-ai"
-    ? navLinks.filter((link) => link.label !== "Demos")
-    : navLinks;
+  const filteredLinks =
+    pathname === "/agentic-ai"
+      ? navLinks.filter((link) => link.label !== "Demos")
+      : navLinks;
 
   return (
     <motion.nav
@@ -29,7 +30,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2">
+        <a href="#" className="flex items-center gap-2">
           <Zap className="h-6 w-6 text-primary" />
           <span className="text-lg font-bold tracking-tight text-foreground">
             OmniSuite<span className="text-primary">AI</span>
