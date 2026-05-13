@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Zap, ChevronDown } from "lucide-react";
 import { MarketingQuoteModal } from "@/components/MarketingQuoteModal";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
   { label: "About", id: "about" },
@@ -11,9 +11,50 @@ const navLinks = [
   { label: "FAQs", id: "marketing-faqs" },
 ];
 
+const serviceDropdownItems = [
+  { label: "Agentic AI", path: "/agentic-ai" },
+  { label: "Digital Marketing", path: "/digital-marketing-services" },
+  { label: "AI Customer Service", path: "/ai-customer-service-agent" },
+];
+
 const MarketingNavbar = () => {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setServicesOpen(false);
+    }, 200);
+  };
 
   return (
     <motion.nav
@@ -24,10 +65,13 @@ const MarketingNavbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a 
-          href="/" 
+        <a
+          href="/"
           onClick={(e) => {
-            if (pathname === "/lp/digital-marketing-services") {
+            if (
+              pathname === "/lp/digital-marketing-service" ||
+              pathname === "/digital-marketing-services"
+            ) {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
@@ -35,6 +79,7 @@ const MarketingNavbar = () => {
           className="flex items-center gap-2"
         >
           <Zap className="h-6 w-6 text-primary" />
+
           <span className="text-lg font-bold tracking-tight text-foreground">
             OmniSuite<span className="text-primary">AI</span>
           </span>
@@ -42,15 +87,66 @@ const MarketingNavbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={`#${link.id}`}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.label === "Services" &&
+              pathname === "/digital-marketing-services" ? (
+              <div
+                key={link.label}
+                className="relative"
+                ref={dropdownRef}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button
+                  onClick={() => setServicesOpen((prev) => !prev)}
+                  className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Services
+
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""
+                      }`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute left-1/2 top-full mt-2 min-w-[220px] -translate-x-1/2 overflow-hidden rounded-xl border border-border/60 bg-background/95 shadow-xl backdrop-blur-xl"
+                    >
+                      {serviceDropdownItems.map((item, idx) => (
+                        <button
+                          key={item.path}
+                          onClick={() => {
+                            setServicesOpen(false);
+                            navigate(item.path);
+                          }}
+                          className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground ${idx !== serviceDropdownItems.length - 1
+                            ? "border-b border-border/30"
+                            : ""
+                            }`}
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <a
+                key={link.label}
+                href={`#${link.id}`}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ),
+          )}
         </div>
 
         {/* CTA */}
@@ -77,16 +173,61 @@ const MarketingNavbar = () => {
           exit={{ opacity: 0, height: 0 }}
           className="border-t border-border/40 bg-background px-6 py-4 lg:hidden"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={`#${link.id}`}
-              onClick={() => setOpen(false)}
-              className="block py-2 text-sm text-muted-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.label === "Services" &&
+              pathname === "/digital-marketing-services" ? (
+              <div key={link.label}>
+                <button
+                  onClick={() =>
+                    setMobileServicesOpen((prev) => !prev)
+                  }
+                  className="flex w-full items-center justify-between py-2 text-sm text-muted-foreground"
+                >
+                  Services
+
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""
+                      }`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {mobileServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="overflow-hidden pl-4"
+                    >
+                      {serviceDropdownItems.map((item) => (
+                        <button
+                          key={item.path}
+                          onClick={() => {
+                            setOpen(false);
+                            setMobileServicesOpen(false);
+                            navigate(item.path);
+                          }}
+                          className="flex w-full items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <a
+                key={link.label}
+                href={`#${link.id}`}
+                onClick={() => setOpen(false)}
+                className="block py-2 text-sm text-muted-foreground"
+              >
+                {link.label}
+              </a>
+            ),
+          )}
+
           <MarketingQuoteModal>
             <button
               onClick={() => setOpen(false)}

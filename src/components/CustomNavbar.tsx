@@ -1,7 +1,7 @@
-import { useState, useMemo } from "react";
-import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { useState, useMemo, useRef, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Zap, ChevronDown } from "lucide-react";
 import { ModalForm } from "@/components/ModalForm";
 
 const AGENTIC_LINKS = [
@@ -18,15 +18,56 @@ const CUSTOMER_SERVICE_LINKS = [
     { label: "FAQs", id: "customer-service-faqs" },
 ];
 
-const Navbar = () => {
+const serviceDropdownItems = [
+    { label: "Agentic AI", path: "/agentic-ai" },
+    { label: "Digital Marketing", path: "/digital-marketing-services" },
+    { label: "AI Customer Service", path: "/ai-customer-service-agent" },
+];
+
+const CustomNavbar = () => {
     const [open, setOpen] = useState(false);
+    const [servicesOpen, setServicesOpen] = useState(false);
+    const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
     const { pathname } = useLocation();
+    const navigate = useNavigate();
 
     const navLinks = useMemo(() => {
         if (pathname === "/agentic-ai") return AGENTIC_LINKS;
-        if (pathname === "/ai-customer-service-agent") return CUSTOMER_SERVICE_LINKS;
+        if (pathname === "/ai-customer-service-agent")
+            return CUSTOMER_SERVICE_LINKS;
         return [];
     }, [pathname]);
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(e.target as Node)
+            ) {
+                setServicesOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const handleMouseEnter = () => {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        setServicesOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        timeoutRef.current = setTimeout(() => {
+            setServicesOpen(false);
+        }, 200);
+    };
 
     return (
         <motion.nav
@@ -36,7 +77,6 @@ const Navbar = () => {
             className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl"
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-
                 <a href="/" className="flex items-center gap-2">
                     <Zap className="h-6 w-6 text-primary" />
                     <span className="text-lg font-bold tracking-tight text-foreground">
@@ -44,16 +84,67 @@ const Navbar = () => {
                     </span>
                 </a>
 
+                {/* Desktop Nav */}
                 <div className="hidden items-center gap-8 lg:flex">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.label}
-                            href={`#${link.id}`}
-                            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
+                    {navLinks.map((link) =>
+                        link.label === "Services" ? (
+                            <div
+                                key={link.label}
+                                className="relative"
+                                ref={dropdownRef}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <button
+                                    onClick={() => setServicesOpen((prev) => !prev)}
+                                    className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                    Services
+
+                                    <ChevronDown
+                                        className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""
+                                            }`}
+                                    />
+                                </button>
+
+                                <AnimatePresence>
+                                    {servicesOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                                            transition={{ duration: 0.18 }}
+                                            className="absolute left-1/2 top-full mt-2 min-w-[220px] -translate-x-1/2 overflow-hidden rounded-xl border border-border/60 bg-background/95 shadow-xl backdrop-blur-xl"
+                                        >
+                                            {serviceDropdownItems.map((item, idx) => (
+                                                <button
+                                                    key={item.path}
+                                                    onClick={() => {
+                                                        setServicesOpen(false);
+                                                        navigate(item.path);
+                                                    }}
+                                                    className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground ${idx !== serviceDropdownItems.length - 1
+                                                        ? "border-b border-border/30"
+                                                        : ""
+                                                        }`}
+                                                >
+                                                    {item.label}
+                                                </button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ) : (
+                            <a
+                                key={link.label}
+                                href={`#${link.id}`}
+                                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                            >
+                                {link.label}
+                            </a>
+                        )
+                    )}
                 </div>
 
                 <ModalForm>
@@ -62,44 +153,83 @@ const Navbar = () => {
                     </button>
                 </ModalForm>
 
+                {/* Mobile Button */}
                 <button
                     onClick={() => setOpen(!open)}
                     className="text-foreground lg:hidden"
                 >
-                    {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                    {open ? (
+                        <X className="h-5 w-5" />
+                    ) : (
+                        <Menu className="h-5 w-5" />
+                    )}
                 </button>
             </div>
 
+            {/* Mobile Menu */}
             {open && (
                 <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
                     className="border-t border-border/40 bg-background px-6 py-4 lg:hidden"
                 >
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.label}
-                            href={`#${link.id}`}
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-muted-foreground"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
+                    {navLinks.map((link) =>
+                        link.label === "Services" ? (
+                            <div key={link.label}>
+                                <button
+                                    onClick={() =>
+                                        setMobileServicesOpen((prev) => !prev)
+                                    }
+                                    className="flex w-full items-center justify-between py-2 text-sm text-muted-foreground"
+                                >
+                                    Services
 
-                    <ModalForm>
-                        <button
-                            onClick={() => setOpen(false)}
-                            className="mt-4 w-full rounded-lg bg-primary py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20"
-                        >
-                            Free Consultation
-                        </button>
-                    </ModalForm>
+                                    <ChevronDown
+                                        className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""
+                                            }`}
+                                    />
+                                </button>
+
+                                <AnimatePresence>
+                                    {mobileServicesOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            className="overflow-hidden pl-4"
+                                        >
+                                            {serviceDropdownItems.map((item) => (
+                                                <button
+                                                    key={item.path}
+                                                    onClick={() => {
+                                                        setOpen(false);
+                                                        setMobileServicesOpen(false);
+                                                        navigate(item.path);
+                                                    }}
+                                                    className="flex w-full items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                                                >
+                                                    {item.label}
+                                                </button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ) : (
+                            <a
+                                key={link.label}
+                                href={`#${link.id}`}
+                                onClick={() => setOpen(false)}
+                                className="block py-2 text-sm text-muted-foreground"
+                            >
+                                {link.label}
+                            </a>
+                        )
+                    )}
                 </motion.div>
             )}
         </motion.nav>
     );
 };
 
-export default Navbar;
+export default CustomNavbar;

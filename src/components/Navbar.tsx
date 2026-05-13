@@ -10,14 +10,7 @@ const serviceDropdownItems = [
   { label: "AI Customer Service", path: "/ai-customer-service-agent" },
 ];
 
-const navLinks = [
-  "About",
-  "Services",
-  "Testimonials",
-  "Case Studies",
-  "Demos",
-  "FAQs",
-];
+const navLinks = ["About", "Services", "Testimonials", "FAQs"];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -30,7 +23,10 @@ const Navbar = () => {
   // Close desktop dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setServicesOpen(false);
       }
     };
@@ -85,8 +81,9 @@ const Navbar = () => {
                 >
                   Services
                   <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""
-                      }`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      servicesOpen ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
 
@@ -106,12 +103,12 @@ const Navbar = () => {
                             setServicesOpen(false);
                             navigate(item.path);
                           }}
-                          className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground ${idx !== serviceDropdownItems.length - 1
-                            ? "border-b border-border/30"
-                            : ""
-                            }`}
+                          className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground ${
+                            idx !== serviceDropdownItems.length - 1
+                              ? "border-b border-border/30"
+                              : ""
+                          }`}
                         >
-
                           {item.label}
                         </button>
                       ))}
@@ -127,7 +124,7 @@ const Navbar = () => {
               >
                 {link}
               </a>
-            )
+            ),
           )}
         </div>
 
@@ -163,8 +160,9 @@ const Navbar = () => {
                 >
                   Services
                   <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""
-                      }`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      mobileServicesOpen ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 <AnimatePresence>
@@ -185,7 +183,6 @@ const Navbar = () => {
                           }}
                           className="flex w-full items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                         >
-
                           {item.label}
                         </button>
                       ))}
@@ -202,7 +199,7 @@ const Navbar = () => {
               >
                 {link}
               </a>
-            )
+            ),
           )}
         </motion.div>
       )}
