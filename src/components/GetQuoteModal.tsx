@@ -277,7 +277,6 @@ export const GetQuoteModal = ({ children }: GetQuoteModalProps) => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                required
                 rows={3}
                 className="w-full resize-none rounded-lg border border-border bg-secondary/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
               />
