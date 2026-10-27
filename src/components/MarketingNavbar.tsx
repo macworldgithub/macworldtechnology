@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { MarketingQuoteModal } from "@/components/MarketingQuoteModal";
 import { useLocation, useNavigate } from "react-router-dom";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const navLinks = [
   { label: "About", id: "about" },
@@ -141,6 +142,11 @@ const MarketingNavbar = () => {
               <a
                 key={link.label}
                 href={`#${link.id}`}
+                onClick={(event) => {
+                  if (scrollToSection(link.id)) {
+                    event.preventDefault();
+                  }
+                }}
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
@@ -148,7 +154,7 @@ const MarketingNavbar = () => {
             ),
           )}
           <a
-            href="https://macworldtech-nspt6z4y.manus.space/"
+            href="/CaseStudies"
             className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             case studies
@@ -224,7 +230,12 @@ const MarketingNavbar = () => {
               <a
                 key={link.label}
                 href={`#${link.id}`}
-                onClick={() => setOpen(false)}
+                onClick={(event) => {
+                  if (scrollToSection(link.id)) {
+                    event.preventDefault();
+                  }
+                  setOpen(false);
+                }}
                 className="block py-2 text-sm text-muted-foreground"
               >
                 {link.label}
@@ -233,7 +244,7 @@ const MarketingNavbar = () => {
           )}
 
           <a
-            href="https://macworldtech-nspt6z4y.manus.space/"
+            href="/CaseStudies"
             onClick={() => setOpen(false)}
             className="block py-2 text-sm text-muted-foreground"
           >

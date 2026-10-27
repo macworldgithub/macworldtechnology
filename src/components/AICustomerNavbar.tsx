@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const navLinks = [
   { label: "About", id: "about" },
@@ -36,13 +37,18 @@ const AICustomerNavbar = () => {
             <a
               key={link.label}
               href={`#${link.id}`}
+              onClick={(event) => {
+                if (scrollToSection(link.id)) {
+                  event.preventDefault();
+                }
+              }}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="https://macworldtech-nspt6z4y.manus.space/"
+            href="/CaseStudies"
             className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Case Studies
@@ -77,14 +83,19 @@ const AICustomerNavbar = () => {
             <a
               key={link.label}
               href={`#${link.id}`}
-              onClick={() => setOpen(false)}
+              onClick={(event) => {
+                if (scrollToSection(link.id)) {
+                  event.preventDefault();
+                }
+                setOpen(false);
+              }}
               className="block py-2 text-sm text-muted-foreground"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="https://macworldtech-nspt6z4y.manus.space/"
+            href="/CaseStudies"
             onClick={() => setOpen(false)}
             className="block py-2 text-sm text-muted-foreground"
           >

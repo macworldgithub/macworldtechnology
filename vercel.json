@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/CaseStudies",
+      "destination": "https://macworldtech-nspt6z4y.manus.space/"
+    },
+    {
+      "source": "/CaseStudies/:path*",
+      "destination": "https://macworldtech-nspt6z4y.manus.space/:path*"
+    },
+    {
+      "source": "/styles.css",
+      "destination": "https://macworldtech-nspt6z4y.manus.space/styles.css"
+    },
+    {
+      "source": "/script.js",
+      "destination": "https://macworldtech-nspt6z4y.manus.space/script.js"
+    },
+    {
+      "source": "/manus-storage/:path*",
+      "destination": "https://macworldtech-nspt6z4y.manus.space/manus-storage/:path*"
+    }
+  ]
+}
