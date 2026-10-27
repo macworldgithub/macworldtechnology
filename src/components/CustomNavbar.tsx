@@ -1,7 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { ModalForm } from "@/components/ModalForm";
 
 const AGENTIC_LINKS = [
@@ -76,11 +76,12 @@ const CustomNavbar = () => {
       className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="/" className="flex items-center gap-2">
-          <Zap className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            MacWorld<span className="text-primary">Technology</span>
-          </span>
+        <a href="/" className="flex items-center">
+          <img
+            src="/macworld_logo.png"
+            alt="MacWorld Technologies"
+            className="h-14 w-40 object-cover object-center"
+          />
         </a>
 
         {/* Desktop Nav */}

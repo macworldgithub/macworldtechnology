@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AgenticQuoteModal } from "@/components/AgenticQuoteModal";
 
 const navLinks = [
@@ -30,11 +30,12 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <Zap className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            MacWorld <span className="text-primary">Technology</span>
-          </span>
+        <a href="/" className="flex items-center">
+          <img
+            src="/macworld_logo.png"
+            alt="MacWorld Technologies"
+            className="h-14 w-40 object-cover object-center"
+          />
         </a>
 
         {/* Desktop Nav */}

@@ -7,7 +7,7 @@ const testimonials = [
   {
     title: "Tailored CMS Solution That Delivered Real Growth",
     quote:
-      "MacWorld Technology's tailored CMS solutions completely transformed our e-commerce platform. Managing content became effortless, enabling us to easily update product listings and maintain a dynamic online storefront. The results were remarkable — user engagement soared, and sales increased significantly.",
+      "MacWorld Technology tailored CMS solutions completely transformed our e-commerce platform. Managing content became effortless, enabling us to easily update product listings and maintain a dynamic online storefront. The results were remarkable — user engagement soared, and sales increased significantly.",
     name: "Oliver Harris",
     role: "CEO, E-Commerce Enterprise",
     location: "Australia",

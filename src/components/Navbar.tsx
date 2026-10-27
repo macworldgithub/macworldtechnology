@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { GetQuoteModal } from "@/components/GetQuoteModal";
 
@@ -57,11 +57,12 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2">
-          <Zap className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            MacWorld Technology<span className="text-primary">AI</span>
-          </span>
+        <a href="/" className="flex items-center">
+          <img
+            src="/macworld_logo.png"
+            alt="MacWorld Technologies"
+            className="h-14 w-40 object-cover object-center"
+          />
         </a>
 
         {/* Desktop Nav */}

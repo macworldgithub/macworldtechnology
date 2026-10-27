@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { MarketingQuoteModal } from "@/components/MarketingQuoteModal";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -76,13 +76,13 @@ const MarketingNavbar = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="flex items-center gap-2"
+          className="flex items-center"
         >
-          <Zap className="h-6 w-6 text-primary" />
-
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            MacWorld<span className="text-primary">Technology</span>
-          </span>
+          <img
+            src="/macworld_logo.png"
+            alt="MacWorld Technologies"
+            className="h-14 w-40 object-cover object-center"
+          />
         </a>
 
         {/* Desktop Nav */}
