@@ -91,7 +91,7 @@ const CustomerServiceTestimonials = () => {
         </h2>
 
         <p className="mb-10 max-w-2xl text-sm text-muted-foreground">
-          Businesses choose OmniSuite AI because we focus on practical AI
+          Businesses choose MacWorld Technology because we focus on practical AI
           implementation. Real results from businesses using our custom-designed
           customer service AI agent to automate support, reduce costs, and
           deliver faster customer experiences.

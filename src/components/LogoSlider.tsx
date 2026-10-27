@@ -23,7 +23,7 @@ const LogoSlider = () => {
           Top Brands That Have Trusted Us
         </h2>
         <p className="text-gray-400 text-lg">
-          Join the league of successful businesses that trust OmnisuitAI!
+          Join the league of successful businesses that trust MacWorld Technology!
         </p>
       </div>
 

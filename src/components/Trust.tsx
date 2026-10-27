@@ -25,7 +25,7 @@ const Trust = () => {
   return (
     <section id="trust" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="section-label mb-4">// Why OmniSuite AI</p>
+        <p className="section-label mb-4">// Why MacWorld Technology</p>
         <h2>
           Trusted by Industry{" "}
           <span className="gradient-text">Leaders Worldwide</span>

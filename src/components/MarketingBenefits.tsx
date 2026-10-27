@@ -53,17 +53,15 @@ const MarketingBenefits = () => {
       <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-14 text-center">
-          <p className="section-label mb-3">
-            // Benefits
-          </p>
+          <p className="section-label mb-3">// Benefits</p>
           <h2>
             What You Gain with{" "}
-            <span className="text-primary">OmniSuite AI</span>
+            <span className="text-primary">MacWorld Technology</span>
           </h2>
           <p className="mx-auto max-w-4xl text-sm text-gray-400 md:text-base">
-            At OmniSuite AI, we focus on delivering results that directly impact
-            your business. Our tailored marketing strategies are designed to
-            drive sustainable growth, increase conversions, and ensure
+            At MacWorld Technology, we focus on delivering results that directly
+            impact your business. Our tailored marketing strategies are designed
+            to drive sustainable growth, increase conversions, and ensure
             measurable ROI.
           </p>
         </div>

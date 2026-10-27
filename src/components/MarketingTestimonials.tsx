@@ -6,7 +6,7 @@ const testimonialsData = [
   {
     title: "Our Sales Doubled in 60 Days",
     quote:
-      "OmniSuite AI completely transformed our Meta ad strategy. The creatives, targeting, and funnel setup helped us scale fast. We saw a huge increase in conversions within weeks.",
+      "MacWorld Technology completely transformed our Meta ad strategy. The creatives, targeting, and funnel setup helped us scale fast. We saw a huge increase in conversions within weeks.",
     name: "Sarah Mitchell",
     role: "E-commerce Manager",
     location: "Los Angeles, USA",
@@ -33,7 +33,7 @@ const testimonialsData = [
   {
     title: "Best ROI We’ve Seen from PPC",
     quote:
-      "We’ve worked with multiple agencies, but OmniSuite AI gave us the best results. Lower CPC, higher conversions, and consistent performance.",
+      "We’ve worked with multiple agencies, but MacWorld Technology gave us the best results. Lower CPC, higher conversions, and consistent performance.",
     name: "Amanda Brooks",
     role: "Marketing Director, SaaS Company",
     location: "New York, USA",
@@ -87,8 +87,8 @@ const MarketingTestimonials = () => {
         </h2>
 
         <p className="mb-10 max-w-2xl text-sm text-muted-foreground">
-          Real results from businesses that trusted OmniSuite AI to scale their
-          marketing, improve conversions, and drive measurable growth.
+          Real results from businesses that trusted MacWorld Technology to scale
+          their marketing, improve conversions, and drive measurable growth.
         </p>
 
         <div className="relative">

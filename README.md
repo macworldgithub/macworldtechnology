@@ -1,4 +1,4 @@
-# OmniSuite AI — AI Automates Solution
+# MacWorld Technology — AI Automates Solution
 
 ## Project info
 

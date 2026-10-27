@@ -46,7 +46,7 @@ const AgenticBenefits = () => {
           </p>
           <h2>
             What You Gain with{" "}
-            <span className="text-primary">OmniSuite AI</span>
+            <span className="text-primary">MacWorld Technology</span>
           </h2>
           <p className="mx-auto max-w-3xl text-sm text-gray-400 md:text-base">
             Real outcomes that improve efficiency, reduce costs, and help your

@@ -6,7 +6,7 @@ const testimonialsData = [
   {
     title: "AI-Driven Workflow That Saves Time",
     quote:
-      "OmniSuite AI helped us move from manual follow-ups to an AI-driven workflow that saved our team hours every week. The impact on response time and lead handling was immediate.",
+      "MacWorld Technology helped us move from manual follow-ups to an AI-driven workflow that saved our team hours every week. The impact on response time and lead handling was immediate.",
     name: "Operations Manager",
     role: "B2B Services Company",
     location: "USA",
@@ -15,7 +15,7 @@ const testimonialsData = [
   {
     title: "More Than Just a Chatbot",
     quote:
-      "We wanted more than a chatbot. We needed an intelligent system that could guide inquiries, organize tasks, and reduce back-and-forth for our staff. OmniSuite delivered exactly that.",
+      "We wanted more than a chatbot. We needed an intelligent system that could guide inquiries, organize tasks, and reduce back-and-forth for our staff. MacWorld Technology delivered exactly that.",
     name: "Director",
     role: "Healthcare Business",
     location: "Australia",
@@ -72,7 +72,7 @@ const AgenticTestimonials = () => {
         </h2>
 
         <p className="mb-10 max-w-2xl text-sm text-muted-foreground">
-          Businesses choose OmniSuite AI because we focus on practical AI
+          Businesses choose MacWorld Technology because we focus on practical AI
           implementation, clear outcomes, and systems that actually support
           day-to-day operations.
         </p>

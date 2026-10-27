@@ -45,7 +45,7 @@ const About = ({ type }: AboutProps) => {
 
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                OmniSuite AI was founded with one clear mission: to help
+                MacWorld Technology was founded with one clear mission: to help
                 businesses harness the power of AI in practical, measurable, and
                 scalable ways. We specialize in building intelligent systems
                 that automate workflows, improve customer experiences, and
@@ -76,7 +76,6 @@ const About = ({ type }: AboutProps) => {
               className="w-full max-w-md rounded-2xl shadow-xl object-cover"
             />
           </motion.div>
-
         </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

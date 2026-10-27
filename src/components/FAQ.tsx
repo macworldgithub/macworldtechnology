@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
-        question: "What services does Omni Suite AI offer?",
+        question: "What services does MacWorld Technology offer?",
         answer:
             "We provide AI chatbots, automation systems, custom AI development, AI consulting, and marketing optimization solutions.",
     },

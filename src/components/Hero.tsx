@@ -241,9 +241,9 @@ const Hero = () => {
             transition={{ delay: 0.3 }}
             className="mb-2 max-w-full sm:max-w-xl text-sm sm:text-base md:text-lg mt-4"
           >
-            Omni Suite AI helps businesses leverage Artificial Intelligence to
-            increase revenue, reduce operational costs, and unlock smarter
-            decision-making.
+            MacWorld Technology helps businesses leverage Artificial
+            Intelligence to increase revenue, reduce operational costs, and
+            unlock smarter decision-making.
           </motion.p>
 
           <motion.p

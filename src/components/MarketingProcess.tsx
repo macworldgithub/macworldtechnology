@@ -33,16 +33,14 @@ const MarketingProcess = () => {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-12 text-center">
-          <p className="section-label mb-3">
-            // Process
-          </p>
+          <p className="section-label mb-3">// Process</p>
           <h2>
             How We Grow Your{" "}
             <span className="text-primary">Digital Presence</span>
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-gray-400 md:text-base">
-            At OmniSuite AI, we combine data, strategy, and creativity to build
-            high-performing campaigns that drive real business growth. Our
+            At MacWorld Technology, we combine data, strategy, and creativity to
+            build high-performing campaigns that drive real business growth. Our
             process is simple yet effective, ensuring continuous improvement and
             scalable results.
           </p>
@@ -54,10 +52,11 @@ const MarketingProcess = () => {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`rounded-xl border p-4 text-left transition ${active === i
+              className={`rounded-xl border p-4 text-left transition ${
+                active === i
                   ? "border-primary bg-primary/10"
                   : "border-white/10 bg-white/5 hover:border-white/20"
-                }`}
+              }`}
             >
               <span className="mb-1 block text-xs text-primary">
                 Step {s.num}

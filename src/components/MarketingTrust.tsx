@@ -25,7 +25,7 @@ const MarketingTrust = () => {
   return (
     <section id="trust" className="py-14">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="section-label mb-4">// Why OmniSuite AI</p>
+        <p className="section-label mb-4">// Why MacWorld Technology</p>
         <h2>
           Trusted by Industry{" "}
           <span className="gradient-text">Leaders Worldwide</span>
@@ -61,9 +61,7 @@ const MarketingTrust = () => {
 
         {/* Global Presence */}
         <div className="glass-card p-8">
-          <h3>
-            Global Presence
-          </h3>
+          <h3>Global Presence</h3>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {offices.map((o, i) => (
               <div key={i} className="flex items-start gap-2">

@@ -7,7 +7,7 @@ const testimonials = [
   {
     title: "Tailored CMS Solution That Delivered Real Growth",
     quote:
-      "OmniSuite AI's tailored CMS solutions completely transformed our e-commerce platform. Managing content became effortless, enabling us to easily update product listings and maintain a dynamic online storefront. The results were remarkable — user engagement soared, and sales increased significantly.",
+      "MacWorld Technology's tailored CMS solutions completely transformed our e-commerce platform. Managing content became effortless, enabling us to easily update product listings and maintain a dynamic online storefront. The results were remarkable — user engagement soared, and sales increased significantly.",
     name: "Oliver Harris",
     role: "CEO, E-Commerce Enterprise",
     location: "Australia",
@@ -16,7 +16,7 @@ const testimonials = [
   {
     title: "Our Customer Support Costs Dropped by 40%",
     quote:
-      "Omni Suite AI built a fully automated AI chatbot for our e-commerce store. Within weeks, we reduced support tickets, improved response time, and increased conversions. The ROI was clear almost immediately.",
+      "MacWorld Technology built a fully automated AI chatbot for our e-commerce store. Within weeks, we reduced support tickets, improved response time, and increased conversions. The ROI was clear almost immediately.",
     name: "Michael Reynolds",
     role: "Director of E-Commerce",
     location: "U.S. Retail Brand",
@@ -34,7 +34,7 @@ const testimonials = [
   {
     title: "Custom AI Development That Actually Delivers Results",
     quote:
-      "We needed a predictive analytics system tailored to our business model. Omni Suite AI delivered a custom solution that improved forecasting accuracy and decision-making across departments.",
+      "We needed a predictive analytics system tailored to our business model. MacWorld Technology delivered a custom solution that improved forecasting accuracy and decision-making across departments.",
     name: "David Thompson",
     role: "VP of Strategy",
     location: "Financial Services Firm",

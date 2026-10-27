@@ -7,15 +7,19 @@ const Footer = () => {
         <div className="flex items-center gap-2">
           <Zap className="h-5 w-5 text-primary" />
           <span className="text-sm font-bold text-foreground">
-            OmniSuite<span className="text-primary">AI</span>
+            MacWorld <span className="text-primary">Technology</span>
           </span>
         </div>
         <p className="text-xs text-muted-foreground">
-          © 2026 OmniSuite AI. All rights reserved.
+          © 2026 MacWorld Technology. All rights reserved.
         </p>
         <div className="flex gap-6">
           {["Privacy", "Terms", "Sitemap"].map((l) => (
-            <a key={l} href="#" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+            <a
+              key={l}
+              href="#"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
               {l}
             </a>
           ))}
