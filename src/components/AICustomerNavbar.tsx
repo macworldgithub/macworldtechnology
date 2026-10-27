@@ -24,9 +24,9 @@ const AICustomerNavbar = () => {
         {/* Logo */}
         <a href="/" className="flex items-center">
           <img
-            src="/macworld_logo.png"
+            src="/macworld-logo-cropped.png"
             alt="MacWorld Technologies"
-            className="h-14 w-40 object-cover object-center"
+            className="h-20 w-64 object-contain"
           />
         </a>
 
@@ -41,6 +41,12 @@ const AICustomerNavbar = () => {
               {link.label}
             </a>
           ))}
+          <a
+            href="https://macworldtech-nspt6z4y.manus.space/"
+            className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Case Studies
+          </a>
         </div>
 
         {/* CTA */}
@@ -77,6 +83,13 @@ const AICustomerNavbar = () => {
               {link.label}
             </a>
           ))}
+          <a
+            href="https://macworldtech-nspt6z4y.manus.space/"
+            onClick={() => setOpen(false)}
+            className="block py-2 text-sm text-muted-foreground"
+          >
+            Learn More About Testimonials
+          </a>
           <AgenticQuoteModal>
             <button
               onClick={() => setOpen(false)}

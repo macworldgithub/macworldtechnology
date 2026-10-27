@@ -41,8 +41,7 @@ const MarketingNavbar = () => {
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleMouseEnter = () => {
@@ -79,9 +78,9 @@ const MarketingNavbar = () => {
           className="flex items-center"
         >
           <img
-            src="/macworld_logo.png"
+            src="/macworld-logo-cropped.png"
             alt="MacWorld Technologies"
-            className="h-14 w-40 object-cover object-center"
+            className="h-20 w-64 object-contain"
           />
         </a>
 
@@ -89,7 +88,7 @@ const MarketingNavbar = () => {
         <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) =>
             link.label === "Services" &&
-              pathname === "/digital-marketing-services" ? (
+            pathname === "/digital-marketing-services" ? (
               <div
                 key={link.label}
                 className="relative"
@@ -102,10 +101,10 @@ const MarketingNavbar = () => {
                   className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Services
-
                   <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""
-                      }`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      servicesOpen ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
 
@@ -125,10 +124,11 @@ const MarketingNavbar = () => {
                             setServicesOpen(false);
                             navigate(item.path);
                           }}
-                          className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground ${idx !== serviceDropdownItems.length - 1
-                            ? "border-b border-border/30"
-                            : ""
-                            }`}
+                          className={`flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground ${
+                            idx !== serviceDropdownItems.length - 1
+                              ? "border-b border-border/30"
+                              : ""
+                          }`}
                         >
                           {item.label}
                         </button>
@@ -147,6 +147,12 @@ const MarketingNavbar = () => {
               </a>
             ),
           )}
+          <a
+            href="https://macworldtech-nspt6z4y.manus.space/"
+            className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            case studies
+          </a>
         </div>
 
         {/* CTA */}
@@ -175,19 +181,17 @@ const MarketingNavbar = () => {
         >
           {navLinks.map((link) =>
             link.label === "Services" &&
-              pathname === "/digital-marketing-services" ? (
+            pathname === "/digital-marketing-services" ? (
               <div key={link.label}>
                 <button
-                  onClick={() =>
-                    setMobileServicesOpen((prev) => !prev)
-                  }
+                  onClick={() => setMobileServicesOpen((prev) => !prev)}
                   className="flex w-full items-center justify-between py-2 text-sm text-muted-foreground"
                 >
                   Services
-
                   <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""
-                      }`}
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      mobileServicesOpen ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
 
@@ -227,6 +231,14 @@ const MarketingNavbar = () => {
               </a>
             ),
           )}
+
+          <a
+            href="https://macworldtech-nspt6z4y.manus.space/"
+            onClick={() => setOpen(false)}
+            className="block py-2 text-sm text-muted-foreground"
+          >
+            Learn More About Testimonials
+          </a>
 
           <MarketingQuoteModal>
             <button

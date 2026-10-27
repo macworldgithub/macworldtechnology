@@ -4,9 +4,9 @@ const Footer = () => {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
         <a href="/" className="flex items-center" aria-label="MacWorld Technologies home">
           <img
-            src="/macworld_logo.png"
+            src="/macworld-logo-cropped.png"
             alt="MacWorld Technologies"
-            className="h-14 w-40 object-cover object-center"
+            className="h-20 w-64 object-contain"
           />
         </a>
         <p className="text-xs text-muted-foreground">
