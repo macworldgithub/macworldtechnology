@@ -1,4 +1,4 @@
- import { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -56,7 +56,7 @@ const AgenticContact = () => {
     company: "",
     phone: "",
     mainService: "",
-     subService: "",
+    subService: "",
     message: "",
   });
 
@@ -205,7 +205,7 @@ const AgenticContact = () => {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Email</p>
                   <p className="text-sm text-muted-foreground">
-                    info@omnisuiteai.com
+                    info@macworldtechnology.com
                   </p>
                 </div>
               </div>
@@ -243,7 +243,7 @@ const AgenticContact = () => {
                   ))}
                 </select>
               </div>
-               <div>
+              <div>
                 <label className="mb-1 block text-xs font-medium text-muted-foreground">
                   Sub Service *
                 </label>
@@ -265,7 +265,7 @@ const AgenticContact = () => {
                     </option>
                   ))}
                 </select>
-              </div> 
+              </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">

@@ -274,7 +274,7 @@ const ContactForm = () => {
                   </h3>
 
                   <p className="mt-1 break-all text-sm text-muted-foreground">
-                    info@omnisuiteai.com
+                    info@macworldtechnology.com
                   </p>
                 </div>
               </div>
@@ -302,10 +302,11 @@ const ContactForm = () => {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className={`w-full rounded-2xl border border-border bg-[#141517] px-4 py-3 text-sm outline-none transition-all focus:border-primary ${!formData.service
-                    ? "text-muted-foreground"
-                    : "text-foreground"
-                    }`}
+                  className={`w-full rounded-2xl border border-border bg-[#141517] px-4 py-3 text-sm outline-none transition-all focus:border-primary ${
+                    !formData.service
+                      ? "text-muted-foreground"
+                      : "text-foreground"
+                  }`}
                 >
                   <option value="" disabled hidden>
                     Choose a Service

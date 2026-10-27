@@ -182,7 +182,7 @@
 //                 <div>
 //                   <p className="text-sm font-semibold text-foreground">Email</p>
 //                   <p className="text-sm text-muted-foreground">
-//                     info@omnisuiteai.com
+//                     info@macworldtechnology.com
 //                   </p>
 //                 </div>
 //               </div>
@@ -369,11 +369,7 @@ import { isValidPhoneNumber } from "libphonenumber-js";
 
 const BACKEND_URL = "https://www.test.omnisuiteai.com/api";
 
-const SERVICES = [
-  "Meta Advertising",
-  "Google Ads",
-  "SEO",
-];
+const SERVICES = ["Meta Advertising", "Google Ads", "SEO"];
 
 const MarketingContact = () => {
   const navigate = useNavigate();
@@ -508,7 +504,7 @@ const MarketingContact = () => {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Email</p>
                   <p className="text-sm text-muted-foreground">
-                    info@omnisuiteai.com
+                    info@macworldtechnology.com
                   </p>
                 </div>
               </div>
