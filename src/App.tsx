@@ -12,6 +12,7 @@ import AICustomerService from "./pages/AICustomerService";
 import Agentic from "./pages/Agentic";
 import Marketing from "./pages/Marketing";
 import CustomerService from "./pages/CustomerService";
+import CaseStudiesPage from "./pages/CaseStudiesPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/CaseStudies" element={<CaseStudiesPage />} />
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="/thank-you" element={<ThankYou />} />{" "}
           <Route path="/lp/agentic-ai" element={<AgenticAI />} />
