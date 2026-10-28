@@ -606,10 +606,10 @@ const CaseStudiesPage = () => {
           </div>
           <div className="footer-column footer-social">
             <h2>ON THE WEB</h2>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/company/mac-world-technology/" target="_blank" rel="noreferrer">
               LinkedIn <span aria-hidden="true">↗</span>
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/macworldtechnology?dlrf=MWtyMjR2djIxaXNvdw==" target="_blank" rel="noreferrer">
               Instagram <span aria-hidden="true">↗</span>
             </a>
           </div>
