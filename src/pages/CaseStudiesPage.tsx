@@ -1,11 +1,627 @@
-const CaseStudiesPage = () => (
-  <main className="fixed inset-0 bg-background">
-    <iframe
-      title="MacWorld Technology Case Studies"
-      src="https://macworldtech-nspt6z4y.manus.space/"
-      className="h-full w-full border-0"
-    />
-  </main>
-);
+import React, { useState, useEffect } from "react";
+import "./case-studies-manus.css";
+
+const CaseStudiesPage = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [feedback, setFeedback] = useState("");
+  const [currentYear] = useState(() => new Date().getFullYear());
+
+  useEffect(() => {
+    document.documentElement.classList.add("js-ready");
+
+    // Reveal animations observer
+    const revealItems = document.querySelectorAll(".case-studies-scope .reveal");
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -26px 0px" }
+      );
+      revealItems.forEach((item) => revealObserver.observe(item));
+      return () => {
+        revealObserver.disconnect();
+      };
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  }, []);
+
+  const closeMenu = () => setMobileMenuOpen(false);
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const interest = String(formData.get("interest") || "").trim();
+    const subject = encodeURIComponent(`Macworld Technology enquiry — ${interest}`);
+    const body = encodeURIComponent(
+      `Hello Macworld Technology,\n\nMy name is ${name}.\nMy work email is ${email}.\n\nI'm interested in: ${interest}.\n\nI'd like to explore what a good next step could look like.\n`
+    );
+    setFeedback("Opening your email app with the details you provided…");
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  };
+
+  const showcaseItems = [
+    {
+      id: "01",
+      category: "infrastructure",
+      image: "/case-studies-infra.webp",
+      alt: "Abstract cloud infrastructure with connected digital nodes",
+      kicker: "FOUNDATION / 01",
+      tag1: "INFRASTRUCTURE",
+      tag2: "CONNECTED CLOUD",
+      title: "Room to grow, built in.",
+      desc: "Bring your digital workspace together on a foundation designed to flex as your business changes.",
+    },
+    {
+      id: "02",
+      category: "automation",
+      image: "/case-studies-workflow.webp",
+      alt: "Luminous workflow nodes converging into a central automation hub",
+      kicker: "WORKFLOW / 02",
+      tag1: "AUTOMATION",
+      tag2: "SMARTER WORK",
+      title: "Less busywork. More momentum.",
+      desc: "Connect everyday systems so important work can move forward without unnecessary handoffs.",
+    },
+    {
+      id: "03",
+      category: "security",
+      image: "/case-studies-security.webp",
+      alt: "Geometric shield integrated with a connected secure network",
+      kicker: "RESILIENCE / 03",
+      tag1: "SECURITY",
+      tag2: "BUILT-IN TRUST",
+      title: "Confidence at every layer.",
+      desc: "Strengthen visibility and access with practical protection shaped around the way your team works.",
+    },
+  ];
+
+  return (
+    <div className="case-studies-scope min-h-screen bg-[#080a0f] text-[#f3f6fb] font-['Inter',sans-serif]">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+
+      {/* Header */}
+      <header className="site-header" id="top">
+        <div className="nav-shell">
+          <a className="brand" href="/" aria-label="MacWorld Technologies home">
+            <img
+              src="/macworld-logo-cropped.png"
+              alt="MacWorld Technologies"
+              className="h-16 w-52 sm:h-20 sm:w-64 object-contain"
+            />
+          </a>
+
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav
+            className={`primary-nav ${mobileMenuOpen ? "is-open" : ""}`}
+            id="primary-navigation"
+            aria-label="Main navigation"
+          >
+            <a href="#capabilities" onClick={closeMenu}>
+              Capabilities
+            </a>
+            <a href="#showcase" onClick={closeMenu}>
+              Showcase
+            </a>
+            <a href="#approach" onClick={closeMenu}>
+              Approach
+            </a>
+            <a href="#contact" onClick={closeMenu}>
+              Contact
+            </a>
+            <a className="nav-cta" href="#contact" onClick={closeMenu}>
+              Start a project <span aria-hidden="true">↗</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main id="main">
+        {/* Hero */}
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-art" aria-hidden="true"></div>
+          <div className="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+          <div className="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+          <div className="hero-content">
+            <p className="eyebrow">
+              <span className="status-dot"></span> TECHNOLOGY FOR WHAT’S NEXT
+            </p>
+            <h1 id="hero-title">
+              Make technology
+              <br />
+              feel <span className="gradient-text">effortless.</span>
+            </h1>
+            <p className="hero-intro">
+              The right systems give good ideas room to grow. We bring your technology together—so your people can move
+              forward with clarity.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#contact">
+                Let’s talk about your goals <span aria-hidden="true">↗</span>
+              </a>
+              <a className="button button-quiet" href="#showcase">
+                Explore our work <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <div className="hero-note">
+              <span className="note-line"></span>
+              <span>A better way to work starts with a better foundation.</span>
+            </div>
+          </div>
+          <div className="hero-side-note" aria-hidden="true">
+            <span>CONNECTED SYSTEMS</span>
+            <i></i>
+            <span>HUMAN FIRST</span>
+          </div>
+          <a className="scroll-cue" href="#capabilities" aria-label="Scroll to capabilities">
+            <span></span>
+          </a>
+        </section>
+
+        {/* Promise Strip */}
+        <section className="promise-strip" aria-label="What to expect">
+          <div className="promise-inner">
+            <p>
+              <span className="promise-icon">01</span>
+              <span>
+                <strong>Clear by design</strong>
+                <small>Advice you can act on</small>
+              </span>
+            </p>
+            <p>
+              <span className="promise-icon">02</span>
+              <span>
+                <strong>Secure at the core</strong>
+                <small>Resilience built in</small>
+              </span>
+            </p>
+            <p>
+              <span className="promise-icon">03</span>
+              <span>
+                <strong>Ready to evolve</strong>
+                <small>Technology that grows with you</small>
+              </span>
+            </p>
+          </div>
+        </section>
+
+        {/* Capabilities Section */}
+        <section className="section capabilities-section" id="capabilities" aria-labelledby="capabilities-title">
+          <div className="section-heading reveal">
+            <p className="eyebrow">
+              <span className="section-slash">//</span> WHAT WE DO
+            </p>
+            <div className="heading-row">
+              <h2 id="capabilities-title">
+                Everything works
+                <br />
+                <span className="muted-heading">better together.</span>
+              </h2>
+              <p className="section-deck">
+                Technology is at its best when the pieces fit. We connect the right tools, teams, and ideas around the
+                way you work.
+              </p>
+            </div>
+          </div>
+
+          <div className="service-grid">
+            <article className="service-card reveal">
+              <div className="service-top">
+                <span className="service-icon icon-cyan">
+                  <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <path d="M14 35h20a8 8 0 0 0 1.2-15.9A12 12 0 0 0 12 21a7 7 0 0 0 2 14Z" />
+                    <path d="M20 27h8M24 23v8" />
+                  </svg>
+                </span>
+                <span className="card-index">01</span>
+              </div>
+              <h3>Smart infrastructure</h3>
+              <p>
+                Build a dependable digital foundation, from cloud environments to the everyday tools your team relies
+                on.
+              </p>
+              <a className="text-link" href="#contact">
+                Explore infrastructure <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article className="service-card reveal">
+              <div className="service-top">
+                <span className="service-icon icon-blue">
+                  <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <rect x="8" y="9" width="13" height="12" rx="3" />
+                    <rect x="27" y="27" width="13" height="12" rx="3" />
+                    <path d="M21 15h4a4 4 0 0 1 4 4v4a4 4 0 0 0 4 4h2" />
+                    <path d="m31 23 4 4-4 4" />
+                  </svg>
+                </span>
+                <span className="card-index">02</span>
+              </div>
+              <h3>Workflow &amp; automation</h3>
+              <p>
+                Give people their time back by making repeatable work flow naturally across the tools you already use.
+              </p>
+              <a className="text-link" href="#contact">
+                Explore automation <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article className="service-card reveal">
+              <div className="service-top">
+                <span className="service-icon icon-violet">
+                  <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <path d="M24 7 38 13v10c0 9-5.8 15.1-14 18-8.2-2.9-14-9-14-18V13l14-6Z" />
+                    <path d="m18 24 4 4 8-9" />
+                  </svg>
+                </span>
+                <span className="card-index">03</span>
+              </div>
+              <h3>Cyber resilience</h3>
+              <p>
+                Protect the work that matters with practical safeguards, thoughtful access, and better visibility.
+              </p>
+              <a className="text-link" href="#contact">
+                Explore resilience <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article className="service-card service-card-highlight reveal">
+              <div className="service-top">
+                <span className="service-icon icon-lime">
+                  <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <path d="M11 13h26M11 24h26M11 35h26" />
+                    <circle cx="18" cy="13" r="4" />
+                    <circle cx="30" cy="24" r="4" />
+                    <circle cx="21" cy="35" r="4" />
+                  </svg>
+                </span>
+                <span className="card-index">04</span>
+              </div>
+              <h3>Technology care</h3>
+              <p>
+                Keep your setup useful and up to date with ongoing guidance that makes the next step feel simple.
+              </p>
+              <a className="text-link" href="#contact">
+                Explore support <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+        </section>
+
+        {/* Showcase Section */}
+        <section className="showcase-section" id="showcase" aria-labelledby="showcase-title">
+          <div className="section showcase-wrap">
+            <div className="section-heading reveal">
+              <p className="eyebrow">
+                <span className="section-slash">//</span> BUILT TO MAKE A DIFFERENCE
+              </p>
+              <div className="heading-row">
+                <h2 id="showcase-title">
+                  Good ideas.
+                  <br />
+                  <span className="muted-heading">Thoughtfully connected.</span>
+                </h2>
+                <p className="section-deck">
+                  A closer look at the foundations, workflows, and safeguards that help modern teams do their best
+                  work.
+                </p>
+              </div>
+            </div>
+
+            <div className="filter-bar reveal" role="group" aria-label="Filter capability highlights">
+              <span className="filter-label">VIEW BY</span>
+              <button
+                className={`filter-button ${selectedFilter === "all" ? "is-active" : ""}`}
+                type="button"
+                data-filter="all"
+                aria-pressed={selectedFilter === "all"}
+                onClick={() => setSelectedFilter("all")}
+              >
+                All highlights <span>03</span>
+              </button>
+              <button
+                className={`filter-button ${selectedFilter === "infrastructure" ? "is-active" : ""}`}
+                type="button"
+                data-filter="infrastructure"
+                aria-pressed={selectedFilter === "infrastructure"}
+                onClick={() => setSelectedFilter("infrastructure")}
+              >
+                Infrastructure
+              </button>
+              <button
+                className={`filter-button ${selectedFilter === "automation" ? "is-active" : ""}`}
+                type="button"
+                data-filter="automation"
+                aria-pressed={selectedFilter === "automation"}
+                onClick={() => setSelectedFilter("automation")}
+              >
+                Automation
+              </button>
+              <button
+                className={`filter-button ${selectedFilter === "security" ? "is-active" : ""}`}
+                type="button"
+                data-filter="security"
+                aria-pressed={selectedFilter === "security"}
+                onClick={() => setSelectedFilter("security")}
+              >
+                Security
+              </button>
+            </div>
+
+            <div className="showcase-grid" id="showcase-grid">
+              {showcaseItems.map((item) => {
+                const isHidden = selectedFilter !== "all" && item.category !== selectedFilter;
+                return (
+                  <article
+                    key={item.id}
+                    className={`showcase-card reveal ${isHidden ? "is-hidden" : ""}`}
+                    data-category={item.category}
+                  >
+                    <a className="showcase-image" href="#contact" aria-label={`Ask about ${item.title}`}>
+                      <img src={item.image} alt={item.alt} loading="lazy" />
+                      <span className="image-shade"></span>
+                      <span className="image-arrow" aria-hidden="true">
+                        ↗
+                      </span>
+                      <span className="image-kicker">{item.kicker}</span>
+                    </a>
+                    <div className="showcase-meta">
+                      <span>{item.tag1}</span>
+                      <span className="meta-dot"></span>
+                      <span>{item.tag2}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                    <a className="text-link" href="#contact">
+                      Explore the approach <span aria-hidden="true">↗</span>
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+            <p className="showcase-note">
+              <span className="note-spark" aria-hidden="true">
+                ✳
+              </span>{" "}
+              Each solution starts with your people, priorities, and plans.
+            </p>
+          </div>
+        </section>
+
+        {/* Approach Section */}
+        <section className="approach-section section" id="approach" aria-labelledby="approach-title">
+          <div className="approach-copy reveal">
+            <p className="eyebrow">
+              <span className="section-slash">//</span> HOW WE WORK
+            </p>
+            <h2 id="approach-title">
+              Clarity first.
+              <br />
+              <span className="muted-heading">Progress that lasts.</span>
+            </h2>
+            <p className="approach-deck">
+              No jargon for its own sake. No technology without a reason. Just a considered path from where you are to
+              where you want to be.
+            </p>
+            <a className="button button-outline" href="#contact">
+              Find your next step <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div className="approach-steps">
+            <article className="approach-step reveal">
+              <span className="step-number">01</span>
+              <div>
+                <h3>Listen &amp; understand</h3>
+                <p>We start with your goals, your people, and the challenges in the way.</p>
+              </div>
+              <span className="step-mark" aria-hidden="true">
+                +
+              </span>
+            </article>
+            <article className="approach-step reveal">
+              <span className="step-number">02</span>
+              <div>
+                <h3>Shape a clear plan</h3>
+                <p>We map the right-sized solution, the moving parts, and what comes first.</p>
+              </div>
+              <span className="step-mark" aria-hidden="true">
+                +
+              </span>
+            </article>
+            <article className="approach-step reveal">
+              <span className="step-number">03</span>
+              <div>
+                <h3>Build, connect, improve</h3>
+                <p>We bring it to life, then keep listening as the next opportunity takes shape.</p>
+              </div>
+              <span className="step-mark" aria-hidden="true">
+                +
+              </span>
+            </article>
+          </div>
+        </section>
+
+        {/* Confidence Section */}
+        <section className="confidence-section" aria-labelledby="confidence-title">
+          <div className="confidence-inner section">
+            <div className="confidence-heading reveal">
+              <p className="eyebrow">
+                <span className="section-slash">//</span> THE MACWORLD DIFFERENCE
+              </p>
+              <h2 id="confidence-title">
+                Technology should
+                <br />
+                <span className="gradient-text">work for you.</span>
+              </h2>
+              <p>Make the complex feel clear. Make the everyday feel easier. Make your next move with confidence.</p>
+            </div>
+            <div className="benefit-list">
+              <article className="benefit reveal">
+                <span className="benefit-mark">✳</span>
+                <div>
+                  <h3>Thoughtful, not overbuilt</h3>
+                  <p>Practical solutions shaped around the outcomes you actually need.</p>
+                </div>
+              </article>
+              <article className="benefit reveal">
+                <span className="benefit-mark">✳</span>
+                <div>
+                  <h3>One connected picture</h3>
+                  <p>Less fragmentation. A clearer view of the systems behind your work.</p>
+                </div>
+              </article>
+              <article className="benefit reveal">
+                <span className="benefit-mark">✳</span>
+                <div>
+                  <h3>People stay at the centre</h3>
+                  <p>Technology that meets your team where they are—and moves with them.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="contact-section section" id="contact" aria-labelledby="contact-title">
+          <div className="contact-copy reveal">
+            <p className="eyebrow">
+              <span className="section-slash">//</span> YOUR NEXT MOVE
+            </p>
+            <h2 id="contact-title">
+              Let’s make it
+              <br />
+              <span className="muted-heading">make sense.</span>
+            </h2>
+            <p>Tell us what you’re exploring. We’ll help you find the right place to start.</p>
+            <div className="contact-aside">
+              <span className="contact-pulse"></span>
+              <span>A real conversation. A clearer next step.</span>
+            </div>
+          </div>
+          <form className="contact-form reveal" id="contact-form" onSubmit={handleFormSubmit}>
+            <div className="form-heading">
+              <span>START A CONVERSATION</span>
+              <span className="form-asterisk" aria-hidden="true">
+                ✳
+              </span>
+            </div>
+            <label htmlFor="contact-name">Your name</label>
+            <input
+              id="contact-name"
+              name="name"
+              autoComplete="name"
+              placeholder="How should we address you?"
+              required
+            />
+            <label htmlFor="contact-email">Work email</label>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="you@company.com"
+              required
+            />
+            <label htmlFor="contact-interest">What would you like to make easier?</label>
+            <select id="contact-interest" name="interest" defaultValue="" required>
+              <option value="" disabled>
+                Choose an area to explore
+              </option>
+              <option>Infrastructure &amp; cloud</option>
+              <option>Workflow &amp; automation</option>
+              <option>Security &amp; resilience</option>
+              <option>Ongoing technology support</option>
+              <option>Something else</option>
+            </select>
+            <button className="button button-primary form-submit" type="submit">
+              Prepare your enquiry <span aria-hidden="true">↗</span>
+            </button>
+            <p className="form-note">
+              Your email app will open with your enquiry ready. No form data is stored on this site.
+            </p>
+            {feedback && (
+              <p className="form-feedback" id="form-feedback" role="status" aria-live="polite">
+                {feedback}
+              </p>
+            )}
+          </form>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="site-footer">
+        <div className="footer-main section">
+          <div className="footer-brand-column">
+            <a className="brand !p-0 -ml-1 sm:-ml-2 inline-flex" href="/" aria-label="MacWorld Technologies home">
+              <img
+                src="/macworld-logo-cropped.png"
+                alt="MacWorld Technologies"
+                className="h-16 w-auto max-w-[220px] object-contain object-left"
+              />
+            </a>
+            <p>
+              Technology, thoughtfully connected.
+              <br />
+              Built around what matters to you.
+            </p>
+          </div>
+          <div className="footer-column">
+            <h2>EXPLORE</h2>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#showcase">Showcase</a>
+            <a href="#approach">Our approach</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div className="footer-column">
+            <h2>START HERE</h2>
+            <p>Have a question or an idea taking shape?</p>
+            <a className="footer-contact-link" href="mailto:?subject=Macworld%20Technology%20enquiry">
+              Prepare an email <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div className="footer-column footer-social">
+            <h2>ON THE WEB</h2>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+              Instagram <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div className="footer-bottom section">
+          <span>© {currentYear} Macworld Technology</span>
+          <a href="#top">Back to the top ↑</a>
+          <span className="footer-signoff">A little more clarity. A lot more possibility.</span>
+        </div>
+      </footer>
+    </div>
+  );
+};
 
 export default CaseStudiesPage;
