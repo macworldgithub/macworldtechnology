@@ -143,7 +143,7 @@ const Hero = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...payload, captchaToken }),
+        body: JSON.stringify({ ...payload, source: "macworld", captchaToken }),
       });
 
       const data = await response.json();

@@ -140,8 +140,7 @@ export const ModalForm = ({ children }: MarketingQuoteModalProps) => {
 
     try {
       const payload = {
-        ...formData,
-        captchaToken,
+        ...formData, source: "macworld", captchaToken,
       };
 
       const response = await fetch(`${BACKEND_URL}/contact`, {

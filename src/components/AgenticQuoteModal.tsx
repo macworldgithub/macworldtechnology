@@ -90,7 +90,7 @@ export const AgenticQuoteModal = ({ children }: AgenticQuoteModalProps) => {
     setStatus("loading");
 
     try {
-      const payload = { ...formData, captchaToken }; // same structure as GetQuoteModal
+      const payload = { ...formData, source: "macworld", captchaToken }; // same structure as GetQuoteModal
       const response = await fetch(`${BACKEND_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

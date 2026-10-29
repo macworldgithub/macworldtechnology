@@ -67,7 +67,7 @@ export const MarketingQuoteModal = ({ children }: MarketingQuoteModalProps) => {
     setStatus("loading");
 
     try {
-      const payload = { ...formData, captchaToken };
+      const payload = { ...formData, source: "macworld", captchaToken };
       const response = await fetch(`${BACKEND_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

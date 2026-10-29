@@ -153,8 +153,7 @@ const ContactForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ...formData,
-          captchaToken,
+          ...formData, source: "macworld", captchaToken,
         }),
       });
 
