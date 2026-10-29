@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
-import { TURNSTILE_SITE_KEY } from "../lib/constants";
+import { TURNSTILE_SITE_KEY, BACKEND_URL } from "../lib/constants";
 import "./case-studies-manus.css";
 
 const CaseStudiesPage = () => {
@@ -60,27 +60,26 @@ const CaseStudiesPage = () => {
         return;
       }
 
+      if (!captchaToken) {
+        setFeedback("Please complete the captcha.");
+        setIsSuccess(false);
+        return;
+      }
+
       setIsSubmitting(true);
       setFeedback("");
 
-      const payload: {
-        name: string;
-        email: string;
-        service: string;
-        captchaToken?: string;
-      } = {
+      const payload = {
         name: formData.name.trim(),
         email: formData.email.trim(),
         service: formData.service,
+        source: "macworld",
+        captchaToken,
       };
-
-      if (captchaToken) {
-        payload.captchaToken = captchaToken;
-      }
 
       try {
         const response = await fetch(
-          "https://your-api-domain.com/api/enquiry",
+          `${BACKEND_URL}/api/enquiry`,
           {
             method: "POST",
             headers: {
@@ -99,8 +98,8 @@ const CaseStudiesPage = () => {
         }
 
         setIsSuccess(true);
-        setFeedback(data.message || "Enquiry submitted successfully!");
-        alert(data.message || "Enquiry submitted successfully!");
+        setFeedback(data.message || "Your enquiry has been submitted successfully.");
+        alert(data.message || "Your enquiry has been submitted successfully.");
         setFormData({
           name: "",
           email: "",
