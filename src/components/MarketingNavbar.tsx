@@ -76,7 +76,7 @@ const MarketingNavbar = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="flex items-center"
+          className="-ml-12 flex items-center"
         >
           <img
             src="/macworld-logo-cropped.png"

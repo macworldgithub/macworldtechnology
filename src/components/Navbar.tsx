@@ -58,7 +58,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <a href="/" className="-ml-12 flex items-center">
           <img
             src="/macworld-logo-cropped.png"
             alt="MacWorld Technologies"
