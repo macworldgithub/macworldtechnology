@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { TURNSTILE_SITE_KEY, BACKEND_URL } from "../lib/constants";
 import { OUR_BUILDS } from "../data/showcaseBuilds";
@@ -7,6 +7,7 @@ import "./case-studies-manus.css";
 const CaseStudiesPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const buildsScrollRef = useRef<HTMLDivElement>(null);
   const [feedback, setFeedback] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -189,6 +190,9 @@ const CaseStudiesPage = () => {
           >
             <a href="#capabilities" onClick={closeMenu}>
               Capabilities
+            </a>
+            <a href="#builds" onClick={closeMenu}>
+              Portfolio
             </a>
             <a href="#showcase" onClick={closeMenu}>
               Showcase
@@ -390,61 +394,94 @@ const CaseStudiesPage = () => {
                 <h2 id="builds-title">
                   Our Builds
                   <br />
-                  <span className="muted-heading text-lg sm:text-2xl md:text-5xl font-normal block mt-1">
+                  <span className="muted-heading text-base sm:text-xl md:text-2xl font-normal block mt-1">
                     Live AI demos &amp; production platforms.
                   </span>
                 </h2>
-
               </div>
             </div>
           </div>
 
-          <div className="overflow-hidden relative w-full">
+          <div className="relative w-full">
             {/* Edge Gradient Overlays */}
-            <div className="absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-[#080a0f] to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-[#080a0f] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 left-0 w-16 md:w-28 bg-gradient-to-r from-[#080a0f] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-16 md:w-28 bg-gradient-to-l from-[#080a0f] to-transparent z-10 pointer-events-none"></div>
 
-            {/* Infinite Horizontal Marquee */}
-            <div className="builds-marquee-track px-4">
-              {[...OUR_BUILDS, ...OUR_BUILDS].map((build, idx) => (
-                <article key={`${build.id}-${idx}`} className="build-card">
-                  <div className="build-card-image-wrap">
-                    <img
-                      src={build.image}
-                      alt={build.title}
-                      className="build-card-image"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#10141d] via-transparent to-transparent"></div>
-                  </div>
-                  <div className="build-card-body">
-                    <span className={`build-category-badge ${build.categoryColor.bg} ${build.categoryColor.text}`}>
-                      {build.category}
-                    </span>
-                    <h3 className="build-card-title">
-                      <span>{build.title}</span>
-                    </h3>
-                    <p className="build-card-tagline">"{build.tagline}"</p>
-                    <p className="build-card-desc">{build.description}</p>
-                    <div className="build-features">
-                      {build.features.map((feat, fIdx) => (
-                        <span key={fIdx} className="build-feature-pill">
-                          {feat}
-                        </span>
-                      ))}
+            {/* Scrollable Container with Marquee + Manual Scroll Support */}
+            <div
+              ref={buildsScrollRef}
+              className="overflow-x-auto no-scrollbar scroll-smooth w-full"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              <div className="builds-marquee-track px-4">
+                {[...OUR_BUILDS, ...OUR_BUILDS].map((build, idx) => (
+                  <article key={`${build.id}-${idx}`} className="build-card">
+                    <div className="build-card-image-wrap">
+                      <img
+                        src={build.image}
+                        alt={build.title}
+                        className="build-card-image"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#10141d] via-transparent to-transparent"></div>
                     </div>
-                    <a
-                      href={build.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="build-link-btn"
-                    >
-                      View Live Demo <span aria-hidden="true">↗</span>
-                    </a>
-                  </div>
-                </article>
-              ))}
+                    <div className="build-card-body">
+                      <span className={`build-category-badge ${build.categoryColor.bg} ${build.categoryColor.text}`}>
+                        {build.category}
+                      </span>
+                      <h3 className="build-card-title">
+                        <span>{build.title}</span>
+                      </h3>
+                      <p className="build-card-tagline">"{build.tagline}"</p>
+                      <p className="build-card-desc">{build.description}</p>
+                      <div className="build-features">
+                        {build.features.map((feat, fIdx) => (
+                          <span key={fIdx} className="build-feature-pill">
+                            {feat}
+                          </span>
+                        ))}
+                      </div>
+                      <a
+                        href={build.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="build-link-btn"
+                      >
+                        View Live Demo <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
+          </div>
+
+          {/* Bottom Left/Right Arrow Controls */}
+          <div className="section mt-8 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                if (buildsScrollRef.current) {
+                  buildsScrollRef.current.scrollBy({ left: -360, behavior: "smooth" });
+                }
+              }}
+              aria-label="Scroll left"
+              className="w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 hover:border-[#39dce8] active:scale-95 flex items-center justify-center text-white text-xl transition-all duration-200 shadow-lg cursor-pointer"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                if (buildsScrollRef.current) {
+                  buildsScrollRef.current.scrollBy({ left: 360, behavior: "smooth" });
+                }
+              }}
+              aria-label="Scroll right"
+              className="w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 hover:border-[#39dce8] active:scale-95 flex items-center justify-center text-white text-xl transition-all duration-200 shadow-lg cursor-pointer"
+            >
+              →
+            </button>
           </div>
         </section>
 
@@ -752,6 +789,7 @@ const CaseStudiesPage = () => {
           <div className="footer-column">
             <h2>EXPLORE</h2>
             <a href="#capabilities">Capabilities</a>
+            <a href="#builds">Portfolio</a>
             <a href="#showcase">Showcase</a>
             <a href="#approach">Our approach</a>
             <a href="#contact">Contact</a>
