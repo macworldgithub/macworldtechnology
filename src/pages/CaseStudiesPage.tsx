@@ -394,9 +394,7 @@ const CaseStudiesPage = () => {
                     Live AI demos &amp; production platforms.
                   </span>
                 </h2>
-                <p className="section-deck">
-                  A curated selection of live demos and production applications from our portfolio — from trading intelligence and fintech to AI sales kiosks and autonomous agents.
-                </p>
+
               </div>
             </div>
           </div>
