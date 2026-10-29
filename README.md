@@ -63,3 +63,9 @@ Deploy via your preferred hosting provider (Vercel, Netlify, etc.).
 Yes, you can!
 
 To connect a domain, configure your DNS settings to point to your hosting provider.
+
+## Turnstile configuration
+
+The production hostname must be added to the allowed hostnames for the Cloudflare
+Turnstile site key. For a hostname that uses a different key, set
+`VITE_TURNSTILE_SITE_KEY` in the deployment environment before building.
